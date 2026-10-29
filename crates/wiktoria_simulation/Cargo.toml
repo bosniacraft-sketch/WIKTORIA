@@ -1,0 +1,8 @@
+[package]
+name = "wiktoria_simulation"
+description = "The simulation: fixed-point math, calendar, schedules and game rules. No dependencies besides wiktoria_data."
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+wiktoria_data = { path = "../wiktoria_data" }
