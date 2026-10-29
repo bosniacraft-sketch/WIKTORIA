@@ -1,0 +1,6 @@
+target/
+vic2_path.txt
+__pycache__/
+*.bmp
+/start/
+/wiktoria_web.log

@@ -1,0 +1,14 @@
+[workspace]
+resolver = "3"
+members = ["crates/wiktoria_data", "crates/wiktoria_render", "crates/wiktoria_simulation", "apps/cli"]
+# The viewer pulls crates from crates.io, so it is a separate workspace:
+# the core stays buildable offline. Run it with run.bat.
+exclude = ["apps/viewer"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+# Loading a 5616x2160 map is slow unoptimised; keep debug builds usable.
+[profile.dev]
+opt-level = 1
