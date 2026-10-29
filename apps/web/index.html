@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiktoria</title>
+<link rel="stylesheet" href="style/theme.css">
+<link rel="stylesheet" href="style/kit.css">
+<link rel="stylesheet" href="style/screen.css">
+<link rel="stylesheet" href="style/windows.css">
+<link rel="stylesheet" href="style/win-production.css">
+<link rel="stylesheet" href="style/launcher.css">
+<link rel="stylesheet" href="style/boot.css">
+<link rel="stylesheet" href="style/win-population.css">
+<link rel="stylesheet" href="style/win-diplomacy.css">
+<link rel="stylesheet" href="style/win-politics.css">
+<link rel="stylesheet" href="style/win-military.css">
+<link rel="stylesheet" href="style/win-trade.css">
+</head>
+<body>
+<div id="boot" aria-live="polite"><div class="tube"></div></div>
+<div id="map" aria-label="Map"><img id="mapimg" alt="" draggable="false"><div id="mappaper" hidden></div><svg id="maplabels" aria-hidden="true"></svg></div>
+
+<nav id="top" aria-label="Country windows"></nav>
+<section id="ident" class="paper" aria-label="Your country"></section>
+<aside id="prov" class="paper" aria-label="Province" hidden></aside>
+<aside id="out" aria-label="Outliner"></aside>
+<section id="mini" class="paper" aria-label="Map modes"></section>
+<section id="log" class="burg line" aria-label="Messages"></section>
+<div id="veil"></div>
+<div id="popup" aria-live="polite" hidden></div>
+
+<!-- the start: shown until a country is chosen -->
+<div id="start">
+  <main class="lwrap">
+    <header class="ltitle"><h1>Wiktoria</h1><p>A nineteenth-century grand strategy</p></header>
+    <section class="lwin paper frame" aria-label="Start">
+      <div class="band" id="start-band">Connecting to the game&hellip;</div>
+      <div class="row step"><span class="rowhead"><span class="stepno">1</span> Victoria 2</span>
+        <div class="stepbody"><p class="hint">Wiktoria reads the map, countries, events and names from your own copy of Victoria 2. Nothing in it is changed.</p><p class="status" id="install-status"></p></div></div>
+      <div class="row step"><span class="rowhead"><span class="stepno">2</span> Choose a country</span>
+        <div class="stepbody"><p class="hint"><b>Play</b> it: you set its budget, research and armies, and the computer plays every other country. Or <b>Observe</b>: the computer plays every country and you watch this one. You can take control or let go at any time.</p>
+          <div class="seats" id="seats"></div></div></div>
+      <footer class="lfoot"><span class="grow"></span><button class="btn" id="observe" disabled><span>Observe</span></button><button class="btn play" id="play" disabled><span>Play</span></button></footer>
+    </section>
+  </main>
+</div>
+
+<script src="js/icons.js"></script>
+<script src="js/kit.js"></script>
+<script src="js/live.js"></script>
+<script src="js/hud.js"></script>
+<script src="js/windows/budget.js"></script>
+<script src="js/windows/technology.js"></script>
+<script src="js/windows/diplomacy.js"></script>
+<script src="js/windows/events.js"></script>
+<script src="js/windows/population.js"></script>
+<script src="js/windows/politics.js"></script>
+<script src="js/windows/military.js"></script>
+<script src="js/windows/trade.js"></script>
+<script src="js/windows/production.js"></script>
+<script src="js/boot.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

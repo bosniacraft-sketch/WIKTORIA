@@ -1,0 +1,44 @@
+/* WINDOWS AND DIALOGS. The frame around a country window, the burgundy dialog, the event. */
+  /* ============ windows ============ */
+  #veil { position: fixed; inset: 0; z-index: 8; display: none; align-items: center; justify-content: center; padding: 6rem 1rem 1rem; pointer-events: none; }
+  #veil.on { display: flex; }
+  .wback { pointer-events: auto; background: #4a2330 var(--damask); padding: 2.2rem 1.3rem 1.3rem; position: relative; width: min(66rem, 96vw); max-height: 100%; overflow: auto; box-shadow: 0 .6rem 2rem #000c; outline: .06rem solid #000; }
+  .wtitle { position: absolute; top: .1rem; right: 2.4rem; font-size: 1.7rem; color: var(--gold); text-shadow: 0 .06rem .12rem #000; }
+  .wwin { padding: .6rem; position: relative; }
+  .wclose { position: absolute; top: .35rem; right: .35rem; z-index: 2; }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); gap: .8rem; }
+  .col { display: flex; flex-direction: column; gap: .45rem; }
+  .right { align-self: flex-end; }
+  .kv { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+  .kv > div:not([data-n]), .kv > [data-n] > div { display: flex; justify-content: space-between; gap: .5rem; padding: .1rem .6rem; background: var(--value); box-shadow: 0 0 0 .06rem #0004; font-weight: 600; }
+  .sub { display: grid; grid-template-columns: auto 1fr; gap: .1rem .5rem; align-items: center; flex: 1; min-width: 12rem; }
+  .foot { display: flex; justify-content: flex-end; align-items: center; gap: .9rem; margin-top: .6rem; font-size: 1.15rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .3rem; }
+  .chips span { background: var(--value); padding: 0 .5rem .05rem; box-shadow: 0 0 0 .06rem #0003; font-size: .95rem; }
+  .todo { padding: .6rem .8rem; background: #fff4; border: .06rem dashed #0006; font-size: 1rem; }
+  .dlg { pointer-events: auto; width: min(34rem, 94vw); padding: 0 0 1rem; text-align: center; position: relative; }
+  .dlg h3 { margin: 1.2rem -.4rem .8rem; padding: .2rem; font-size: 1.3rem; font-weight: 400; background: var(--wine) var(--marble); box-shadow: 0 .12rem .2rem #0008; display: flex; align-items: center; justify-content: space-between; }
+  .dlg h3 .flag { width: 3rem; height: 2rem; margin: -.5rem .6rem; }
+  .dlg .box { margin: .5rem 1.2rem; padding: .4rem .7rem; background: #ffffff10; border: .06rem solid #ffffff1c; text-align: left; font-weight: 600; }
+  .dlg .box .g { display: flex; gap: 1.6rem; margin-top: .2rem; }
+  .dlg .box .g span { display: inline-flex; align-items: center; gap: .3rem; color: var(--amber); }
+  .dlg p { margin: .6rem 1.4rem; font-weight: 600; }
+  .dlg .acts { display: flex; gap: 1.2rem; justify-content: center; margin-top: .9rem; flex-wrap: wrap; }
+  .event { pointer-events: auto; width: min(30rem, 94vw); padding: 1.2rem 1.4rem 1rem; text-align: center; }
+  .event h3 { margin: 0 0 .5rem; font-size: 1.6rem; font-weight: 600; }
+  .event .pic { height: 9rem; background: linear-gradient(#8f8a7c, #5f5a50); border: .06rem solid #0008; margin-bottom: .6rem; display: grid; place-items: center; color: #fff9; font-size: .9rem; }
+  .event p { text-align: left; margin: 0 0 .7rem; }
+  .event .opt { display: block; width: 100%; margin-top: .35rem; }
+  .event .opt span { border-radius: .2rem; }
+
+  #proto { position: fixed; left: 50%; top: 9.3rem; transform: translateX(-50%); z-index: 9; background: #000b; color: #f3ead2; padding: .25rem .8rem; border-radius: 1rem; font: 13px/1.4 Arial, sans-serif; display: flex; gap: .8rem; align-items: center; white-space: nowrap; }
+  #proto input { accent-color: var(--amber); width: 110px; }
+  #proto button { background: #fff2; border: 1px solid #fff5; border-radius: 10px; color: inherit; padding: 0 8px; }
+  /* ============ the popup: events and questions waiting for the player ============ */
+  #popup { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 10; }
+  #popup[hidden] { display: none; }
+  #popup .acts { display: flex; justify-content: space-between; align-items: center; margin-top: .6rem; }
+  #popup .row.q, .wwin .row.q { margin: .3rem 0; text-align: left; }
+  .wwin select, #popup select { font: inherit; background: var(--value); border: .06rem solid #0006; max-width: 20rem; }
+  .wwin .row { margin-bottom: .35rem; }
+  .wwin .mini[aria-pressed="true"] { box-shadow: inset 0 0 0 .12rem var(--amber); }

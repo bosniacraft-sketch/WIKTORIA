@@ -1,0 +1,731 @@
+{
+ "tag": "AAA",
+ "played": true,
+ "date": "1861.7.2",
+ "government": {
+  "key": "gov_one",
+  "name": "A Government",
+  "elections": true
+ },
+ "ruling_party": {
+  "id": 2,
+  "name": "Party One",
+  "ideology": "ideo_blue",
+  "ideology_name": "Ideology Blue"
+ },
+ "national_value": "Value One",
+ "last_election": "1858.1.1",
+ "next_election": "1862.7.1",
+ "population": 31960000,
+ "militancy": 1.2,
+ "consciousness": 3.45,
+ "ideologies": [
+  {
+   "key": "ideo_red",
+   "name": "Ideology Red"
+  },
+  {
+   "key": "ideo_blue",
+   "name": "Ideology Blue"
+  },
+  {
+   "key": "ideo_green",
+   "name": "Ideology Green"
+  },
+  {
+   "key": "ideo_gold",
+   "name": "Ideology Gold"
+  },
+  {
+   "key": "ideo_grey",
+   "name": "Ideology Grey"
+  },
+  {
+   "key": "ideo_violet",
+   "name": "Ideology Violet"
+  },
+  {
+   "key": "ideo_teal",
+   "name": "Ideology Teal"
+  }
+ ],
+ "upper_house": [
+  [
+   "ideo_red",
+   0.42
+  ],
+  [
+   "ideo_blue",
+   0.31
+  ],
+  [
+   "ideo_green",
+   0.12
+  ],
+  [
+   "ideo_gold",
+   0.08
+  ],
+  [
+   "ideo_grey",
+   0.04
+  ],
+  [
+   "ideo_violet",
+   0.02
+  ],
+  [
+   "ideo_teal",
+   0.01
+  ]
+ ],
+ "voters": [
+  [
+   "ideo_red",
+   0.35
+  ],
+  [
+   "ideo_blue",
+   0.28
+  ],
+  [
+   "ideo_green",
+   0.2
+  ],
+  [
+   "ideo_gold",
+   0.1
+  ],
+  [
+   "ideo_grey",
+   0.04
+  ],
+  [
+   "ideo_violet",
+   0.02
+  ],
+  [
+   "ideo_teal",
+   0.01
+  ]
+ ],
+ "people": [
+  [
+   "ideo_red",
+   0.22
+  ],
+  [
+   "ideo_blue",
+   0.18
+  ],
+  [
+   "ideo_green",
+   0.25
+  ],
+  [
+   "ideo_gold",
+   0.15
+  ],
+  [
+   "ideo_grey",
+   0.1
+  ],
+  [
+   "ideo_violet",
+   0.06
+  ],
+  [
+   "ideo_teal",
+   0.04
+  ]
+ ],
+ "parties": [
+  {
+   "id": 1,
+   "name": "Party Zero",
+   "ideology": "ideo_red",
+   "ideology_name": "Ideology Red",
+   "ruling": false,
+   "allowed": true,
+   "policies": [
+    {
+     "group": "policy_one",
+     "group_name": "Policy One",
+     "option": "option_a",
+     "option_name": "Option A"
+    },
+    {
+     "group": "policy_two",
+     "group_name": "Policy Two",
+     "option": "option_c",
+     "option_name": "Option C"
+    },
+    {
+     "group": "policy_three",
+     "group_name": "Policy Three",
+     "option": "option_e",
+     "option_name": "Option E"
+    },
+    {
+     "group": "policy_four",
+     "group_name": "Policy Four",
+     "option": "option_g",
+     "option_name": "Option G"
+    },
+    {
+     "group": "policy_five",
+     "group_name": "Policy Five",
+     "option": "option_i",
+     "option_name": "Option I"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "Party One",
+   "ideology": "ideo_blue",
+   "ideology_name": "Ideology Blue",
+   "ruling": true,
+   "allowed": true,
+   "policies": [
+    {
+     "group": "policy_one",
+     "group_name": "Policy One",
+     "option": "option_b",
+     "option_name": "Option B"
+    },
+    {
+     "group": "policy_two",
+     "group_name": "Policy Two",
+     "option": "option_d",
+     "option_name": "Option D"
+    },
+    {
+     "group": "policy_three",
+     "group_name": "Policy Three",
+     "option": "option_f",
+     "option_name": "Option F"
+    },
+    {
+     "group": "policy_four",
+     "group_name": "Policy Four",
+     "option": "option_h",
+     "option_name": "Option H"
+    },
+    {
+     "group": "policy_five",
+     "group_name": "Policy Five",
+     "option": "option_j",
+     "option_name": "Option J"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Party Two",
+   "ideology": "ideo_green",
+   "ideology_name": "Ideology Green",
+   "ruling": false,
+   "allowed": false,
+   "policies": [
+    {
+     "group": "policy_one",
+     "group_name": "Policy One",
+     "option": "option_a",
+     "option_name": "Option A"
+    },
+    {
+     "group": "policy_two",
+     "group_name": "Policy Two",
+     "option": "option_c",
+     "option_name": "Option C"
+    },
+    {
+     "group": "policy_three",
+     "group_name": "Policy Three",
+     "option": "option_e",
+     "option_name": "Option E"
+    },
+    {
+     "group": "policy_four",
+     "group_name": "Policy Four",
+     "option": "option_g",
+     "option_name": "Option G"
+    },
+    {
+     "group": "policy_five",
+     "group_name": "Policy Five",
+     "option": "option_i",
+     "option_name": "Option I"
+    }
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "key": "option_b",
+   "name": "Option B",
+   "group": "policy_one",
+   "group_name": "Policy One",
+   "share": 0.24
+  },
+  {
+   "key": "open",
+   "name": "Open",
+   "group": "reform_two",
+   "group_name": "Reform Two",
+   "share": 0.12
+  },
+  {
+   "key": "step_some",
+   "name": "Step Some",
+   "group": "reform_one",
+   "group_name": "Reform One",
+   "share": 0.11
+  },
+  {
+   "key": "option_d",
+   "name": "Option D",
+   "group": "policy_two",
+   "group_name": "Policy Two",
+   "share": 0.1
+  },
+  {
+   "key": "a_few",
+   "name": "A Few",
+   "group": "reform_six",
+   "group_name": "Reform Six",
+   "share": 0.09
+  },
+  {
+   "key": "banned",
+   "name": "Banned",
+   "group": "reform_four",
+   "group_name": "Reform Four",
+   "share": 0.08
+  },
+  {
+   "key": "twelve",
+   "name": "Twelve",
+   "group": "social_one",
+   "group_name": "Social One",
+   "share": 0.07
+  },
+  {
+   "key": "half_open",
+   "name": "Half Open",
+   "group": "reform_two",
+   "group_name": "Reform Two",
+   "share": 0.06
+  }
+ ],
+ "reforms": {
+  "house_political": 0.31,
+  "house_social": 0.12,
+  "support_needed": 0.5,
+  "last_reform": "1859.4.1",
+  "next_possible": "1860.4.1",
+  "groups": [
+   {
+    "key": "reform_one",
+    "name": "Reform One",
+    "political": true,
+    "next_step_only": true,
+    "current": "step_none",
+    "options": [
+     {
+      "key": "step_none",
+      "name": "Step None",
+      "current": true,
+      "open": false,
+      "wanted": 0.02
+     },
+     {
+      "key": "step_some",
+      "name": "Step Some",
+      "current": false,
+      "open": true,
+      "wanted": 0.11
+     },
+     {
+      "key": "step_more",
+      "name": "Step More",
+      "current": false,
+      "open": false,
+      "wanted": 0.04
+     },
+     {
+      "key": "step_all",
+      "name": "Step All",
+      "current": false,
+      "open": false,
+      "wanted": 0.01
+     }
+    ]
+   },
+   {
+    "key": "reform_two",
+    "name": "Reform Two",
+    "political": true,
+    "next_step_only": true,
+    "current": "half_open",
+    "options": [
+     {
+      "key": "closed",
+      "name": "Closed",
+      "current": false,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "half_open",
+      "name": "Half Open",
+      "current": true,
+      "open": false,
+      "wanted": 0.06
+     },
+     {
+      "key": "open",
+      "name": "Open",
+      "current": false,
+      "open": true,
+      "wanted": 0.12
+     }
+    ]
+   },
+   {
+    "key": "reform_three",
+    "name": "Reform Three",
+    "political": true,
+    "next_step_only": true,
+    "current": "level_1",
+    "options": [
+     {
+      "key": "level_1",
+      "name": "Level 1",
+      "current": true,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "level_2",
+      "name": "Level 2",
+      "current": false,
+      "open": true,
+      "wanted": 0.03
+     },
+     {
+      "key": "level_3",
+      "name": "Level 3",
+      "current": false,
+      "open": false,
+      "wanted": 0.05
+     },
+     {
+      "key": "level_4",
+      "name": "Level 4",
+      "current": false,
+      "open": false,
+      "wanted": 0.0
+     }
+    ]
+   },
+   {
+    "key": "reform_four",
+    "name": "Reform Four",
+    "political": true,
+    "next_step_only": true,
+    "current": "allowed",
+    "options": [
+     {
+      "key": "allowed",
+      "name": "Allowed",
+      "current": true,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "banned",
+      "name": "Banned",
+      "current": false,
+      "open": false,
+      "wanted": 0.08
+     }
+    ]
+   },
+   {
+    "key": "reform_five",
+    "name": "Reform Five",
+    "political": true,
+    "next_step_only": true,
+    "current": "little",
+    "options": [
+     {
+      "key": "little",
+      "name": "Little",
+      "current": true,
+      "open": false,
+      "wanted": 0.01
+     },
+     {
+      "key": "some",
+      "name": "Some",
+      "current": false,
+      "open": true,
+      "wanted": 0.02
+     },
+     {
+      "key": "much",
+      "name": "Much",
+      "current": false,
+      "open": false,
+      "wanted": 0.0
+     }
+    ]
+   },
+   {
+    "key": "reform_six",
+    "name": "Reform Six",
+    "political": true,
+    "next_step_only": true,
+    "current": "a_few",
+    "options": [
+     {
+      "key": "none_at_all",
+      "name": "None At All",
+      "current": false,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "a_few",
+      "name": "A Few",
+      "current": true,
+      "open": false,
+      "wanted": 0.09
+     },
+     {
+      "key": "many",
+      "name": "Many",
+      "current": false,
+      "open": true,
+      "wanted": 0.02
+     },
+     {
+      "key": "every_one",
+      "name": "Every One",
+      "current": false,
+      "open": false,
+      "wanted": 0.0
+     }
+    ]
+   },
+   {
+    "key": "social_one",
+    "name": "Social One",
+    "political": false,
+    "next_step_only": true,
+    "current": "no_hours",
+    "options": [
+     {
+      "key": "no_hours",
+      "name": "No Hours",
+      "current": true,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "twelve",
+      "name": "Twelve",
+      "current": false,
+      "open": true,
+      "wanted": 0.07
+     },
+     {
+      "key": "ten",
+      "name": "Ten",
+      "current": false,
+      "open": false,
+      "wanted": 0.03
+     },
+     {
+      "key": "eight",
+      "name": "Eight",
+      "current": false,
+      "open": false,
+      "wanted": 0.01
+     }
+    ]
+   },
+   {
+    "key": "social_two",
+    "name": "Social Two",
+    "political": false,
+    "next_step_only": true,
+    "current": "no_wage",
+    "options": [
+     {
+      "key": "no_wage",
+      "name": "No Wage",
+      "current": true,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "low_wage",
+      "name": "Low Wage",
+      "current": false,
+      "open": true,
+      "wanted": 0.05
+     },
+     {
+      "key": "fair_wage",
+      "name": "Fair Wage",
+      "current": false,
+      "open": false,
+      "wanted": 0.02
+     }
+    ]
+   },
+   {
+    "key": "social_three",
+    "name": "Social Three",
+    "political": false,
+    "next_step_only": true,
+    "current": "no_care",
+    "options": [
+     {
+      "key": "no_care",
+      "name": "No Care",
+      "current": true,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "some_care",
+      "name": "Some Care",
+      "current": false,
+      "open": false,
+      "wanted": 0.04
+     },
+     {
+      "key": "full_care",
+      "name": "Full Care",
+      "current": false,
+      "open": false,
+      "wanted": 0.01
+     }
+    ]
+   },
+   {
+    "key": "social_four",
+    "name": "Social Four",
+    "political": false,
+    "next_step_only": true,
+    "current": "no_pension",
+    "options": [
+     {
+      "key": "no_pension",
+      "name": "No Pension",
+      "current": true,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "small_pension",
+      "name": "Small Pension",
+      "current": false,
+      "open": true,
+      "wanted": 0.02
+     },
+     {
+      "key": "full_pension",
+      "name": "Full Pension",
+      "current": false,
+      "open": false,
+      "wanted": 0.0
+     }
+    ]
+   },
+   {
+    "key": "social_five",
+    "name": "Social Five",
+    "political": false,
+    "next_step_only": true,
+    "current": "no_school",
+    "options": [
+     {
+      "key": "no_school",
+      "name": "No School",
+      "current": true,
+      "open": false,
+      "wanted": 0.0
+     },
+     {
+      "key": "some_school",
+      "name": "Some School",
+      "current": false,
+      "open": true,
+      "wanted": 0.03
+     }
+    ]
+   }
+  ]
+ },
+ "movements": [
+  {
+   "kind": "issue",
+   "target": "open",
+   "target_name": "Open",
+   "support": 412000.0,
+   "radicalism": 3.2
+  },
+  {
+   "kind": "independence",
+   "target": "CCC",
+   "target_name": "Country C",
+   "support": 98000.0,
+   "radicalism": 6.8
+  }
+ ],
+ "rebels": [
+  {
+   "id": 11,
+   "kind": "rebels_one",
+   "kind_name": "Rebels One",
+   "name": "Rebels of State One",
+   "creates": null,
+   "organisation": 0.42,
+   "pops": 14,
+   "people": 61000.0
+  },
+  {
+   "id": 12,
+   "kind": "rebels_two",
+   "kind_name": "Rebels Two",
+   "name": "Rebels of Country C",
+   "creates": "CCC",
+   "organisation": 0.08,
+   "pops": 3,
+   "people": 9000.0
+  }
+ ],
+ "rebel_armies": {
+  "armies": 1,
+  "regiments": 4
+ },
+ "release": [
+  {
+   "tag": "CCC",
+   "name": "Country C",
+   "provinces": 5
+  },
+  {
+   "tag": "DDD",
+   "name": "Country D",
+   "provinces": 2
+  }
+ ],
+ "can_reform": false,
+ "can_release": false
+}

@@ -1,0 +1,66 @@
+# UI slots for this theme, written by `viewer --ui-maker`.
+# `install:` paths are relative to the user's own Victoria 2 folder and are read at runtime.
+# No game files are stored here.
+
+[menu_bg]
+image = "install:gfx/interface/frontend_main_bg.dds"
+mode = "stretch"
+border = [8, 8, 8, 8]
+frames = 1
+frame_normal = 0
+frame_hover = 0
+frame_pressed = 0
+
+[menu_button]
+image = "install:gfx/interface/frontend_button.tga"
+mode = "nine"
+border = [12, 8, 12, 8]
+frames = 1
+frame_normal = 0
+frame_hover = 0
+frame_pressed = 0
+
+[topbar_bg]
+image = "install:gfx/interface/topbar_bg.dds"
+mode = "stretch"
+border = [8, 8, 8, 8]
+frames = 1
+frame_normal = 0
+frame_hover = 0
+frame_pressed = 0
+
+[topbar_tab]
+image = "install:gfx/interface/topbar_button.dds"
+mode = "nine"
+border = [6, 6, 6, 6]
+frames = 3
+frame_normal = 0
+frame_hover = 1
+frame_pressed = 2
+
+[outliner_bg]
+image = "install:gfx/interface/outliner_button_bg.dds"
+mode = "stretch"
+border = [8, 8, 8, 8]
+frames = 1
+frame_normal = 0
+frame_hover = 0
+frame_pressed = 0
+
+[province_bg]
+image = "install:gfx/interface/province_bg.dds"
+mode = "stretch"
+border = [8, 8, 8, 8]
+frames = 1
+frame_normal = 0
+frame_hover = 0
+frame_pressed = 0
+
+[window_bg]
+image = "install:gfx/interface/bg_budget.dds"
+mode = "stretch"
+border = [8, 8, 8, 8]
+frames = 1
+frame_normal = 0
+frame_hover = 0
+frame_pressed = 0

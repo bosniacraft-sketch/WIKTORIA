@@ -1,0 +1,12 @@
+{"clock":{"date":"1861.7.2","day":0,"paused":true,"speed":3,"days_per_second":0.0},
+ "country":{"tag":"AAA","name":"Country A","played":true,"rank":1,"great_power":true,"prestige":105.0,"industry":148.0,"military":97.6,"money":15240.0,"balance":312.4,
+  "research":{"name":"Technology One","progress":0.64,"points_a_day":8.4},"literacy":0.38,"population":31960000,"militancy":1.2,"consciousness":3.45,"infamy":4.5,
+  "ruling_party":"Party One","government":"A Government","focus_used":2,"focus_max":3,"diplomatic_points":3.2,"regiments":57,"ships":41,"manpower":120000,"leadership":34,
+  "produces":["grain","iron","wine"],"exports":["iron","wine"],"imports":["grain","fish"],"alerts":["factory_building","can_reform","at_war"],"waiting":{"events":0,"questions":0}},
+ "budget":{"tax":{"poor":{"rate":0.55,"income":420.5},"middle":{"rate":0.4,"income":80.2},"rich":{"rate":0.3,"income":34.4}},"gold":4.0,"income_total":535.1,"bank":200.0,"funds":20620.0,"debt":0.0,"interest":0.0,
+  "spending":{"education":{"rate":0.5,"cost":98.3},"administration":{"rate":0.6,"cost":110.0},"social":{"rate":0.2,"cost":40.0},"military":{"rate":0.8,"cost":200.0}},
+  "stockpile":{"land":0.92,"naval":0.92,"projects":0.92,"cost":501.1},"admin_efficiency":0.272,"subsidies":0.0,"expenses_total":756.3,"tariff":{"rate":0.1,"income":12.0},"balance":-221.3,
+  "limits":{"poor":[0.1,1],"middle":[0.1,1],"rich":[0.1,1],"education":[0,1],"administration":[0,1],"social":[0,1],"military":[0,1],"tariff":[-1,1]}},
+ "province":null,
+ "outliner":{"armies":[{"id":1,"name":"1st Army","men":30000,"province":"Province One","province_id":1,"to":null}],"navies":[{"name":"Home Fleet","ships":14}],"wars":[{"name":"The War","against":["BBB"]}],"factories_building":[{"kind":"steel_factory","state":"State One","days":212}]},
+ "log":[{"date":"1861.7.1","text":"A mock log line"}]}

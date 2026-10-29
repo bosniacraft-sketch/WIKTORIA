@@ -1,0 +1,10 @@
+[package]
+name = "wiktoria-cli"
+description = "Command-line tools: load the world, print summaries, render the map to an image."
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+wiktoria_data = { path = "../../crates/wiktoria_data" }
+wiktoria_render = { path = "../../crates/wiktoria_render" }
+wiktoria_simulation = { path = "../../crates/wiktoria_simulation" }

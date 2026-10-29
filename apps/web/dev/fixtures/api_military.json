@@ -1,0 +1,827 @@
+{
+"tag": "AAA",
+"name": "Country A",
+"played": true,
+"stats": {
+"war_exhaustion": 3.42,
+"supply_consumption": 1.0,
+"org_regain": 0.06,
+"start_experience": null,
+"recruit_time": null,
+"combat_width": 30.0,
+"dig_in_cap": 1.0,
+"tactics": 0.55,
+"leadership": 34.0,
+"regiments": 57,
+"ships": 41
+},
+"mobilisation": {
+"mobilised": false,
+"progress": null,
+"size": 0.03,
+"impact": 0.5,
+"regiments": 24,
+"production_loss": 0.015
+},
+"leaders": [
+{
+"id": 1,
+"name": "General One",
+"kind": "general",
+"personality": {
+"key": "p_careful",
+"name": "Careful"
+},
+"background": {
+"key": "b_guard",
+"name": "Guard Officer"
+},
+"traits": [
+[
+"organisation",
+-1.0
+],
+[
+"reconnaissance",
+0.05
+]
+],
+"prestige": 0.07,
+"assigned": {
+"kind": "army",
+"id": 1,
+"name": "1. Army"
+}
+},
+{
+"id": 2,
+"name": "General Two",
+"kind": "general",
+"personality": {
+"key": "p_swift",
+"name": "Swift"
+},
+"background": {
+"key": "b_sea",
+"name": "Sea Hand"
+},
+"traits": [
+[
+"attrition",
+0.05
+],
+[
+"experience",
+0.1
+],
+[
+"reliability",
+2.0
+]
+],
+"prestige": 0.16,
+"assigned": {
+"kind": "army",
+"id": 2,
+"name": "2. Army"
+}
+},
+{
+"id": 3,
+"name": "General Three",
+"kind": "general",
+"personality": null,
+"background": {
+"key": "b_hills",
+"name": "Hill Fighter"
+},
+"traits": [
+[
+"attack",
+0.1
+]
+],
+"prestige": 0.11,
+"assigned": null
+},
+{
+"id": 4,
+"name": "General Four",
+"kind": "general",
+"personality": {
+"key": "p_stern",
+"name": "Stern"
+},
+"background": {
+"key": "b_school",
+"name": "Old School"
+},
+"traits": [
+[
+"organisation",
+2.0
+],
+[
+"reconnaissance",
+1.0
+]
+],
+"prestige": 0.18,
+"assigned": {
+"kind": "army",
+"id": 4,
+"name": "4. Army"
+}
+},
+{
+"id": 5,
+"name": "General Five",
+"kind": "general",
+"personality": {
+"key": "p_bold",
+"name": "Bold"
+},
+"background": {
+"key": "b_guard",
+"name": "Guard Officer"
+},
+"traits": [
+[
+"attrition",
+1.0
+],
+[
+"experience",
+-1.0
+],
+[
+"reliability",
+0.05
+]
+],
+"prestige": 0.19,
+"assigned": {
+"kind": "army",
+"id": 5,
+"name": "5. Army"
+}
+},
+{
+"id": 6,
+"name": "General Six",
+"kind": "general",
+"personality": {
+"key": "p_careful",
+"name": "Careful"
+},
+"background": {
+"key": "b_sea",
+"name": "Sea Hand"
+},
+"traits": [
+[
+"attack",
+-1.0
+]
+],
+"prestige": 0.02,
+"assigned": null
+},
+{
+"id": 7,
+"name": "General Seven",
+"kind": "general",
+"personality": {
+"key": "p_swift",
+"name": "Swift"
+},
+"background": {
+"key": "b_hills",
+"name": "Hill Fighter"
+},
+"traits": [
+[
+"organisation",
+0.05
+],
+[
+"reconnaissance",
+0.1
+]
+],
+"prestige": 0.0,
+"assigned": {
+"kind": "army",
+"id": 7,
+"name": "7. Army"
+}
+},
+{
+"id": 8,
+"name": "General Eight",
+"kind": "general",
+"personality": null,
+"background": {
+"key": "b_school",
+"name": "Old School"
+},
+"traits": [
+[
+"attrition",
+0.1
+],
+[
+"experience",
+2.0
+],
+[
+"reliability",
+1.0
+]
+],
+"prestige": 0.25,
+"assigned": {
+"kind": "army",
+"id": 8,
+"name": "8. Army"
+}
+},
+{
+"id": 9,
+"name": "General Nine",
+"kind": "general",
+"personality": {
+"key": "p_stern",
+"name": "Stern"
+},
+"background": {
+"key": "b_guard",
+"name": "Guard Officer"
+},
+"traits": [
+[
+"attack",
+2.0
+]
+],
+"prestige": 0.08,
+"assigned": null
+},
+{
+"id": 10,
+"name": "General Ten",
+"kind": "general",
+"personality": {
+"key": "p_bold",
+"name": "Bold"
+},
+"background": {
+"key": "b_sea",
+"name": "Sea Hand"
+},
+"traits": [
+[
+"organisation",
+1.0
+],
+[
+"reconnaissance",
+-1.0
+]
+],
+"prestige": 0.07,
+"assigned": {
+"kind": "army",
+"id": 10,
+"name": "10. Army"
+}
+},
+{
+"id": 11,
+"name": "Admiral Eleven",
+"kind": "admiral",
+"personality": {
+"key": "p_careful",
+"name": "Careful"
+},
+"background": {
+"key": "b_hills",
+"name": "Hill Fighter"
+},
+"traits": [
+[
+"attrition",
+-1.0
+],
+[
+"experience",
+0.05
+],
+[
+"reliability",
+0.1
+]
+],
+"prestige": 0.3,
+"assigned": {
+"kind": "navy",
+"id": 11,
+"name": "11. Fleet"
+}
+},
+{
+"id": 12,
+"name": "Admiral Twelve",
+"kind": "admiral",
+"personality": {
+"key": "p_swift",
+"name": "Swift"
+},
+"background": {
+"key": "b_school",
+"name": "Old School"
+},
+"traits": [
+[
+"attack",
+0.05
+]
+],
+"prestige": 0.14,
+"assigned": null
+},
+{
+"id": 13,
+"name": "Admiral Thirteen",
+"kind": "admiral",
+"personality": null,
+"background": {
+"key": "b_guard",
+"name": "Guard Officer"
+},
+"traits": [
+[
+"organisation",
+0.1
+],
+[
+"reconnaissance",
+2.0
+]
+],
+"prestige": 0.25,
+"assigned": {
+"kind": "navy",
+"id": 13,
+"name": "13. Fleet"
+}
+},
+{
+"id": 14,
+"name": "Admiral Fourteen",
+"kind": "admiral",
+"personality": {
+"key": "p_stern",
+"name": "Stern"
+},
+"background": {
+"key": "b_sea",
+"name": "Sea Hand"
+},
+"traits": [
+[
+"attrition",
+2.0
+],
+[
+"experience",
+1.0
+],
+[
+"reliability",
+-1.0
+]
+],
+"prestige": 0.14,
+"assigned": {
+"kind": "navy",
+"id": 14,
+"name": "14. Fleet"
+}
+}
+],
+"armies": [
+{
+"id": 1,
+"name": "1. Army",
+"province": {
+"id": 1,
+"name": "Province Two"
+},
+"men": 8763,
+"regiments": 3,
+"strength": 0.93,
+"organisation": 0.62,
+"doing": "standing",
+"to": null,
+"leader": "General One",
+"dig_in": 0.0
+},
+{
+"id": 2,
+"name": "2. Army",
+"province": {
+"id": 2,
+"name": "Province Three"
+},
+"men": 2313,
+"regiments": 2,
+"strength": 0.58,
+"organisation": 0.97,
+"doing": "moving",
+"to": {
+"id": 3,
+"name": "Province Four"
+},
+"leader": "General Two",
+"dig_in": 0.0
+},
+{
+"id": 3,
+"name": "3. Army",
+"province": {
+"id": 3,
+"name": "Province Four"
+},
+"men": 2692,
+"regiments": 1,
+"strength": 0.91,
+"organisation": 0.42,
+"doing": "battle",
+"to": null,
+"leader": null,
+"dig_in": 0.0
+},
+{
+"id": 4,
+"name": "4. Army",
+"province": {
+"id": 4,
+"name": "Province Five"
+},
+"men": 29264,
+"regiments": 7,
+"strength": 0.86,
+"organisation": 0.94,
+"doing": "siege",
+"to": null,
+"leader": "General Four",
+"dig_in": 0.0
+},
+{
+"id": 5,
+"name": "5. Army",
+"province": {
+"id": 5,
+"name": "Province Six"
+},
+"men": 23255,
+"regiments": 10,
+"strength": 0.72,
+"organisation": 0.95,
+"doing": "dug_in",
+"to": null,
+"leader": "General Five",
+"dig_in": 2.0
+},
+{
+"id": 6,
+"name": "6. Army",
+"province": {
+"id": 6,
+"name": "Province One"
+},
+"men": 14901,
+"regiments": 1,
+"strength": 0.57,
+"organisation": 0.37,
+"doing": "embarked",
+"to": null,
+"leader": null,
+"dig_in": 0.0
+},
+{
+"id": 7,
+"name": "7. Army",
+"province": {
+"id": 7,
+"name": "Province Two"
+},
+"men": 23203,
+"regiments": 5,
+"strength": 0.71,
+"organisation": 0.87,
+"doing": "retreating",
+"to": {
+"id": 8,
+"name": "Province Three"
+},
+"leader": "General Seven",
+"dig_in": 0.0
+},
+{
+"id": 8,
+"name": "8. Army",
+"province": {
+"id": 8,
+"name": "Province Three"
+},
+"men": 29641,
+"regiments": 9,
+"strength": 0.79,
+"organisation": 0.67,
+"doing": "standing",
+"to": null,
+"leader": "General Eight",
+"dig_in": 0.0
+},
+{
+"id": 9,
+"name": "9. Army",
+"province": {
+"id": 9,
+"name": "Province Four"
+},
+"men": 14302,
+"regiments": 1,
+"strength": 0.93,
+"organisation": 0.99,
+"doing": "moving",
+"to": {
+"id": 10,
+"name": "Province Five"
+},
+"leader": null,
+"dig_in": 0.0
+}
+],
+"navies": [
+{
+"id": 101,
+"name": "1. Fleet",
+"province": {
+"id": 901,
+"name": "Sea One"
+},
+"ships": 7,
+"strength": 0.88,
+"organisation": 0.53,
+"doing": "in_port",
+"to": null,
+"leader": "Admiral Eleven",
+"carrying": 0
+},
+{
+"id": 102,
+"name": "2. Fleet",
+"province": {
+"id": 902,
+"name": "Sea Two"
+},
+"ships": 19,
+"strength": 0.96,
+"organisation": 0.7,
+"doing": "at_sea",
+"to": null,
+"leader": "Admiral Twelve",
+"carrying": 1
+},
+{
+"id": 103,
+"name": "3. Fleet",
+"province": {
+"id": 903,
+"name": "Province One"
+},
+"ships": 8,
+"strength": 0.85,
+"organisation": 0.99,
+"doing": "moving",
+"to": {
+"id": 905,
+"name": "Sea Four"
+},
+"leader": "Admiral Thirteen",
+"carrying": 0
+},
+{
+"id": 104,
+"name": "4. Fleet",
+"province": {
+"id": 904,
+"name": "Sea Three"
+},
+"ships": 10,
+"strength": 0.71,
+"organisation": 0.34,
+"doing": "battle",
+"to": null,
+"leader": "Admiral Fourteen",
+"carrying": 0
+},
+{
+"id": 105,
+"name": "5. Fleet",
+"province": {
+"id": 905,
+"name": "Province Four"
+},
+"ships": 17,
+"strength": 0.64,
+"organisation": 0.86,
+"doing": "in_port",
+"to": null,
+"leader": null,
+"carrying": 0
+}
+],
+"units": [
+{
+"key": "foot",
+"name": "Foot",
+"land": true,
+"kind": "infantry",
+"active": true,
+"days": 120.0,
+"cost": 132.5,
+"goods": [
+[
+"small_arms",
+10.0
+],
+[
+"ammunition",
+5.0
+]
+]
+},
+{
+"key": "horse",
+"name": "Horse",
+"land": true,
+"kind": "cavalry",
+"active": true,
+"days": 120.0,
+"cost": 210.0,
+"goods": [
+[
+"small_arms",
+5.0
+],
+[
+"ammunition",
+5.0
+],
+[
+"canned_food",
+10.0
+]
+]
+},
+{
+"key": "guns",
+"name": "Guns",
+"land": true,
+"kind": "support",
+"active": true,
+"days": 120.0,
+"cost": 305.1,
+"goods": [
+[
+"artillery",
+10.0
+],
+[
+"ammunition",
+5.0
+]
+]
+},
+{
+"key": "light_foot",
+"name": "Light Foot",
+"land": true,
+"kind": "infantry",
+"active": false,
+"days": 90.0,
+"cost": null,
+"goods": [
+[
+"small_arms",
+5.0
+]
+]
+},
+{
+"key": "frigate",
+"name": "Frigate",
+"land": false,
+"kind": "light_ship",
+"active": true,
+"days": 240.0,
+"cost": 420.0,
+"goods": [
+[
+"timber",
+20.0
+],
+[
+"sail_cloth",
+10.0
+]
+]
+},
+{
+"key": "liner",
+"name": "Liner",
+"land": false,
+"kind": "big_ship",
+"active": true,
+"days": 365.0,
+"cost": 1250.0,
+"goods": [
+[
+"timber",
+60.0
+],
+[
+"sail_cloth",
+30.0
+],
+[
+"artillery",
+10.0
+]
+]
+},
+{
+"key": "carrier",
+"name": "Carrier",
+"land": false,
+"kind": "transport",
+"active": true,
+"days": 120.0,
+"cost": 180.0,
+"goods": [
+[
+"timber",
+15.0
+]
+]
+}
+],
+"building": [
+{
+"name": "New One",
+"kind": "foot",
+"kind_name": "Foot",
+"land": true,
+"province": {
+"id": 1,
+"name": "Province One"
+},
+"progress": 0.4,
+"ends": "1861.9.14"
+},
+{
+"name": "New Two",
+"kind": "guns",
+"kind_name": "Guns",
+"land": true,
+"province": {
+"id": 2,
+"name": "Province Two"
+},
+"progress": 0.1,
+"ends": "1861.11.2"
+},
+{
+"name": "New Three",
+"kind": "frigate",
+"kind_name": "Frigate",
+"land": false,
+"province": {
+"id": 4,
+"name": "Province Four"
+},
+"progress": 0.75,
+"ends": "1861.8.20"
+}
+],
+"orders": {
+"move_army": true,
+"build": false,
+"mobilise": false,
+"leaders": false
+}
+}

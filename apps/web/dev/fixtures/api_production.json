@@ -1,0 +1,1393 @@
+{
+ "tag": "AAA",
+ "name": "Country A",
+ "played": true,
+ "can_build": false,
+ "max_per_state": 8,
+ "treasury": 2140.6,
+ "policy": {
+  "build": false,
+  "expand": false,
+  "reopen": false,
+  "subsidise": false,
+  "pops_build": true,
+  "pops_expand": true,
+  "pops_reopen": true
+ },
+ "states": [
+  {
+   "id": 1,
+   "name": "State One",
+   "provinces": 6,
+   "colony": false,
+   "workforce": 61200,
+   "investment": 184.5,
+   "factories": [
+    {
+     "index": 0,
+     "kind": "steel_factory",
+     "name": "Steel factory",
+     "good": "steel",
+     "good_name": "Steel",
+     "level": 3,
+     "workers": 28400,
+     "places": 30000,
+     "output": 6.12,
+     "income": 92.4,
+     "inputs": 51.2,
+     "pay": 30.1,
+     "profit": 11.1,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    },
+    {
+     "index": 1,
+     "kind": "cement_factory",
+     "name": "Cement factory",
+     "good": "cement",
+     "good_name": "Cement",
+     "level": 2,
+     "workers": 19800,
+     "places": 20000,
+     "output": 3.9,
+     "income": 31.0,
+     "inputs": 18.2,
+     "pay": 9.6,
+     "profit": 3.2,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    },
+    {
+     "index": 2,
+     "kind": "glass_factory",
+     "name": "Glass factory",
+     "good": "glass",
+     "good_name": "Glass",
+     "level": 1,
+     "workers": 6200,
+     "places": 10000,
+     "output": 1.1,
+     "income": 8.1,
+     "inputs": 9.4,
+     "pay": 1.0,
+     "profit": -2.3,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": true,
+     "loss_days": 12
+    },
+    {
+     "index": 3,
+     "kind": "machine_parts_factory",
+     "name": "Machine parts factory",
+     "good": "machine_parts",
+     "good_name": "Machine parts",
+     "level": 0,
+     "workers": null,
+     "places": 10000,
+     "output": null,
+     "income": 0,
+     "inputs": 0,
+     "pay": 0,
+     "profit": 0,
+     "throttle": null,
+     "status": "opening",
+     "days_left": 142,
+     "subsidised": false,
+     "loss_days": 0
+    },
+    {
+     "index": 4,
+     "kind": "paper_mill",
+     "name": "Paper mill",
+     "good": "paper",
+     "good_name": "Paper",
+     "level": 1,
+     "workers": null,
+     "places": 10000,
+     "output": null,
+     "income": 0,
+     "inputs": 0,
+     "pay": 0,
+     "profit": 0,
+     "throttle": null,
+     "status": "closed",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "State Two",
+   "provinces": 4,
+   "colony": false,
+   "workforce": 22400,
+   "investment": 12.0,
+   "factories": [
+    {
+     "index": 5,
+     "kind": "lumber_mill",
+     "name": "Lumber mill",
+     "good": "lumber",
+     "good_name": "Lumber",
+     "level": 2,
+     "workers": 17600,
+     "places": 20000,
+     "output": 4.4,
+     "income": 14.2,
+     "inputs": 6.0,
+     "pay": 6.3,
+     "profit": 1.9,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    },
+    {
+     "index": 6,
+     "kind": "fabric_factory",
+     "name": "Fabric factory",
+     "good": "fabric",
+     "good_name": "Fabric",
+     "level": 1,
+     "workers": 9900,
+     "places": 10000,
+     "output": 2.2,
+     "income": 11.3,
+     "inputs": 7.7,
+     "pay": 2.8,
+     "profit": 0.8,
+     "throttle": null,
+     "status": "building",
+     "days_left": 61,
+     "subsidised": false,
+     "loss_days": 0
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "State Three",
+   "provinces": 3,
+   "colony": false,
+   "workforce": 8100,
+   "investment": 0.0,
+   "factories": []
+  },
+  {
+   "id": 4,
+   "name": "State Four",
+   "provinces": 2,
+   "colony": true,
+   "workforce": 0,
+   "investment": 0.0,
+   "factories": []
+  },
+  {
+   "id": 5,
+   "name": "State Five",
+   "provinces": 5,
+   "colony": false,
+   "workforce": 30500,
+   "investment": 40.2,
+   "factories": [
+    {
+     "index": 7,
+     "kind": "liquor_distillery",
+     "name": "Liquor distillery",
+     "good": "liquor",
+     "good_name": "Liquor",
+     "level": 1,
+     "workers": 9400,
+     "places": 10000,
+     "output": 3.0,
+     "income": 12.0,
+     "inputs": 5.5,
+     "pay": 4.9,
+     "profit": 1.6,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    },
+    {
+     "index": 8,
+     "kind": "winery",
+     "name": "Winery",
+     "good": "wine",
+     "good_name": "Wine",
+     "level": 1,
+     "workers": 10000,
+     "places": 10000,
+     "output": 2.9,
+     "income": 9.7,
+     "inputs": 4.1,
+     "pay": 4.0,
+     "profit": 1.6,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    },
+    {
+     "index": 9,
+     "kind": "furniture_factory",
+     "name": "Furniture factory",
+     "good": "furniture",
+     "good_name": "Furniture",
+     "level": 1,
+     "workers": 8800,
+     "places": 10000,
+     "output": 2.0,
+     "income": 10.4,
+     "inputs": 5.6,
+     "pay": 3.6,
+     "profit": 1.2,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    },
+    {
+     "index": 10,
+     "kind": "regular_clothes_factory",
+     "name": "Regular clothes factory",
+     "good": "regular_clothes",
+     "good_name": "Regular clothes",
+     "level": 2,
+     "workers": 19400,
+     "places": 20000,
+     "output": 4.6,
+     "income": 21.0,
+     "inputs": 12.1,
+     "pay": 6.9,
+     "profit": 2.0,
+     "throttle": null,
+     "status": "running",
+     "days_left": null,
+     "subsidised": false,
+     "loss_days": 0
+    }
+   ]
+  }
+ ],
+ "foreign_investment": {
+  "here": [
+   {
+    "tag": "BBB",
+    "name": "Country B",
+    "amount": 420.0
+   },
+   {
+    "tag": "CCC",
+    "name": "Country C",
+    "amount": 86.5
+   }
+  ],
+  "abroad": [
+   {
+    "tag": "DDD",
+    "name": "Country D",
+    "amount": 130.0
+   }
+  ]
+ },
+ "groups": [
+  {
+   "key": "military_goods",
+   "name": "Military goods"
+  },
+  {
+   "key": "raw_material_goods",
+   "name": "Raw materials"
+  },
+  {
+   "key": "industrial_goods",
+   "name": "Industrial goods"
+  },
+  {
+   "key": "consumer_goods",
+   "name": "Consumer goods"
+  }
+ ],
+ "goods": [
+  {
+   "key": "ammunition",
+   "name": "Ammunition",
+   "group": "military_goods",
+   "colour": "#ce343a",
+   "price": 33.03,
+   "rgo": 0.0,
+   "factories": 1.81,
+   "artisans": 0.0,
+   "total": 1.81
+  },
+  {
+   "key": "small_arms",
+   "name": "Small arms",
+   "group": "military_goods",
+   "colour": "#a95e31",
+   "price": 4.35,
+   "rgo": 0.0,
+   "factories": 6.99,
+   "artisans": 0.0,
+   "total": 6.99
+  },
+  {
+   "key": "artillery",
+   "name": "Artillery",
+   "group": "military_goods",
+   "colour": "#b59437",
+   "price": 33.25,
+   "rgo": 0.0,
+   "factories": 2.89,
+   "artisans": 0.0,
+   "total": 2.89
+  },
+  {
+   "key": "canned_food",
+   "name": "Canned food",
+   "group": "military_goods",
+   "colour": "#c8bd37",
+   "price": 23.51,
+   "rgo": 0.0,
+   "factories": 2.68,
+   "artisans": 0.0,
+   "total": 2.68
+  },
+  {
+   "key": "barrels",
+   "name": "Barrels",
+   "group": "military_goods",
+   "colour": "#33b64a",
+   "price": 12.29,
+   "rgo": 0.0,
+   "factories": 11.72,
+   "artisans": 0.0,
+   "total": 11.72
+  },
+  {
+   "key": "aeroplanes",
+   "name": "Aeroplanes",
+   "group": "military_goods",
+   "colour": "#76b7d6",
+   "price": 8.05,
+   "rgo": 0.0,
+   "factories": 1.41,
+   "artisans": 0.0,
+   "total": 1.41
+  },
+  {
+   "key": "tanks",
+   "name": "Tanks",
+   "group": "military_goods",
+   "colour": "#cb5887",
+   "price": 4.8,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "coal",
+   "name": "Coal",
+   "group": "raw_material_goods",
+   "colour": "#b837c6",
+   "price": 9.03,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "cotton",
+   "name": "Cotton",
+   "group": "raw_material_goods",
+   "colour": "#789fbd",
+   "price": 37.01,
+   "rgo": 12.83,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 12.83
+  },
+  {
+   "key": "dye",
+   "name": "Dye",
+   "group": "raw_material_goods",
+   "colour": "#56da66",
+   "price": 4.19,
+   "rgo": 7.45,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 7.45
+  },
+  {
+   "key": "grain",
+   "name": "Grain",
+   "group": "raw_material_goods",
+   "colour": "#7f9a71",
+   "price": 24.75,
+   "rgo": 14.85,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 14.85
+  },
+  {
+   "key": "iron",
+   "name": "Iron",
+   "group": "raw_material_goods",
+   "colour": "#527f4e",
+   "price": 37.4,
+   "rgo": 15.36,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 15.36
+  },
+  {
+   "key": "oil",
+   "name": "Oil",
+   "group": "raw_material_goods",
+   "colour": "#3bb6ba",
+   "price": 31.77,
+   "rgo": 28.86,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 28.86
+  },
+  {
+   "key": "opium",
+   "name": "Opium",
+   "group": "raw_material_goods",
+   "colour": "#7fd981",
+   "price": 24.18,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "rubber",
+   "name": "Rubber",
+   "group": "raw_material_goods",
+   "colour": "#3f6da1",
+   "price": 28.18,
+   "rgo": 13.69,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 13.69
+  },
+  {
+   "key": "silk",
+   "name": "Silk",
+   "group": "raw_material_goods",
+   "colour": "#77cdbb",
+   "price": 39.73,
+   "rgo": 21.93,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 21.93
+  },
+  {
+   "key": "sulphur",
+   "name": "Sulphur",
+   "group": "raw_material_goods",
+   "colour": "#708ad3",
+   "price": 14.53,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "timber",
+   "name": "Timber",
+   "group": "raw_material_goods",
+   "colour": "#8253c4",
+   "price": 5.57,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "tropical_wood",
+   "name": "Tropical wood",
+   "group": "raw_material_goods",
+   "colour": "#49678d",
+   "price": 16.25,
+   "rgo": 23.05,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 23.05
+  },
+  {
+   "key": "wool",
+   "name": "Wool",
+   "group": "raw_material_goods",
+   "colour": "#3c529a",
+   "price": 16.66,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "cattle",
+   "name": "Cattle",
+   "group": "raw_material_goods",
+   "colour": "#96b46f",
+   "price": 28.55,
+   "rgo": 4.11,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 4.11
+  },
+  {
+   "key": "fish",
+   "name": "Fish",
+   "group": "raw_material_goods",
+   "colour": "#d68963",
+   "price": 6.89,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "fruit",
+   "name": "Fruit",
+   "group": "raw_material_goods",
+   "colour": "#632ba4",
+   "price": 33.41,
+   "rgo": 6.96,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 6.96
+  },
+  {
+   "key": "precious_metal",
+   "name": "Precious metal",
+   "group": "raw_material_goods",
+   "colour": "#4d93b0",
+   "price": 15.4,
+   "rgo": 8.46,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 8.46
+  },
+  {
+   "key": "tea",
+   "name": "Tea",
+   "group": "raw_material_goods",
+   "colour": "#d8abc6",
+   "price": 26.54,
+   "rgo": 28.59,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 28.59
+  },
+  {
+   "key": "coffee",
+   "name": "Coffee",
+   "group": "raw_material_goods",
+   "colour": "#9cd6b7",
+   "price": 16.3,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "tobacco",
+   "name": "Tobacco",
+   "group": "raw_material_goods",
+   "colour": "#ca8e37",
+   "price": 8.43,
+   "rgo": 3.11,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 3.11
+  },
+  {
+   "key": "cement",
+   "name": "Cement",
+   "group": "industrial_goods",
+   "colour": "#985144",
+   "price": 14.26,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "machine_parts",
+   "name": "Machine parts",
+   "group": "industrial_goods",
+   "colour": "#4eb141",
+   "price": 38.01,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "glass",
+   "name": "Glass",
+   "group": "industrial_goods",
+   "colour": "#3a5dc5",
+   "price": 15.67,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "fertilizer",
+   "name": "Fertilizer",
+   "group": "industrial_goods",
+   "colour": "#80c285",
+   "price": 19.49,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "explosives",
+   "name": "Explosives",
+   "group": "industrial_goods",
+   "colour": "#9fa2a3",
+   "price": 13.16,
+   "rgo": 0.0,
+   "factories": 5.86,
+   "artisans": 0.0,
+   "total": 5.86
+  },
+  {
+   "key": "clipper_convoy",
+   "name": "Clipper convoy",
+   "group": "industrial_goods",
+   "colour": "#6ba2d9",
+   "price": 7.3,
+   "rgo": 0.0,
+   "factories": 9.0,
+   "artisans": 0.0,
+   "total": 9.0
+  },
+  {
+   "key": "steamer_convoy",
+   "name": "Steamer convoy",
+   "group": "industrial_goods",
+   "colour": "#af844d",
+   "price": 27.91,
+   "rgo": 0.0,
+   "factories": 11.41,
+   "artisans": 0.0,
+   "total": 11.41
+  },
+  {
+   "key": "electric_gear",
+   "name": "Electric gear",
+   "group": "industrial_goods",
+   "colour": "#af74cc",
+   "price": 34.67,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "fabric",
+   "name": "Fabric",
+   "group": "industrial_goods",
+   "colour": "#6aac85",
+   "price": 36.42,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "lumber",
+   "name": "Lumber",
+   "group": "industrial_goods",
+   "colour": "#b2a87c",
+   "price": 25.82,
+   "rgo": 0.0,
+   "factories": 2.67,
+   "artisans": 0.0,
+   "total": 2.67
+  },
+  {
+   "key": "paper",
+   "name": "Paper",
+   "group": "industrial_goods",
+   "colour": "#59658e",
+   "price": 29.86,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 0.0,
+   "total": 0.0
+  },
+  {
+   "key": "steel",
+   "name": "Steel",
+   "group": "industrial_goods",
+   "colour": "#832f2f",
+   "price": 31.81,
+   "rgo": 0.0,
+   "factories": 6.21,
+   "artisans": 0.0,
+   "total": 6.21
+  },
+  {
+   "key": "wine",
+   "name": "Wine",
+   "group": "consumer_goods",
+   "colour": "#809a81",
+   "price": 38.25,
+   "rgo": 0.0,
+   "factories": 2.32,
+   "artisans": 0.0,
+   "total": 2.32
+  },
+  {
+   "key": "liquor",
+   "name": "Liquor",
+   "group": "consumer_goods",
+   "colour": "#5ca3c7",
+   "price": 39.42,
+   "rgo": 0.0,
+   "factories": 2.65,
+   "artisans": 0.59,
+   "total": 3.24
+  },
+  {
+   "key": "regular_clothes",
+   "name": "Regular clothes",
+   "group": "consumer_goods",
+   "colour": "#80cc3d",
+   "price": 33.55,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 2.73,
+   "total": 2.73
+  },
+  {
+   "key": "luxury_clothes",
+   "name": "Luxury clothes",
+   "group": "consumer_goods",
+   "colour": "#5ba255",
+   "price": 17.92,
+   "rgo": 0.0,
+   "factories": 4.66,
+   "artisans": 0.0,
+   "total": 4.66
+  },
+  {
+   "key": "furniture",
+   "name": "Furniture",
+   "group": "consumer_goods",
+   "colour": "#8d9e8e",
+   "price": 29.99,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 2.84,
+   "total": 2.84
+  },
+  {
+   "key": "luxury_furniture",
+   "name": "Luxury furniture",
+   "group": "consumer_goods",
+   "colour": "#2f4ebf",
+   "price": 36.29,
+   "rgo": 0.0,
+   "factories": 1.91,
+   "artisans": 0.0,
+   "total": 1.91
+  },
+  {
+   "key": "telephones",
+   "name": "Telephones",
+   "group": "consumer_goods",
+   "colour": "#a1d081",
+   "price": 7.08,
+   "rgo": 0.0,
+   "factories": 0.0,
+   "artisans": 2.48,
+   "total": 2.48
+  },
+  {
+   "key": "automobiles",
+   "name": "Automobiles",
+   "group": "consumer_goods",
+   "colour": "#ce42ae",
+   "price": 30.23,
+   "rgo": 0.0,
+   "factories": 0.26,
+   "artisans": 0.0,
+   "total": 0.26
+  },
+  {
+   "key": "radio",
+   "name": "Radio",
+   "group": "consumer_goods",
+   "colour": "#2f685e",
+   "price": 12.43,
+   "rgo": 0.0,
+   "factories": 11.84,
+   "artisans": 2.62,
+   "total": 14.46
+  },
+  {
+   "key": "fuel",
+   "name": "Fuel",
+   "group": "consumer_goods",
+   "colour": "#493782",
+   "price": 36.01,
+   "rgo": 0.0,
+   "factories": 7.04,
+   "artisans": 1.26,
+   "total": 8.3
+  }
+ ],
+ "projects": [
+  {
+   "state": "State One",
+   "kind": "machine_parts_factory",
+   "name": "Machine parts factory",
+   "what": "new",
+   "by": "state",
+   "progress": 0.61,
+   "days_left": 142,
+   "price": null,
+   "paid": null,
+   "needs": [
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 12.5
+    },
+    {
+     "key": "machine_parts",
+     "name": "Machine parts",
+     "amount": 4.0
+    }
+   ]
+  },
+  {
+   "state": "State Two",
+   "kind": "fabric_factory",
+   "name": "Fabric factory",
+   "what": "expand",
+   "by": "capitalists",
+   "progress": 0.83,
+   "days_left": 61,
+   "price": null,
+   "paid": null,
+   "needs": []
+  },
+  {
+   "state": "State Five",
+   "kind": "glass_factory",
+   "name": "Glass factory",
+   "what": "new",
+   "by": "capitalists",
+   "progress": 0.27,
+   "days_left": null,
+   "price": 148.3,
+   "paid": 40.2,
+   "needs": []
+  }
+ ],
+ "kinds": [
+  {
+   "key": "ammunition_factory",
+   "name": "Ammunition factory",
+   "good": "ammunition",
+   "good_name": "Ammunition",
+   "days": 730,
+   "cost": 812.4,
+   "goods": [
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 60
+    },
+    {
+     "key": "machine_parts",
+     "name": "Machine parts",
+     "amount": 40
+    },
+    {
+     "key": "lumber",
+     "name": "Lumber",
+     "amount": 80
+    }
+   ],
+   "inputs": [
+    {
+     "key": "sulphur",
+     "name": "Sulphur",
+     "amount": 1.0
+    },
+    {
+     "key": "iron",
+     "name": "Iron",
+     "amount": 0.5
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "cement_factory",
+   "name": "Cement factory",
+   "good": "cement",
+   "good_name": "Cement",
+   "days": 365,
+   "cost": 402.0,
+   "goods": [
+    {
+     "key": "lumber",
+     "name": "Lumber",
+     "amount": 60
+    },
+    {
+     "key": "steel",
+     "name": "Steel",
+     "amount": 20
+    }
+   ],
+   "inputs": [
+    {
+     "key": "coal",
+     "name": "Coal",
+     "amount": 2.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "fabric_factory",
+   "name": "Fabric factory",
+   "good": "fabric",
+   "good_name": "Fabric",
+   "days": 365,
+   "cost": 377.5,
+   "goods": [
+    {
+     "key": "lumber",
+     "name": "Lumber",
+     "amount": 60
+    },
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 20
+    }
+   ],
+   "inputs": [
+    {
+     "key": "cotton",
+     "name": "Cotton",
+     "amount": 2.5
+    },
+    {
+     "key": "dye",
+     "name": "Dye",
+     "amount": 0.5
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "glass_factory",
+   "name": "Glass factory",
+   "good": "glass",
+   "good_name": "Glass",
+   "days": 365,
+   "cost": 355.0,
+   "goods": [
+    {
+     "key": "lumber",
+     "name": "Lumber",
+     "amount": 50
+    },
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 30
+    }
+   ],
+   "inputs": [
+    {
+     "key": "coal",
+     "name": "Coal",
+     "amount": 1.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "lumber_mill",
+   "name": "Lumber mill",
+   "good": "lumber",
+   "good_name": "Lumber",
+   "days": 365,
+   "cost": 290.1,
+   "goods": [
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 40
+    }
+   ],
+   "inputs": [
+    {
+     "key": "timber",
+     "name": "Timber",
+     "amount": 4.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "machine_parts_factory",
+   "name": "Machine parts factory",
+   "good": "machine_parts",
+   "good_name": "Machine parts",
+   "days": 730,
+   "cost": 960.0,
+   "goods": [
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 80
+    },
+    {
+     "key": "steel",
+     "name": "Steel",
+     "amount": 60
+    }
+   ],
+   "inputs": [
+    {
+     "key": "steel",
+     "name": "Steel",
+     "amount": 2.0
+    },
+    {
+     "key": "coal",
+     "name": "Coal",
+     "amount": 1.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "paper_mill",
+   "name": "Paper mill",
+   "good": "paper",
+   "good_name": "Paper",
+   "days": 365,
+   "cost": 310.0,
+   "goods": [
+    {
+     "key": "lumber",
+     "name": "Lumber",
+     "amount": 60
+    }
+   ],
+   "inputs": [
+    {
+     "key": "timber",
+     "name": "Timber",
+     "amount": 3.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "steel_factory",
+   "name": "Steel factory",
+   "good": "steel",
+   "good_name": "Steel",
+   "days": 730,
+   "cost": 890.0,
+   "goods": [
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 100
+    },
+    {
+     "key": "lumber",
+     "name": "Lumber",
+     "amount": 60
+    }
+   ],
+   "inputs": [
+    {
+     "key": "iron",
+     "name": "Iron",
+     "amount": 2.0
+    },
+    {
+     "key": "coal",
+     "name": "Coal",
+     "amount": 2.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": true
+  },
+  {
+   "key": "electric_gear_factory",
+   "name": "Electric gear factory",
+   "good": "electric_gear",
+   "good_name": "Electric gear",
+   "days": 730,
+   "cost": 1240.0,
+   "goods": [
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 100
+    },
+    {
+     "key": "machine_parts",
+     "name": "Machine parts",
+     "amount": 60
+    }
+   ],
+   "inputs": [
+    {
+     "key": "rubber",
+     "name": "Rubber",
+     "amount": 1.0
+    },
+    {
+     "key": "steel",
+     "name": "Steel",
+     "amount": 1.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": false
+  },
+  {
+   "key": "automobile_factory",
+   "name": "Automobile factory",
+   "good": "automobiles",
+   "good_name": "Automobiles",
+   "days": 1095,
+   "cost": 1610.0,
+   "goods": [
+    {
+     "key": "cement",
+     "name": "Cement",
+     "amount": 100
+    },
+    {
+     "key": "machine_parts",
+     "name": "Machine parts",
+     "amount": 100
+    }
+   ],
+   "inputs": [
+    {
+     "key": "steel",
+     "name": "Steel",
+     "amount": 2.0
+    },
+    {
+     "key": "rubber",
+     "name": "Rubber",
+     "amount": 1.0
+    }
+   ],
+   "workforce": 10000,
+   "jobs": [
+    {
+     "type": "craftsmen",
+     "name": "Craftsmen",
+     "share": 0.8
+    },
+    {
+     "type": "clerks",
+     "name": "Clerks",
+     "share": 0.2
+    }
+   ],
+   "owner": {
+    "type": "capitalists",
+    "name": "Capitalists"
+   },
+   "available": false
+  }
+ ]
+}

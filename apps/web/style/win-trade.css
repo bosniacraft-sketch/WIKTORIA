@@ -1,0 +1,38 @@
+/* THE TRADE WINDOW (js/windows/trade.js). Layout only; colours come from style/theme.css. */
+  .wback:has(.trade) { width: min(92rem, 97vw); }
+  .trade { display: grid; grid-template-columns: minmax(30rem, 41%) 1fr; gap: .8rem; align-items: start; }
+  .trade .tleft, .trade .tright { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
+  .trade .glegend { margin: 0 .2rem; }
+  /* the goods grid */
+  .trade .ggrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .12rem; }
+  .trade .gcell { display: grid; grid-template-columns: auto 1fr auto auto auto; align-items: center; gap: .2rem; padding: .05rem .25rem; min-width: 0; text-align: left;
+    background: var(--panel) var(--noise); border: .06rem solid #0005; box-shadow: inset 0 0 .3rem #0002; font-size: .82rem; line-height: 1.1; }
+  .trade .gcell:hover { filter: brightness(1.06); }
+  .trade .gcell.on { background: var(--picked); box-shadow: inset 0 0 0 .12rem var(--amber); }
+  .trade .gcell.off { opacity: .55; }
+  .trade .gname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: .74rem/1.2 Arial, Helvetica, sans-serif; }
+  .trade .gprice { font-variant-numeric: tabular-nums; font-weight: 600; }
+  /* a good's token: the drawn icon, or two letters on the good's own colour (from the install) */
+  .gtok { display: inline-flex; flex: none; }
+  .gtok .ph { background: radial-gradient(circle at 35% 30%, #fff8, transparent 60%), var(--gc, var(--gold)); color: var(--ink); text-shadow: 0 0 .15rem #fff8; }
+  .trade .gtitle { font-size: 1.3rem; }
+  .trade .grow { flex: 1; }
+  /* the chosen good */
+  .trade .row { position: relative; }
+  .trade .ranges { position: absolute; right: .3rem; top: .1rem; display: flex; gap: .2rem; }
+  .trade .chartbox { padding: .3rem .4rem .2rem; }
+  .trade .tpair { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; align-items: start; }
+  .trade .tpair > div { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
+  .trade .kv { gap: .2rem; font-size: .92rem; }
+  .trade .tkv { margin-top: .3rem; }
+  .trade .tsplit tr.tot td { font-weight: 700; border-top: .06rem solid #0006; }
+  .trade .tbl { font-size: .9rem; }
+  .trade .btn { min-width: 6rem; }
+  .trade .btn[disabled] { cursor: not-allowed; opacity: .55; }
+  .trade .tslider { flex: 1; display: flex; opacity: .55; cursor: not-allowed; }
+  .trade .tslider .track b { display: none; }
+  .trade .tnote { margin: .2rem .4rem; }
+  .trade .ttabs button { padding: .05rem .8rem .1rem; font: .82rem/1.4 Arial, Helvetica, sans-serif; background: var(--panel); border: .06rem solid #0006; border-bottom: 0; }
+  .trade .ttabs button.on { background: var(--paper); position: relative; top: .06rem; font-weight: 700; }
+  .trade .ttables { display: flex; flex-direction: column; }
+  .trade .ttables .tpair { margin-top: .2rem; }

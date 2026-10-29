@@ -1,0 +1,25 @@
+{
+ "tag": "AAA",
+ "played": true,
+ "pending": [],
+ "decisions": [
+  {
+   "key": "decision_one",
+   "title": "Decision One",
+   "desc": "An invented decision that the country may take now, with a line of text explaining what it does.",
+   "allowed": true
+  },
+  {
+   "key": "decision_two",
+   "title": "Decision Two",
+   "desc": "Another invented decision; its conditions do not hold yet.",
+   "allowed": false
+  },
+  {
+   "key": "decision_three",
+   "title": "Decision Three",
+   "desc": null,
+   "allowed": true
+  }
+ ]
+}

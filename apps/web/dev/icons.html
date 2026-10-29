@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../">
+<title>Icon sheet</title>
+<!-- Every icon in js/icons.js with its id, at three sizes. Open /dev/icons.html on the game's server
+     or the mock (dev/mock.py). Dashed = placeholder; "file" = replaced by icons/<id>.svg. -->
+<style>
+  :root { --bg: #e9e2cf; --ink: #2a1a08; --card: #f6f0de; --edge: #b8a878; }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--ink); font: 13px/1.3 Georgia, serif; }
+  h1 { font-size: 18px; margin: 0 0 4px; } p { margin: 0 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 8px; }
+  .c { background: var(--card); border: 1px solid var(--edge); border-radius: 6px; padding: 6px; text-align: center; }
+  .c.ph { border-style: dashed; } .c.file { border-color: #2e5fa8; border-width: 2px; }
+  .row { display: flex; align-items: end; justify-content: center; gap: 6px; height: 52px; }
+  .row .ic { display: inline-flex; } .row .ic > svg, .row .ic > img { width: 100%; height: 100%; }
+  .s48 { width: 48px; height: 48px; } .s24 { width: 24px; height: 24px; } .s16 { width: 16px; height: 16px; }
+  .on-dark { background: #2a2018; border-radius: 4px; padding: 2px; }
+  b { display: block; font-size: 12px; margin-top: 4px; word-break: break-all; } small { color: #6a5a40; }
+</style></head>
+<body>
+<h1>Icons</h1>
+<p id="sum"></p>
+<div class="grid" id="g"></div>
+<script src="js/icons.js"></script>
+<script src="js/kit.js"></script>
+<script>
+function draw() {
+  const ids = [...new Set([...ICONS.map(i => i.id), ...ICON_FILES])];
+  document.getElementById('sum').textContent = `${ids.length} icons, ${ICONS.filter(i => i.placeholder).length} placeholders, ${ICON_FILES.size} replaced by files in icons/. Aliases: ${Object.entries(ICON_ALIAS).map(([a, b]) => a + ' > ' + b).join(', ')}`;
+  document.getElementById('g').innerHTML = ids.map(id => {
+    const i = iconById[id] || {}, h = ic(id);
+    return `<div class="c ${i.placeholder ? 'ph' : ''} ${ICON_FILES.has(id) ? 'file' : ''}"><div class="row">${h.replace('class="ic"', 'class="ic s48"')}${h.replace('class="ic"', 'class="ic s24"')}<span class="on-dark">${h.replace('class="ic"', 'class="ic s16"')}</span></div><b>${id}</b><small>${i.name || ''}${ICON_FILES.has(id) ? ' (file)' : i.placeholder ? ' (placeholder)' : ''}</small></div>`;
+  }).join('');
+}
+draw(); setTimeout(draw, 400);
+</script>
+</body></html>

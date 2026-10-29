@@ -1,0 +1,48 @@
+/* THE START. Only placement and the few pieces the game screens do not have (step number, seat
+   buttons, small button). Colours and the kit come from theme.css and kit.css. */
+#start { position: fixed; inset: 0; z-index: 20; overflow: auto; background: #4a2330 var(--damask); display: grid; place-items: center; padding: 1.5rem 1rem; }
+.lwrap { width: min(46rem, 100%); }
+.ltitle { text-align: center; color: var(--gold); text-shadow: 0 .08rem .2rem #000; margin-bottom: 1rem; }
+.ltitle h1 { margin: 0; font-size: 3.4rem; font-weight: 600; letter-spacing: .04em; }
+.ltitle p { margin: 0; color: #e0c98a; font-style: italic; }
+.lwin { padding: .8rem; display: flex; flex-direction: column; gap: .7rem; }
+.step { padding-bottom: .6rem; }
+.step .rowhead { min-width: 0; padding-right: 1.6rem; font-size: 1.1rem; }
+.stepno { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--burgundy); color: #f3ead2; border: .08rem solid var(--gold); font-size: .9rem; }
+.stepbody { padding: .5rem .8rem 0; }
+.hint { margin: 0 0 .5rem; font-size: .98rem; color: #3a2c22; }
+.pick { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.field { flex: 1; min-width: 14rem; font: inherit; font-size: 1rem; color: var(--ink); background: var(--value); border: .06rem solid #0007; box-shadow: inset 0 .08rem .25rem #0004; padding: .2rem .6rem; }
+.status { margin: .45rem 0 0; font-weight: 600; min-height: 1.4em; }
+.status.ok { color: #3f6a1c; } .status.bad { color: var(--bad); }
+.check { display: inline-flex; align-items: center; gap: .5rem; font-size: 1.15rem; font-weight: 600; cursor: pointer; }
+.check input { position: absolute; opacity: 0; }
+.check .box { width: 1.2rem; height: 1.2rem; background: var(--value); border: .08rem solid #1c160e; box-shadow: inset 0 0 0 .08rem var(--gold); display: inline-grid; place-items: center; }
+.check input:checked + .box::after { content: "\2713"; color: var(--burgundy); font: 700 1rem/1 Arial, sans-serif; }
+.check input:focus-visible + .box { outline: .15rem solid var(--amber); outline-offset: .1rem; }
+#modpanel { margin-top: .6rem; }
+.mods, .tables { list-style: none; margin: .5rem 0 0; padding: 0; }
+.mods li { display: flex; align-items: center; gap: .6rem; padding: .15rem .5rem; border: .06rem solid #0003; }
+.mods li:nth-child(odd) { background: var(--stripe); } .mods li:nth-child(even) { background: var(--paper); }
+.mods .n { width: 1.4rem; text-align: right; color: #5a4a3a; font-variant-numeric: tabular-nums; }
+.mods .name { flex: 1; overflow-wrap: anywhere; }
+.mini { font: inherit; font-size: .85rem; padding: 0 .45rem; background: var(--btn); border: .06rem solid #1c160e; box-shadow: inset 0 0 0 .06rem var(--gold); }
+.mini:disabled { opacity: .35; }
+.bar.big { height: 1.1rem; }
+.tables { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: .2rem .8rem; font-size: .95rem; }
+.tables li { display: flex; justify-content: space-between; gap: .5rem; border-bottom: .06rem dotted #0005; }
+.tables li.done::before { content: "\2713"; color: #3f6a1c; font-weight: 700; margin-right: .3rem; }
+.tables li span:first-of-type { flex: 1; }
+.lfoot { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.lfoot .grow { flex: 1; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn.play span { background-color: #c9d8a8; font-weight: 600; }
+.mock { text-align: center; color: #e0c98a; font: 13px/1.4 Arial, sans-serif; margin-top: .8rem; opacity: .8; }
+[hidden] { display: none !important; }
+
+.seats { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: .3rem; }
+.seat { font: inherit; text-align: left; padding: .12rem .5rem .18rem; background: var(--value); border: .06rem solid #1c160e; box-shadow: inset 0 0 0 .06rem var(--gold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.seat b { display: inline-block; min-width: 1.3rem; color: #5a4a3a; font-weight: 600; }
+.seat[aria-pressed="true"] { background: #f6e9b8; box-shadow: inset 0 0 0 .14rem var(--amber); }
+.seats .more { grid-column: 1 / -1; margin-top: .3rem; }
+.seats select { font: inherit; background: var(--value); border: .06rem solid #0007; padding: .05rem .3rem; }

@@ -1,0 +1,86 @@
+/* THE KIT. How each reusable piece is drawn from the theme: panel, band, row, number box,
+   slider, button, tabs, table, close button, pie, bar. Sizes are in rem so everything scales. */
+  /* Everything is sized in rem, and one rem follows the height of the screen: the interface scales as a whole. */
+  html { font-size: calc(var(--ui) * clamp(10px, 1.5vh, 24px)); }
+  * { box-sizing: border-box; }
+  body { margin: 0; height: 100vh; overflow: hidden; font-family: var(--serif); color: var(--ink); background: #24456b; }
+  #map { position: fixed; inset: 0; background: #24456b center / cover no-repeat; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible { outline: .15rem solid var(--amber); outline-offset: .1rem; }
+  .ic { display: inline-flex; width: 1.5rem; height: 1.5rem; flex: none; align-items: center; justify-content: center; }
+  .ic > svg, .ic > img { width: 100%; height: 100%; }
+  .ph { display: inline-grid; place-items: center; width: 1.35rem; height: 1.35rem; flex: none; border-radius: 50%; font: 700 .62rem/1 Arial, sans-serif; color: #2a1a08; background: radial-gradient(circle at 35% 30%, #f0dc90, #a8892e 75%); box-shadow: 0 0 0 .06rem #1c160e; }
+  .amber { color: var(--amber); } .good { color: var(--good); } .bad { color: var(--bad); }
+
+  /* ============ kit ============ */
+  .paper { background: var(--paper) var(--noise); color: var(--ink); }
+  .burg { background: var(--burgundy) var(--noise); color: #f3ead2; }
+  .frame { border: .22rem double var(--gold); outline: .06rem solid #1c160e; box-shadow: 0 0 0 .3rem #2c241a, 0 .4rem 1rem #000a; }
+  .line { box-shadow: inset 0 0 0 .32rem var(--burgundy), inset 0 0 0 .38rem var(--gold-line), 0 .3rem .9rem #000a; }
+  .band { text-align: center; color: var(--band-ink); font-size: 1.15rem; padding: .1rem .5rem .15rem; background: var(--wine) var(--marble); box-shadow: inset 0 0 0 .06rem #0006; text-shadow: 0 .06rem .06rem #000; }
+  .row { background: var(--panel) var(--noise); border: .06rem solid #0005; box-shadow: inset 0 0 .4rem #0003; }
+  .rowhead { display: inline-flex; align-items: center; gap: .4rem; color: #fff; background: var(--rowhead); padding: 0 1.4rem .06rem .4rem; font-weight: 600; min-width: 46%; border-radius: 0 0 1rem 0; text-shadow: 0 .06rem .06rem #0008; }
+  .rowbody { display: flex; align-items: center; gap: .6rem; padding: .3rem .5rem; flex-wrap: wrap; }
+  .value { display: inline-block; min-width: 4.6rem; text-align: right; padding: .05rem .5rem .1rem; font-size: 1.15rem; background: var(--value) var(--noise); font-variant-numeric: tabular-nums; white-space: nowrap; box-shadow: 0 .06rem 0 #0007, 0 0 0 .06rem #0002; clip-path: polygon(0 6%, 4% 0, 97% 3%, 100% 12%, 99% 92%, 95% 100%, 3% 97%, 0 88%); }
+  .value.big { font-size: 1.6rem; min-width: 8rem; padding: .1rem .8rem .2rem; }
+  .slider { display: flex; align-items: center; flex: 1; min-width: 8rem; }
+  .slider i { flex: none; width: .95rem; height: .95rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f3e08a, #b9a030 70%); border: .06rem solid #1c160e; display: grid; place-items: center; font: 700 .5rem/1 Arial, sans-serif; color: #1c160e; font-style: normal; }
+  .track { flex: 1; height: .25rem; background: #2a241c; border-top: .06rem solid #000; border-bottom: .06rem solid #fff6; position: relative; }
+  .track b { position: absolute; top: 50%; left: var(--at, 50%); width: .9rem; height: .9rem; margin: -.45rem 0 0 -.45rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d0607a, var(--knob) 65%); border: .12rem solid var(--gold); box-shadow: 0 0 0 .06rem #1c160e; }
+  .slider.live i, .slider.live .track { cursor: pointer; }
+  .slider.live .track { height: .4rem; }
+  .track s { position: absolute; top: 0; bottom: 0; left: var(--lo, 0%); right: calc(100% - var(--hi, 100%)); background: var(--allowed); }
+  .btn { display: inline-block; position: relative; min-width: 9rem; text-align: center; padding: .15rem .3rem; background: #2a2018; box-shadow: inset 0 0 0 .06rem var(--gold), 0 0 0 .06rem #1c160e; border: 0; color: #1c1410; font-size: 1.05rem; }
+  .btn span { display: block; border-radius: .8rem; padding: .02rem 1rem .1rem; background: var(--btn) var(--noise); box-shadow: inset 0 0 .5rem #fff9, inset 0 -.2rem .3rem #0003; text-shadow: 0 .06rem 0 #fff6; }
+  .btn:hover span { filter: brightness(1.08); }
+  .tabs { display: flex; gap: .12rem; border-bottom: .06rem solid #0006; }
+  .tabs span { padding: .05rem 1.2rem .1rem; font: .82rem/1.4 Arial, Helvetica, sans-serif; background: var(--panel); border: .06rem solid #0006; border-bottom: 0; }
+  .tabs span.on { background: var(--paper); position: relative; top: .06rem; }
+  table.tbl { width: 100%; border-collapse: collapse; }
+  .tbl th { background: #b3a09c var(--noise); font-weight: 600; padding: 0 .5rem .06rem; border: .06rem solid #0006; }
+  .tbl td { padding: .06rem .5rem; border-left: .06rem solid #0003; border-right: .06rem solid #0003; }
+  .tbl tr:nth-child(odd) td { background: var(--stripe); } .tbl tr:nth-child(even) td { background: var(--paper); }
+  .tbl td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .close { width: 1.6rem; height: 1.6rem; border-radius: 50%; display: inline-grid; place-items: center; font: 700 .95rem/1 Arial, sans-serif; color: #f3ead2; background: radial-gradient(circle at 35% 30%, #6a3040, #2a0a14); border: .12rem solid #d8cfae; box-shadow: 0 0 0 .06rem #1c160e; padding: 0; }
+  .pie { display: inline-block; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: .06rem solid #0008; flex: none; box-shadow: inset 0 0 .3rem #0006; }
+  .bar { height: .7rem; background: #2a241c; border: .06rem solid #000; min-width: 4rem; flex: 1; }
+  .bar b { display: block; height: 100%; background: linear-gradient(#8fbf4a, var(--good)); }
+  .pops { display: inline-flex; gap: .15rem; }
+  .pops i { width: .7rem; height: 1.3rem; border-radius: .35rem .35rem .1rem .1rem; background: linear-gradient(#8a6f52, #4a3a2a); box-shadow: 0 0 0 .05rem #0008; }
+  .small { font: .78rem/1.3 Arial, Helvetica, sans-serif; }
+  /* ============ Diplomacy: flag tiles (kit.js flagTile); the field colour is the country's ============ */
+  .ftile { --h: color-mix(in srgb, var(--c), var(--flag-hi) 62%); --d: color-mix(in srgb, var(--c), var(--flag-lo) 45%);
+    display: inline-block; position: relative; flex: none; width: 2.1rem; height: 1.4rem; background: var(--c); border: .06rem solid var(--flag-edge); box-shadow: 0 .06rem .15rem #0006; vertical-align: middle; }
+  .ftile.sm { width: 1.5rem; height: 1rem; } .ftile.lg { width: 4.4rem; height: 2.9rem; border: .15rem solid var(--gold); }
+  .ftile.p0 { background: linear-gradient(90deg, var(--c) 0 33.3%, var(--h) 33.3% 66.6%, var(--d) 66.6%); }
+  .ftile.p1 { background: linear-gradient(var(--c) 0 33.3%, var(--h) 33.3% 66.6%, var(--c) 66.6%); }
+  .ftile.p2 { background: linear-gradient(var(--h) 0 50%, var(--c) 50%); }
+  .ftile.p3 { background: linear-gradient(var(--h), var(--h)) 32% 50% / 14% 100% no-repeat, linear-gradient(var(--h), var(--h)) 50% 50% / 100% 20% no-repeat, var(--c); }
+  .ftile.p4 { background: linear-gradient(var(--d), var(--d)) 0 0 / 42% 55% no-repeat, linear-gradient(var(--c) 0 72%, var(--h) 72%); }
+  .ftile.p5 { background: linear-gradient(135deg, var(--c) 0 50%, var(--d) 50%); }
+  .ftile .fr { position: absolute; right: -.45rem; bottom: -.45rem; min-width: 1.05rem; height: 1.05rem; padding: 0 .15rem; border-radius: .6rem; display: grid; place-items: center; font: 700 .6rem/1 Arial, sans-serif; color: var(--band-ink); background: var(--burgundy); border: .06rem solid var(--gold); }
+  .ftile.lg .fr { min-width: 1.5rem; height: 1.5rem; font-size: .8rem; right: -.6rem; bottom: -.6rem; }
+
+  /* ---- added for the Politics window: the key of a pie */
+  .piekey { display: flex; flex-wrap: wrap; gap: .1rem .7rem; font: .74rem/1.3 Arial, Helvetica, sans-serif; padding: .1rem .3rem; }
+  .piekey span { display: inline-flex; align-items: center; gap: .25rem; white-space: nowrap; }
+  .piekey i { width: .7rem; height: .7rem; border: .06rem solid #0008; flex: none; }
+
+  /* ============ Trade window (js/windows/trade.js): trend arrows and the line chart ============ */
+  .trend { display: inline-block; width: .9rem; text-align: center; font: .7rem/1 Arial, sans-serif; color: var(--gold-dark); }
+  .trend.up { color: var(--good); } .trend.down { color: var(--bad); }
+  svg.chart { display: block; width: 100%; height: 7.5rem; background: var(--value) var(--noise); box-shadow: inset 0 0 .3rem #0004, 0 0 0 .06rem #0006; }
+  svg.chart .line { fill: none; stroke: var(--wine); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+  svg.chart .area { fill: var(--wine); fill-opacity: .12; stroke: none; }
+  svg.chart .grid { stroke: var(--gold-dark); stroke-opacity: .25; stroke-width: 1; vector-effect: non-scaling-stroke; }
+  svg.chart .base { stroke: var(--gold-dark); stroke-width: 1; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+  svg.chart text { fill: var(--gold-dark); font: 12px Arial, sans-serif; }
+  .chartaxis { display: flex; justify-content: space-between; font: .72rem/1.3 Arial, Helvetica, sans-serif; color: var(--gold-dark); padding: .05rem .1rem 0; }
+
+  /* ---- added for PRODUCTION: tabs that can be clicked, a good's tile, a thin meter */
+  .tabs [role="tab"] { cursor: pointer; user-select: none; }
+  .tabs [role="tab"]:hover:not(.on) { filter: brightness(1.06); }
+  .tabs [role="tab"]:focus-visible { outline: .12rem solid var(--amber); outline-offset: -.12rem; }
+  .gtile { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; flex: none; }
+  .gtile.tok { border-radius: 50%; font: 700 .6rem/1 Arial, sans-serif; color: #fff; text-shadow: 0 .05rem .08rem #000c; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--g) 55%, #fff), var(--g) 55%, color-mix(in srgb, var(--g) 60%, #000)); box-shadow: 0 0 0 .06rem #1c160e, inset 0 -.1rem .2rem #0005; }
+  .bar.meter { height: .4rem; min-width: 2rem; }

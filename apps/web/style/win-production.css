@@ -1,0 +1,52 @@
+/* PRODUCTION window (js/windows/production.js). Colours come from style/theme.css. */
+  .prod { position: relative; display: flex; flex-direction: column; gap: .45rem; margin-top: .4rem; min-height: 34rem; }
+  .prod .tbl td, .prod .tbl th { font-size: .95rem; }
+
+  /* factories: a state per row, its slots side by side */
+  .pstates { display: flex; flex-direction: column; gap: .3rem; }
+  .pstate { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: .4rem; padding: .25rem .35rem; margin: 0 !important; }
+  .shead { min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: .05rem; line-height: 1.15; }
+  .shead b { font-size: 1.05rem; }
+  .slots { width: 100%; display: grid; grid-template-columns: repeat(var(--n, 8), minmax(0, 1fr)); gap: .25rem; }
+  .slot { background: var(--value) var(--noise); box-shadow: 0 0 0 .06rem var(--gold-dark), inset 0 0 .3rem #0002; padding: .15rem .25rem .2rem; display: flex; flex-direction: column; gap: .08rem; min-width: 0; font: .72rem/1.2 Arial, Helvetica, sans-serif; }
+  .slot .top { display: flex; align-items: center; gap: .25rem; }
+  .slot .lvl { margin-left: auto; min-width: 1.15rem; text-align: center; font-weight: 700; color: var(--band-ink); background: var(--wine); border-radius: .5rem; padding: 0 .25rem; }
+  .slot .sbd { font-weight: 700; color: var(--ink); background: var(--btn); border-radius: .5rem; padding: 0 .25rem; }
+  .slot .bar { flex: none; }
+  .slot .soon, .shead .soon { color: var(--wine); font-weight: 700; }
+  .nofac { grid-column: 1 / -1; align-self: center; padding: .3rem; }
+  .slot .nm { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .slot .ln { display: flex; justify-content: space-between; gap: .2rem; white-space: nowrap; overflow: hidden; }
+  .slot.closed { filter: grayscale(.8); opacity: .75; }
+  .slot.opening { box-shadow: 0 0 0 .06rem var(--amber), inset 0 0 .3rem #0002; }
+  .slot.empty { background: transparent; box-shadow: inset 0 0 0 .06rem var(--gold-dark); border: .06rem dashed var(--gold-line); align-items: center; justify-content: center; cursor: pointer; min-height: 4.2rem; color: var(--gold-dark); font-size: 1.1rem; }
+  .slot.empty:hover { background: var(--allowed); }
+
+  /* production: the goods grid by group */
+  .ggroups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+  .ggroup { display: flex; flex-direction: column; gap: .25rem; }
+  .ggrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.6rem, 1fr)); gap: .2rem; }
+  .pgood { display: flex; align-items: center; gap: .3rem; padding: .1rem .3rem; background: var(--value) var(--noise); box-shadow: 0 0 0 .06rem #0003; font: .8rem/1.2 Arial, Helvetica, sans-serif; min-width: 0; }
+  .pgood .nm { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pgood .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .pgood.none { opacity: .55; }
+
+  /* projects */
+  .pbar { display: flex; align-items: center; gap: .3rem; min-width: 7rem; }
+  .needs { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .needs > span { display: inline-flex; align-items: center; gap: .15rem; }
+
+  /* the build picker, over the window's contents */
+  .picker { position: absolute; inset: 0; z-index: 3; display: flex; flex-direction: column; padding: .4rem; gap: .4rem; }
+  .pk-title { display: flex; align-items: center; gap: .4rem; } .pk-title .band { flex: 1; }
+  .pk-cols { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: .6rem; }
+  .pk-list { overflow: auto; }
+  .pk-list tr[data-prod-kind] { cursor: pointer; }
+  .pk-list tr.on td { background: var(--picked); font-weight: 700; }
+  .pk-list tr.off td { opacity: .5; }
+  .pk-detail { overflow: auto; display: flex; flex-direction: column; gap: .3rem; }
+  .pk-head { display: flex; align-items: center; gap: .5rem; font-size: 1.15rem; }
+  .glist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .2rem .6rem; }
+  .gl { display: flex; align-items: center; gap: .35rem; font: .85rem/1.2 Arial, Helvetica, sans-serif; }
+  .gl > span:not(.gtile):not(.ic) { flex: 1; } .gl b { font-variant-numeric: tabular-nums; }
+  .picker .foot { margin-top: 0; }

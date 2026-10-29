@@ -1,0 +1,18 @@
+/* THE LOOK. Colours, fonts and textures only. Change a value here and every screen follows.
+   Nothing else in the project names a colour. */
+
+  /* ============ the look: tokens only. Change these and every screen follows. ============ */
+  :root {
+    --paper: #dedacb; --panel: #c6c3b6; --stripe: #cfccbf; --value: #ece5cd; --ink: #1c1410;
+    --wine: #5d1c33; --burgundy: #3a1422; --burgundy-2: #231016; --band-ink: #f1e8d0;
+    --gold: #b9a565; --gold-line: #ae9b74; --gold-dark: #6f5f2c; --amber: #ffbd00;
+    --rowhead: #a39390; --btn: #a9c4c9; --btn-2: #7d9ea6; --knob: #7a1730; --good: #5f8a2c; --bad: #c8281c;
+    --flag-hi: #f4ecd8; --flag-lo: #120c08; --flag-edge: #1c160e;
+    --lv0: #c8281c; --lv1: #b8642a; --lv2: #6a6058; --lv3: #4f7a3a; --lv4: #2f7a2a; --lv5: #2a4f9a;
+    --allowed: #c9a23a66; --picked: #f6e9b8; --played: #6fd24a;
+    --serif: "EB Garamond", Garamond, Georgia, "Times New Roman", serif;
+    --ui: 1;
+    --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .2 -.05'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+    --marble: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='120'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='4' seed='9'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.1 -.42'/%3E%3C/filter%3E%3Crect width='300' height='120' filter='url(%23m)'/%3E%3C/svg%3E");
+    --damask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07' stroke-width='3'%3E%3Cpath d='M48 6 C66 22 66 34 48 48 C30 34 30 22 48 6 Z M48 48 C66 62 66 74 48 90 C30 74 30 62 48 48 Z M0 48 C14 40 20 30 22 18 M96 48 C82 40 76 30 74 18 M0 48 C14 56 20 66 22 78 M96 48 C82 56 76 66 74 78'/%3E%3C/g%3E%3C/svg%3E");
+  }

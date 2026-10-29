@@ -1,0 +1,67 @@
+/* THE POPULATION WINDOW (js/windows/population.js): the tree of states on the left, the pies, the
+   pop-type toggles and the table of pops on the right. Colours come from theme.css; a pop type's
+   own colour (from the install) arrives as --c. */
+  .wback:has(.popwin) { width: min(96rem, 97vw); }
+  .popwin { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: .7rem; align-items: start; }
+  .pleft, .pright { display: flex; flex-direction: column; gap: .4rem; min-width: 0; }
+  .popwin .row { margin-bottom: 0; }
+  .popwin .rowhead { min-width: 0; }
+
+  /* the tree */
+  .ptree { display: flex; flex-direction: column; max-height: 34rem; overflow-y: auto; background: var(--panel) var(--noise); border: .06rem solid #0005; box-shadow: inset 0 0 .4rem #0003; padding: .2rem; }
+  .pstate { display: flex; align-items: stretch; }
+  .ptwist { flex: none; width: 1.3rem; border: 0; background: none; padding: 0; font-size: .9rem; line-height: 1; }
+  .pnode { flex: 1; display: flex; align-items: center; gap: .3rem; min-width: 0; border: 0; padding: .05rem .35rem; background: none; text-align: left; font-size: .98rem; }
+  .pnode > span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pnode > b { font-weight: 400; font-variant-numeric: tabular-nums; font-size: .9rem; }
+  .pnode em { display: inline-flex; align-items: center; font: .7rem/1 Arial, Helvetica, sans-serif; font-style: normal; color: var(--wine); white-space: nowrap; }
+  .pnode em .ic { width: 1rem; height: 1rem; }
+  .pnode:hover { background: #ffffff30; }
+  .pnode.on { background: var(--picked); box-shadow: inset 0 0 0 .06rem var(--gold-dark); }
+  .pkids { display: flex; flex-direction: column; margin-left: 1.6rem; border-left: .06rem dotted var(--gold-dark); }
+  .pkids .pnode { font-size: .9rem; }
+
+  /* summary: facts and pies */
+  .psum { display: flex; flex-direction: column; gap: .2rem; padding: .25rem .4rem; }
+  .pfacts { display: flex; flex-wrap: wrap; gap: .3rem 1.1rem; align-items: center; font-variant-numeric: tabular-nums; }
+  .pfacts > span { display: inline-flex; align-items: center; gap: .2rem; }
+  .pfacts .ic { width: 1.2rem; height: 1.2rem; }
+  .ppies { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; }
+  .ppie { margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto 1fr; gap: .1rem .4rem; align-items: start; min-width: 0; }
+  .ppie figcaption { grid-column: 1 / -1; font-weight: 600; font-size: .95rem; border-bottom: .06rem solid #0003; }
+  .ppie .pie { width: 4.2rem; height: 4.2rem; }
+  .ppie ul { margin: 0; padding: 0; list-style: none; font: .72rem/1.35 Arial, Helvetica, sans-serif; min-width: 0; }
+  .ppie li { display: flex; align-items: center; gap: .25rem; }
+  .ppie li i { flex: none; width: .55rem; height: .55rem; border: .06rem solid #0008; }
+  .ppie li span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ppie li b { font-weight: 400; font-variant-numeric: tabular-nums; }
+
+  /* a pop type's figure: the kit's pop shape in the type's colour */
+  .popfig { display: inline-block; vertical-align: middle; width: .65rem; height: 1.1rem; border-radius: .33rem .33rem .1rem .1rem; background: linear-gradient(#ffffff55, #0000 45%, #00000055), var(--c, var(--rowhead)); box-shadow: 0 0 0 .05rem #000a; }
+  .popic { display: inline-flex; vertical-align: middle; } .popic .ic { width: 1.3rem; height: 1.3rem; } .ptbl .popic .ic { width: 1.1rem; height: 1.1rem; }
+
+  /* pop-type toggles */
+  .ptypes { display: flex; flex-wrap: wrap; gap: .25rem; align-items: center; }
+  .ptype { display: inline-flex; align-items: center; gap: .3rem; padding: .1rem .4rem; background: var(--value) var(--noise); border: .06rem solid #0006; font-size: .82rem; font-variant-numeric: tabular-nums; }
+  .ptype[aria-pressed="false"] { opacity: .45; background: var(--panel); }
+  .ptype[aria-pressed="true"] { box-shadow: inset 0 0 0 .1rem var(--gold); }
+  .ptall[aria-pressed="true"] span { box-shadow: inset 0 0 0 .12rem var(--amber); }
+
+  /* the table */
+  .ptbl { font-size: .9rem; }
+  .ptbl th { padding: 0; }
+  .ptbl td { white-space: nowrap; max-width: 12rem; overflow: hidden; text-overflow: ellipsis; padding: .02rem .4rem; }
+  .ptbl .ic { width: 1.1rem; height: 1.1rem; vertical-align: middle; }
+  .psort { width: 100%; border: 0; background: none; padding: .05rem .35rem; font-weight: 600; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: .1rem; }
+  .psort:hover { background: #ffffff30; }
+  .psort.on { background: var(--picked); }
+  .pneeds { display: flex; gap: .15rem; align-items: center; }
+  .pneed { display: inline-block; width: 1.7rem; height: .55rem; background: var(--ink); border: .06rem solid #000; }
+  .pneed b { display: block; height: 100%; background: var(--good); }
+  .pneed + .pneed b { background: var(--gold); }
+  .pneed + .pneed + .pneed b { background: var(--wine); }
+
+  /* paging */
+  .ppager { display: flex; justify-content: center; align-items: center; gap: .6rem; }
+  .ppager .btn:disabled { opacity: .45; cursor: default; }
+  .pbadge { display: inline-grid; place-items: center; min-width: 1.7rem; height: 1.7rem; padding: 0 .3rem; border-radius: 50%; background: var(--wine) var(--marble); color: var(--band-ink); border: .12rem solid var(--gold); font-weight: 600; }

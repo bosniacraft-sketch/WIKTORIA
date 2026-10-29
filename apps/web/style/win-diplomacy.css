@@ -1,0 +1,72 @@
+/* DIPLOMACY WINDOW (js/windows/diplomacy.js): tabs on top, the country table left, the selected
+   country and its actions right. Colours come from style/theme.css. */
+  .wback:has(.dip) { width: min(98rem, 97vw); }
+  .dip { display: flex; flex-direction: column; gap: .4rem; }
+  .dtabs span { cursor: pointer; font-size: .95rem; }
+  .dtop { height: 13.6rem; overflow: auto; }
+  .dmain { display: grid; grid-template-columns: minmax(0, 1fr) 27rem; gap: .6rem; }
+  .dleft { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
+  .dright { display: flex; flex-direction: column; gap: .4rem; }
+  .dipempty { margin: .6rem .4rem; }
+
+  /* great powers: eight cards */
+  .gpgrid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: .4rem; height: 100%; }
+  .gpcard { display: flex; flex-direction: column; gap: .2rem; align-items: stretch; text-align: left; padding: .4rem .45rem; background: var(--panel) var(--noise); border: .06rem solid #0005; box-shadow: inset 0 0 .4rem #0003; font-size: .9rem; }
+  .gpcard:hover { filter: brightness(1.05); }
+  .gpcard.seat { box-shadow: inset 0 0 0 .14rem var(--gold), inset 0 0 .4rem #0003; }
+  .gpcard.on { background: var(--picked) var(--noise); }
+  .gphead { display: flex; align-items: center; gap: .9rem; min-height: 3.4rem; }
+  .gphead b { font-size: 1rem; line-height: 1.1; overflow: hidden; text-overflow: ellipsis; }
+  .gpsc { display: flex; justify-content: space-between; gap: .1rem; font-variant-numeric: tabular-nums; }
+  .gpsc span { display: inline-flex; align-items: center; } .gpsc .ic { width: 1.1rem; height: 1.1rem; } .gpsc .ph { width: 1rem; height: 1rem; font-size: .5rem; }
+  .gpline { display: flex; justify-content: space-between; gap: .3rem; font-variant-numeric: tabular-nums; }
+  .gpcard .small { font-size: .7rem; }
+
+  /* wars: both sides and the war score bar */
+  .row.war { padding: .2rem .4rem .3rem; }
+  .row.war.ours { box-shadow: inset .25rem 0 0 var(--wine), inset 0 0 .4rem #0003; }
+  .wtop { display: flex; gap: .8rem; align-items: baseline; }
+  .wline { display: grid; grid-template-columns: minmax(0, 1fr) 16rem minmax(0, 1fr); gap: .8rem; align-items: center; margin-top: .2rem; }
+  .wsides { display: flex; flex-wrap: wrap; gap: .2rem .7rem; font-size: .9rem; }
+  .wsides.def { justify-content: flex-end; }
+  .wside { display: inline-flex; align-items: center; gap: .3rem; } .wside.lead { font-weight: 700; }
+  .wsbar { position: relative; height: 1.1rem; background: #2a241c; border: .06rem solid #000; display: block; }
+  .wsbar b { position: absolute; top: 0; bottom: 0; } .wsbar b.pos { background: linear-gradient(color-mix(in srgb, var(--good), var(--flag-hi) 30%), var(--good)); } .wsbar b.neg { background: linear-gradient(color-mix(in srgb, var(--bad), var(--flag-hi) 30%), var(--bad)); }
+  .wsbar i { position: absolute; left: 50%; top: -.15rem; bottom: -.15rem; width: .1rem; background: var(--gold); }
+  .wsbar em { position: absolute; inset: 0; display: grid; place-items: center; font: 700 .7rem/1 Arial, sans-serif; color: var(--band-ink); text-shadow: 0 0 .15rem #000; font-style: normal; }
+  .bar.inf b { background: linear-gradient(color-mix(in srgb, var(--bad), var(--flag-hi) 30%), var(--bad)); }
+
+  /* the country table */
+  .dfilters { display: flex; flex-wrap: wrap; gap: .2rem; }
+  .dfilt { font: .8rem/1.3 Arial, Helvetica, sans-serif; padding: .1rem .7rem; background: var(--panel); border: .06rem solid #0006; border-radius: .7rem; }
+  .dfilt.on { background: var(--wine); color: var(--band-ink); }
+  .dtable { height: 25rem; overflow: auto; border: .06rem solid #0006; }
+  .dtable .tbl { font-size: .88rem; }
+  .dtable .tbl th { position: sticky; top: 0; z-index: 1; cursor: pointer; white-space: nowrap; }
+  .dtable .tbl th.on { background: var(--gold); }
+  .dtable tr[data-dip-pick] { cursor: pointer; }
+  .dtable tr[data-dip-pick]:hover td { filter: brightness(1.05); }
+  .dtable tr.on td { background: var(--picked) !important; }
+  .dtable td.nm { white-space: nowrap; max-width: 14rem; overflow: hidden; text-overflow: ellipsis; }
+  .dtable td.gpi { min-width: 2.4rem; }
+  .gpi.l0, .lv.l0 { color: var(--lv0); } .gpi.l1, .lv.l1 { color: var(--lv1); } .gpi.l3, .lv.l3 { color: var(--lv3); }
+  .gpi.l4, .lv.l4 { color: var(--lv4); font-weight: 700; } .gpi.l5, .lv.l5 { color: var(--lv5); font-weight: 700; text-decoration: underline; }
+  .lv { white-space: nowrap; }
+
+  /* the selected country */
+  .dsel { padding: .4rem .5rem; display: flex; flex-direction: column; gap: .35rem; }
+  .dshead { display: flex; gap: 1.1rem; align-items: center; }
+  .dshead .big { font-size: 1.3rem; }
+  .dsel .kv { gap: .2rem; } .dsel .kv > [data-n] > div { font-size: .88rem; padding: 0 .5rem; align-items: center; } .dsel .kv .ic { width: 1.1rem; height: 1.1rem; vertical-align: middle; }
+  .dsel .kv .ph { width: 1rem; height: 1rem; font-size: .5rem; }
+  .dchips { display: flex; flex-wrap: wrap; gap: .25rem; }
+  .dchip { font: .75rem/1.4 Arial, Helvetica, sans-serif; padding: 0 .5rem; border: .06rem solid #0004; color: #0007; background: var(--stripe); }
+  .dchip.on { color: var(--ink); background: var(--value); box-shadow: 0 0 0 .06rem var(--gold-dark); font-weight: 700; }
+  .dchip.on.good { color: var(--good); } .dchip.on.bad { color: var(--bad); } .dchip.on.sph { color: var(--lv5); }
+
+  /* the actions */
+  .dacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .25rem; }
+  .dacts .btn { min-width: 0; width: 100%; font-size: .8rem; padding: .1rem .15rem; }
+  .dacts .btn span { padding: .02rem .3rem .08rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dacts .btn.off, .dacts .btn:disabled { cursor: not-allowed; }
+  .dacts .btn:disabled span { filter: grayscale(1) brightness(.9); opacity: .72; }

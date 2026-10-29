@@ -1,0 +1,18 @@
+[package]
+name = "wiktoria"
+description = "The Wiktoria game window (map, menus, play and observe)."
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+
+[dependencies]
+wiktoria_data = { path = "../../crates/wiktoria_data" }
+wiktoria_render = { path = "../../crates/wiktoria_render" }
+wiktoria_simulation = { path = "../../crates/wiktoria_simulation" }
+eframe = "0.36"
+image = { version = "0.25", default-features = false, features = ["png", "tga"] }
+rfd = "0.17.2"
+
+[profile.dev]
+opt-level = 1
