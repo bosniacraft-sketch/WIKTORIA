@@ -1,0 +1,8 @@
+[package]
+name = "wiktoria_render"
+description = "Window-independent map rendering and picking."
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+wiktoria_data = { path = "../wiktoria_data" }

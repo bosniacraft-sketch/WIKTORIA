@@ -1,0 +1,7 @@
+[package]
+name = "wiktoria_data"
+description = "Loads Victoria 2 data from the player's own install. No dependencies."
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
