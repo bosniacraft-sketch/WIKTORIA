@@ -1,0 +1,24 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Border war: Prussia against Austria, both run by the computer"
+description = "Two great powers of similar armies go to war over Silesia's neighbours; nobody is played."
+what_to_look_for = "Both sides gather their guard posts into stacks, fight battles they expect to win, besiege the other's border provinces and end the war within the year."
+base_save = "start/1836.v2"
+observe = yes
+days = 365
+known_bug = "the computer does not make peace in this war within the year"
+setup = {
+    end_wars = PRU
+    end_wars = AUS
+    war = { attacker = PRU defender = AUS goal = humiliate }
+}
+check = { name = "battles are fought" what = battles_started min = 1 day = 120 }
+check = { name = "provinces are besieged" what = sieges_started min = 1 day = 120 }
+check = { name = "provinces change hands" what = controller_changes min = 3 }
+check = { name = "the war ends" what = peaces min = 1 }
+check = { name = "Austrian provinces held by the enemy" what = occupied tag = AUS min = 0 }
+check = { name = "Prussian provinces held by the enemy" what = occupied tag = PRU min = 0 }
+check = { name = "Austria's regiments" what = regiments tag = AUS min = 0 }
+check = { name = "Prussia's regiments" what = regiments tag = PRU min = 0 }
+check = { name = "Austria's armies" what = armies tag = AUS min = 0 }
+check = { name = "Prussia's armies" what = armies tag = PRU min = 0 }
+check = { name = "men lost" what = men_lost min = 0 }

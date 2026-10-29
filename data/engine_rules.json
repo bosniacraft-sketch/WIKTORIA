@@ -1,0 +1,3435 @@
+{
+ "schema_version": 1,
+ "source": {
+  "name": "Wiktoria engine rules",
+  "sha256": ""
+ },
+ "about": "Engine constants the simulation looks up by stable ID (FLD_*). Edit a value here, then run cargo test. FLD_*_FILE and FLD_*_DIR values are paths relative to the game data folder.",
+ "tables": {
+  "Fields": [
+   {
+    "field_id": "FLD_TEXT_ENCODING",
+    "value": "windows-1252",
+    "value_type": "string",
+    "note": "encoding"
+   },
+   {
+    "field_id": "FLD_GOODS_FILE",
+    "value": "common/goods.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_TICK_LENGTH",
+    "value": 1,
+    "value_type": "integer",
+    "note": "days"
+   },
+   {
+    "field_id": "FLD_DEFINES_FILE",
+    "value": "common/defines.lua",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_COUNTRIES_FILE",
+    "value": "common/countries.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_DEFAULT_MAP_FILE",
+    "value": "map/default.map",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_PROVINCE_HISTORY_DIR",
+    "value": "history/provinces",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_LOCALISATION_DIR",
+    "value": "localisation",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_CULTURES_FILE",
+    "value": "common/cultures.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_RELIGION_FILE",
+    "value": "common/religion.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_POPTYPES_DIR",
+    "value": "poptypes",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_POP_HISTORY_DIR",
+    "value": "history/pops",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_COUNTRY_HISTORY_DIR",
+    "value": "history/countries",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_ISSUES_FILE",
+    "value": "common/issues.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_TECHNOLOGY_FILE",
+    "value": "common/technology.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_TECHNOLOGY_DIR",
+    "value": "technologies",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_BUILDINGS_FILE",
+    "value": "common/buildings.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_BOOKMARKS_FILE",
+    "value": "common/bookmarks.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_INVENTIONS_DIR",
+    "value": "inventions",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_PRODUCTION_TYPES_FILE",
+    "value": "common/production_types.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_SETUP_RGO_WORKER_TYPE",
+    "value": true,
+    "value_type": "boolean",
+    "note": "switch"
+   },
+   {
+    "field_id": "FLD_SETUP_SLAVE_CONVERSION",
+    "value": true,
+    "value_type": "boolean",
+    "note": "switch"
+   },
+   {
+    "field_id": "FLD_SETUP_STATE_CAPITAL_ONLY",
+    "value": true,
+    "value_type": "boolean",
+    "note": "switch"
+   },
+   {
+    "field_id": "FLD_SETUP_MERGE_IDENTICAL",
+    "value": true,
+    "value_type": "boolean",
+    "note": "switch"
+   },
+   {
+    "field_id": "FLD_FIXED_POINT_FRACTION_BITS",
+    "value": 15,
+    "value_type": "integer",
+    "note": "bits (1.0 = 32768); conversions from decimals round half away from zero"
+   },
+   {
+    "field_id": "FLD_DATE_EPOCH_HOURS",
+    "value": 43800000,
+    "value_type": "integer",
+    "note": "hours at year 0 day 0 (date = epoch + (year*365 + day of year)*24)"
+   },
+   {
+    "field_id": "FLD_MONTH_DAYS",
+    "value": "31,28,31,30,31,30,31,31,30,31,30,31",
+    "value_type": "string",
+    "note": "days per month; no leap years"
+   },
+   {
+    "field_id": "FLD_POP_UPDATE_PERIOD",
+    "value": 31,
+    "value_type": "integer",
+    "note": "days"
+   },
+   {
+    "field_id": "FLD_POP_UPDATE_OFFSET",
+    "value": 1,
+    "value_type": "integer",
+    "note": "pop is due when (day of month - pop id) mod period == offset"
+   },
+   {
+    "field_id": "FLD_PRICE_STEP",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "price change per day"
+   },
+   {
+    "field_id": "FLD_PRICE_MIN_FACTOR",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "x base cost"
+   },
+   {
+    "field_id": "FLD_PRICE_MAX_FACTOR",
+    "value": 5,
+    "value_type": "number",
+    "note": "x base cost"
+   },
+   {
+    "field_id": "FLD_PRICE_SQRT_TABLE",
+    "value": "0.05:0.223,0.066:0.258,0.083:0.288,0.1:0.316,0.111:0.333,0.125:0.353,0.142:0.377,0.166:0.408,0.2:0.447,0.25:0.5,0.333:0.577,0.5:0.7,0.666:0.816",
+    "value_type": "string",
+    "note": "ratio below threshold -> factor; at or above the last threshold the factor is sqrt(ratio)"
+   },
+   {
+    "field_id": "FLD_PRICE_FIXED_GOOD_FLAG",
+    "value": "money",
+    "value_type": "string",
+    "note": "goods with this goods.txt flag keep their base cost"
+   },
+   {
+    "field_id": "FLD_PRICE_SETUP_UPDATES",
+    "value": 2,
+    "value_type": "integer",
+    "note": "price updates run during setup before day 1"
+   },
+   {
+    "field_id": "FLD_STATIC_MODIFIERS_FILE",
+    "value": "common/static_modifiers.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_NATIONAL_VALUES_FILE",
+    "value": "common/nationalvalues.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_MOD_STORAGE_SCALE",
+    "value": 1000,
+    "value_type": "integer",
+    "note": "modifier totals are kept in thousandths"
+   },
+   {
+    "field_id": "FLD_MOD_BASE_BLOCKS",
+    "value": "base_values",
+    "value_type": "string",
+    "note": "static modifier blocks every country gets"
+   },
+   {
+    "field_id": "FLD_MOD_PEACE_BLOCK",
+    "value": "peace",
+    "value_type": "string",
+    "note": "static block while at peace"
+   },
+   {
+    "field_id": "FLD_MOD_WAR_BLOCK",
+    "value": "war",
+    "value_type": "string",
+    "note": "static block while at war"
+   },
+   {
+    "field_id": "FLD_MOD_RANK_BLOCKS",
+    "value": "great_power,second_power,civ_nation,unciv_nation",
+    "value_type": "string",
+    "note": "exactly one by rank: great power, secondary power, civilized, uncivilized"
+   },
+   {
+    "field_id": "FLD_MOD_SCALED_BLOCKS",
+    "value": "plurality:plurality,average_literacy:literacy,war_exhaustion:war_exhaustion,badboy:badboy",
+    "value_type": "string",
+    "note": "block:country value it is multiplied by; each entry truncated to thousandths"
+   },
+   {
+    "field_id": "FLD_MOD_CIV_REFORM_CATEGORIES",
+    "value": "political_reforms,social_reforms",
+    "value_type": "string",
+    "note": "reform categories applied to civilized countries"
+   },
+   {
+    "field_id": "FLD_MOD_UNCIV_REFORM_CATEGORIES",
+    "value": "economic_reforms,military_reforms",
+    "value_type": "string",
+    "note": "reform categories applied to uncivilized countries"
+   },
+   {
+    "field_id": "FLD_MOD_PARTY_ISSUE_CATEGORY",
+    "value": "party_issues",
+    "value_type": "string",
+    "note": "ruling party policies, applied to every country"
+   },
+   {
+    "field_id": "FLD_MOD_LITERACY_RAW_ADJUST",
+    "value": -1,
+    "value_type": "integer",
+    "note": "per-pop raw literacy adjustment when computing the national average from a save"
+   },
+   {
+    "field_id": "FLD_CRIME_FILE",
+    "value": "common/crime.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_PMOD_LAND_BLOCK",
+    "value": "land_province",
+    "value_type": "string",
+    "note": "static block of every land province"
+   },
+   {
+    "field_id": "FLD_PMOD_SEA_BLOCK",
+    "value": "sea_zone",
+    "value_type": "string",
+    "note": "static block of every sea province"
+   },
+   {
+    "field_id": "FLD_PMOD_COASTAL_SEA_BLOCK",
+    "value": "coastal_sea",
+    "value_type": "string",
+    "note": "added for sea provinces next to land"
+   },
+   {
+    "field_id": "FLD_PMOD_INFRASTRUCTURE_BLOCK",
+    "value": "infrastructure:infrastructure",
+    "value_type": "string",
+    "note": "static block:building value it is scaled by (sum of level x value), truncated"
+   },
+   {
+    "field_id": "FLD_PMOD_SIEGE_BLOCK",
+    "value": "has_siege",
+    "value_type": "string",
+    "note": "static block while besieged"
+   },
+   {
+    "field_id": "FLD_PMOD_TERRAIN_IGNORED_KEYS",
+    "value": "movement_cost,defence,combat_width,min_build_railroad",
+    "value_type": "string",
+    "note": "terrain category entries that are not province modifiers"
+   },
+   {
+    "field_id": "FLD_PMOD_BUILDING_KEYS",
+    "value": "fort_level,local_ship_build,movement_cost",
+    "value_type": "string",
+    "note": "building entries added per level to province modifiers"
+   },
+   {
+    "field_id": "FLD_CLIMATE_FILE",
+    "value": "map/climate.txt",
+    "value_type": "string",
+    "note": "path relative to install; default.map does not name it"
+   },
+   {
+    "field_id": "FLD_PROD_SCALAR_KEYS",
+    "value": "farm_rgo_size,mine_rgo_size,farm_rgo_eff,mine_rgo_eff,rgo_input,rgo_output,rgo_throughput",
+    "value_type": "string",
+    "note": "technology / invention-effect keys that feed a country production bonus"
+   },
+   {
+    "field_id": "FLD_PROD_GOOD_KEYS",
+    "value": "rgo_size,rgo_goods_input,rgo_goods_output,rgo_goods_throughput",
+    "value_type": "string",
+    "note": "per-good bonus blocks, in the order size, input, output, throughput"
+   },
+   {
+    "field_id": "FLD_RGO_MIN_SIZE_RAW",
+    "value": 328,
+    "value_type": "integer",
+    "note": "smallest RGO size, raw fixed point"
+   },
+   {
+    "field_id": "FLD_RGO_BASE_SIZE_FACTOR",
+    "value": 1.5,
+    "value_type": "number",
+    "note": "setup base size = steps needed to employ every worker x this, truncated"
+   },
+   {
+    "field_id": "FLD_RGO_NATIONAL_KEYS",
+    "value": "rgo_input,rgo_output,rgo_throughput",
+    "value_type": "string",
+    "note": "national modifier and bonus keys per factor"
+   },
+   {
+    "field_id": "FLD_RGO_LOCAL_KEYS",
+    "value": "local_rgo_input,local_rgo_output,local_rgo_throughput",
+    "value_type": "string",
+    "note": "province modifier keys per factor"
+   },
+   {
+    "field_id": "FLD_RGO_SIZE_KEYS",
+    "value": "farm_rgo_size,mine_rgo_size",
+    "value_type": "string",
+    "note": "farm, mine size keys"
+   },
+   {
+    "field_id": "FLD_RGO_EFF_KEYS",
+    "value": "farm_rgo_eff,mine_rgo_eff",
+    "value_type": "string",
+    "note": "farm, mine efficiency keys"
+   },
+   {
+    "field_id": "FLD_RGO_GOOD_SIZE_SUFFIX",
+    "value": "_rgo_size",
+    "value_type": "string",
+    "note": "province per-good size key = good + suffix"
+   },
+   {
+    "field_id": "FLD_RGO_GOOD_EFF_SUFFIX",
+    "value": "_rgo_eff",
+    "value_type": "string",
+    "note": "province per-good efficiency key = good + suffix"
+   },
+   {
+    "field_id": "FLD_RGO_TECH_EFF_ALL_FACTORS",
+    "value": true,
+    "value_type": "boolean",
+    "note": "bonus farm/mine efficiency is added to input, output and throughput, not only output"
+   },
+   {
+    "field_id": "FLD_RGO_LANDMASS_LINK_KINDS",
+    "value": "sea",
+    "value_type": "string",
+    "note": "adjacencies.csv kinds that join two provinces of the same owner (with map adjacency) for the overseas test"
+   },
+   {
+    "field_id": "FLD_RGO_HIRE_DEFINES_SECTION",
+    "value": "economy",
+    "value_type": "string",
+    "note": "defines.lua section of the hiring rates"
+   },
+   {
+    "field_id": "FLD_RGO_HIRE_DEFINES",
+    "value": "RGO_SUPPLY_DEMAND_FACTOR_HIRE_HI,RGO_SUPPLY_DEMAND_FACTOR_HIRE_LO,RGO_SUPPLY_DEMAND_FACTOR_FIRE,EMPLOYMENT_HIRE_LOWEST,EMPLOYMENT_FIRE_LOWEST",
+    "value_type": "string",
+    "note": "define names: high hire, low hire, fire rate, lowest hire share, lowest fire share"
+   },
+   {
+    "field_id": "FLD_RGO_FIRE_ABOVE",
+    "value": 1.05,
+    "value_type": "number",
+    "note": "fire when yesterday supply / real demand is above this (single-precision constant)"
+   },
+   {
+    "field_id": "FLD_RGO_HIRE_HI_BELOW",
+    "value": 0.9,
+    "value_type": "number",
+    "note": "high hire rate below this ratio"
+   },
+   {
+    "field_id": "FLD_RGO_HIRE_LO_BELOW",
+    "value": 1,
+    "value_type": "number",
+    "note": "low hire rate below this ratio"
+   },
+   {
+    "field_id": "FLD_RGO_MIN_STEP",
+    "value": 50,
+    "value_type": "integer",
+    "note": "fewest workers hired or fired in one day"
+   },
+   {
+    "field_id": "FLD_RGO_FIRE_DIVISOR",
+    "value": 4,
+    "value_type": "integer",
+    "note": "a firing step is divided by this, truncated"
+   },
+   {
+    "field_id": "FLD_RGO_RECENT_DAYS",
+    "value": 14,
+    "value_type": "integer",
+    "note": "days after a controller change with fast, unscaled hiring"
+   },
+   {
+    "field_id": "FLD_RGO_RECENT_FACTOR",
+    "value": 25,
+    "value_type": "integer",
+    "note": "hire-rate multiplier in those days"
+   },
+   {
+    "field_id": "FLD_EVENT_MODIFIERS_FILE",
+    "value": "common/event_modifiers.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_PRESTIGE_MIN",
+    "value": 0,
+    "value_type": "number",
+    "note": "prestige"
+   },
+   {
+    "field_id": "FLD_TREASURY_MIN",
+    "value": 0,
+    "value_type": "number",
+    "note": "money"
+   },
+   {
+    "field_id": "FLD_POP_CON_MAX",
+    "value": 10,
+    "value_type": "number",
+    "note": "consciousness"
+   },
+   {
+    "field_id": "FLD_POP_MIL_MAX",
+    "value": 10,
+    "value_type": "number",
+    "note": "militancy"
+   },
+   {
+    "field_id": "FLD_SETUP_LITERACY",
+    "value": true,
+    "value_type": "boolean",
+    "note": "None"
+   },
+   {
+    "field_id": "FLD_SETUP_NON_STATE_LITERACY",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "share"
+   },
+   {
+    "field_id": "FLD_POP_LITERACY_MAX",
+    "value": 1,
+    "value_type": "number",
+    "note": "share"
+   },
+   {
+    "field_id": "FLD_POP_SIZE_MAX",
+    "value": 2000000,
+    "value_type": "integer",
+    "note": "people"
+   },
+   {
+    "field_id": "FLD_IDEOLOGIES_FILE",
+    "value": "common/ideologies.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_PLURALITY_MAX",
+    "value": 100,
+    "value_type": "number",
+    "note": "points"
+   },
+   {
+    "field_id": "FLD_WAR_EXHAUSTION_MAX",
+    "value": 100,
+    "value_type": "number",
+    "note": "points"
+   },
+   {
+    "field_id": "FLD_BADBOY_MIN",
+    "value": 0,
+    "value_type": "number",
+    "note": "points"
+   },
+   {
+    "field_id": "FLD_RELATION_LIMIT",
+    "value": 200,
+    "value_type": "number",
+    "note": "points"
+   },
+   {
+    "field_id": "FLD_SCRIPT_SEED",
+    "value": 1836,
+    "value_type": "integer",
+    "note": "seed"
+   },
+   {
+    "field_id": "FLD_EVENT_CHECK_DAYS",
+    "value": 30,
+    "value_type": "integer",
+    "note": "days"
+   },
+   {
+    "field_id": "FLD_MTTH_MONTH_DAYS",
+    "value": 30,
+    "value_type": "number",
+    "note": "days"
+   },
+   {
+    "field_id": "FLD_MTTH_YEAR_DAYS",
+    "value": 365,
+    "value_type": "number",
+    "note": "days"
+   },
+   {
+    "field_id": "FLD_POP_MONEY_EFFECT_SCALE",
+    "value": 1000,
+    "value_type": "number",
+    "note": "stored money per script unit"
+   },
+   {
+    "field_id": "FLD_GROWTH_LIFE_RATING_CAP",
+    "value": 40,
+    "value_type": "number",
+    "note": "life rating"
+   },
+   {
+    "field_id": "FLD_POP_STARVATION_RATE",
+    "value": 0.0018,
+    "value_type": "number",
+    "note": "share of the pop lost per update, per unit of life needs below the starvation limit (weak fit)"
+   },
+   {
+    "field_id": "FLD_GLOBAL_GROWTH_SCALE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "share of a country-wide growth modifier that counts"
+   },
+   {
+    "field_id": "FLD_POP_GROWTH_SCALE",
+    "value": 0.83,
+    "value_type": "number",
+    "note": "share of people gained that is kept"
+   },
+   {
+    "field_id": "FLD_POP_RULES_FILE",
+    "value": "common/pop_types.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_PROMOTION_TUNE",
+    "value": 0.8,
+    "value_type": "number",
+    "note": "port's own factor on people promoted, on top of the promotion block's own factor and administrative efficiency. The original's tooltip for 343,559 labourers: promotion factors 8.50%, administrative efficiency 16.82%, 8 people a month; size x 0.002 x 0.085 x 0.1682 = 9.8"
+   },
+   {
+    "field_id": "FLD_DEMOTION_TUNE",
+    "value": 1,
+    "value_type": "number",
+    "note": "factor on people demoted: 1 since the block's own factor is left out of the chance"
+   },
+   {
+    "field_id": "FLD_LITERACY_SCALE",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "fixed factor of the literacy change"
+   },
+   {
+    "field_id": "FLD_POP_LITERACY_MIN",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "share"
+   },
+   {
+    "field_id": "FLD_MIGRATION_WHOLE_POP",
+    "value": 100,
+    "value_type": "integer",
+    "note": "people: a smaller pop migrates as a whole (read from the original)"
+   },
+   {
+    "field_id": "FLD_MIGRATION_TARGETS",
+    "value": 3,
+    "value_type": "integer",
+    "note": "best targets that share the migrants"
+   },
+   {
+    "field_id": "FLD_ASSIMILATION_STATE_FACTOR",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "port's own factor on people assimilated in a state (tuned at country scale)"
+   },
+   {
+    "field_id": "FLD_ASSIMILATION_COLONY_FACTOR",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "port's own factor on people assimilated in a colonial province"
+   },
+   {
+    "field_id": "FLD_MIGRATION_TUNE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "port's own factor on the chance to move within the country"
+   },
+   {
+    "field_id": "FLD_EMIGRATION_TUNE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "port's own factor on the chance to emigrate"
+   },
+   {
+    "field_id": "FLD_PLURALITY_PER_CONSCIOUSNESS",
+    "value": 0.0218,
+    "value_type": "number",
+    "note": "plurality points a month per point of average consciousness"
+   },
+   {
+    "field_id": "FLD_RESEARCH_PER_PLURALITY",
+    "value": 2,
+    "value_type": "number",
+    "note": "research bonus in percent per point of plurality"
+   },
+   {
+    "field_id": "FLD_INVENTION_PLURALITY_SCALE",
+    "value": 100,
+    "value_type": "number",
+    "note": "plurality points paid once per unit of an invention's `plurality` effect"
+   },
+   {
+    "field_id": "FLD_NEEDS_PER_PEOPLE",
+    "value": 200000,
+    "value_type": "number",
+    "note": "people one line of a pop type's needs is written for"
+   },
+   {
+    "field_id": "FLD_RGO_OWNER_INCOME_FACTOR",
+    "value": 10,
+    "value_type": "number",
+    "note": "owners' share of farm and mine income per share of the country's people they are"
+   },
+   {
+    "field_id": "FLD_RGO_OWNER_INCOME_MAX",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "largest share of farm and mine income the owners can receive"
+   },
+   {
+    "field_id": "FLD_TAX_EFF_SCALE",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "tax efficiency added per point of a technology's tax_eff"
+   },
+   {
+    "field_id": "FLD_STATE_PAID_POPS",
+    "value": "clergymen:education_spending:2,bureaucrats:crime_fighting:3,soldiers:military_spending:2,officers:military_spending:3",
+    "value_type": "string",
+    "note": "pop types the state pays: type:budget slider:number of needs tiers covered"
+   },
+   {
+    "field_id": "FLD_STATE_PAY_FACTOR",
+    "value": 2,
+    "value_type": "number",
+    "note": "state pay at a full slider, as a multiple of the cost of the covered needs"
+   },
+   {
+    "field_id": "FLD_STATE_PAY_OVERHEAD",
+    "value": 1.75,
+    "value_type": "number",
+    "note": "what the treasury is charged per unit of pay its pops receive"
+   },
+   {
+    "field_id": "FLD_STATE_SUPPLY_SHARE",
+    "value": 0.6,
+    "value_type": "number",
+    "note": "share of the army's and navy's daily supply needs the state ends up paying for"
+   },
+   {
+    "field_id": "FLD_ARTISAN_THROTTLE_DOWN",
+    "value": 0.85,
+    "value_type": "number",
+    "note": "factor on an artisan pop's throttle on a day it cannot pay for its inputs"
+   },
+   {
+    "field_id": "FLD_ARTISAN_THROTTLE_UP",
+    "value": 1.15,
+    "value_type": "number",
+    "note": "factor on an artisan pop's throttle on a day it is fully supplied"
+   },
+   {
+    "field_id": "FLD_ARTISAN_THROTTLE_MIN",
+    "value": 0.15,
+    "value_type": "number",
+    "note": "lowest throttle of an artisan pop"
+   },
+   {
+    "field_id": "FLD_ARTISAN_SMALL_POP",
+    "value": 164,
+    "value_type": "number",
+    "note": "artisan pops of this size or smaller never throttle or switch"
+   },
+   {
+    "field_id": "FLD_ARTISAN_SWITCH_CHANCE",
+    "value": 0.04,
+    "value_type": "number",
+    "note": "chance a day that a broke artisan pop at the throttle floor switches to another good"
+   },
+   {
+    "field_id": "FLD_POP_SAVINGS_DAYS",
+    "value": 15,
+    "value_type": "number",
+    "note": "days of its own needs and inputs a pop keeps as cash; the rest goes to its country's treasury"
+   },
+   {
+    "field_id": "FLD_GOVERNMENTS_FILE",
+    "value": "common/governments.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_REFORM_SUPPORT_NEEDED",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "upper house support (sum of share x ideology weight) a reform needs to pass: more than half. Checked on the original's saves: UK 1839 support 0.56 and Holstein 0.61, both reformed within the year, and the port's pick (secret ballots; landed voting) is the reform they passed"
+   },
+   {
+    "field_id": "FLD_NATIONAL_FOCUS_FILE",
+    "value": "common/national_focus.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_IDEOLOGY_STEP",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "points of 100 a pop gains each month in an ideology whose weight share is above its own share"
+   },
+   {
+    "field_id": "FLD_IDEOLOGY_BIG_STEP",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "points gained instead when the weight share is above FLD_IDEOLOGY_BIG_RATIO times its own share"
+   },
+   {
+    "field_id": "FLD_IDEOLOGY_BIG_RATIO",
+    "value": 2,
+    "value_type": "number",
+    "note": "see FLD_IDEOLOGY_BIG_STEP"
+   },
+   {
+    "field_id": "FLD_FACTORY_OWNER_SHARE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "share of a factory's pay that goes to the capitalists of its state; the rest to its workers"
+   },
+   {
+    "field_id": "FLD_FACTORY_FIRE_STEP",
+    "value": 0.005,
+    "value_type": "number",
+    "note": "share of its places a factory that lost money the day before lets go each day"
+   },
+   {
+    "field_id": "FLD_FACTORY_MAX_PER_STATE",
+    "value": 8,
+    "value_type": "integer",
+    "note": "most factories in one state"
+   },
+   {
+    "field_id": "FLD_STATE_FACTORY_PROJECTS",
+    "value": 2,
+    "value_type": "integer",
+    "note": "factory building sites a government keeps going at a time"
+   },
+   {
+    "field_id": "FLD_FACTORY_STATE_COST_FACTOR",
+    "value": 2,
+    "value_type": "number",
+    "note": "a government pays this minus its administrative efficiency times a factory's cost"
+   },
+   {
+    "field_id": "FLD_FACTORY_START_CASH_SHARE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "cash a new factory opens with, as a share of the most it may hold"
+   },
+   {
+    "field_id": "FLD_STATE_FACTORY_BUDGET_DAYS",
+    "value": 180,
+    "value_type": "number",
+    "note": "a government starts a factory only when it costs no more than this many days of its tax income"
+   },
+   {
+    "field_id": "FLD_POP_MOVE_THRESHOLD",
+    "value": 1,
+    "value_type": "number",
+    "note": "people pending for promotion or demotion before they move"
+   },
+   {
+    "field_id": "FLD_ISSUE_STEP",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "points of 100 an issue moves a month, times 1 + issue_change_speed"
+   },
+   {
+    "field_id": "FLD_ISSUE_BIG_STEP",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "step when the weight share is above FLD_ISSUE_BIG_RATIO times the support"
+   },
+   {
+    "field_id": "FLD_ISSUE_BIG_RATIO",
+    "value": 2,
+    "value_type": "number",
+    "note": "see FLD_ISSUE_BIG_STEP"
+   },
+   {
+    "field_id": "FLD_ISSUE_FULL_STEP",
+    "value": 1,
+    "value_type": "number",
+    "note": "step when the weight share is above FLD_ISSUE_FULL_RATIO times the support"
+   },
+   {
+    "field_id": "FLD_ISSUE_FULL_RATIO",
+    "value": 5,
+    "value_type": "number",
+    "note": "see FLD_ISSUE_FULL_STEP"
+   },
+   {
+    "field_id": "FLD_MIGRATION_CHUNK",
+    "value": 10,
+    "value_type": "number",
+    "note": "migrants are handed to provinces in lots above this size"
+   },
+   {
+    "field_id": "FLD_MIGRATION_SCORE_FLOOR",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "lowest score of a country as an emigration target"
+   },
+   {
+    "field_id": "FLD_MOOD_TERM_THRESHOLD",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "a term of the militancy or consciousness change counts only beyond this"
+   },
+   {
+    "field_id": "FLD_MOOD_NEEDS_MIDPOINT",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "needs fulfilment at which the needs terms of militancy change sign"
+   },
+   {
+    "field_id": "FLD_CAN_BUILD_FACTORY_CASH",
+    "value": 6.25,
+    "value_type": "number",
+    "note": "cash, as the save stores it, a pop needs for can_build_factory"
+   },
+   {
+    "field_id": "FLD_STAFF_SPEED_FACTORY",
+    "value": 0.15,
+    "value_type": "number",
+    "note": "share of the gap to its wanted staff a factory hires a day"
+   },
+   {
+    "field_id": "FLD_STAFF_FIRE_DIVISOR",
+    "value": 4,
+    "value_type": "number",
+    "note": "firing closes the gap this many times slower than hiring"
+   },
+   {
+    "field_id": "FLD_STAFF_STEP_FLOOR",
+    "value": 50,
+    "value_type": "number",
+    "note": "fewest people hired or let go a day"
+   },
+   {
+    "field_id": "FLD_FACTORY_BUDGET_GROWTH",
+    "value": 1.05,
+    "value_type": "number",
+    "note": "a factory spends on inputs at most this times yesterday's spending"
+   },
+   {
+    "field_id": "FLD_FACTORY_BUDGET_CASH_SHARE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "and at least this share of its cash"
+   },
+   {
+    "field_id": "FLD_FACTORY_PAY_RESERVE_DAYS",
+    "value": 7,
+    "value_type": "number",
+    "note": "days of inputs a factory keeps before paying out profit"
+   },
+   {
+    "field_id": "FLD_FACTORY_NO_INPUT_DAYS",
+    "value": 11,
+    "value_type": "number",
+    "note": "days in a row without buying after which a factory shuts or loses a level"
+   },
+   {
+    "field_id": "FLD_FACTORY_SUBSIDY_WAGE_SHARE",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "a subsidy tops cash up to this share of base wages plus a day's inputs"
+   },
+   {
+    "field_id": "FLD_RGO_FAST_HIRE_FACTOR",
+    "value": 25,
+    "value_type": "number",
+    "note": "hiring is this much faster in the first FLD_RGO_FAST_HIRE_DAYS days"
+   },
+   {
+    "field_id": "FLD_RGO_FAST_HIRE_DAYS",
+    "value": 14,
+    "value_type": "number",
+    "note": "see FLD_RGO_FAST_HIRE_FACTOR"
+   },
+   {
+    "field_id": "FLD_INDUSTRIAL_SCORE_PER_LEVEL",
+    "value": 4,
+    "value_type": "number",
+    "note": "industrial score per factory level at full staffing"
+   },
+   {
+    "field_id": "FLD_INDUSTRIAL_SCORE_MIN_STAFF",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "lowest staffing share counted in the industrial score"
+   },
+   {
+    "field_id": "FLD_REOPEN_COST_SHARE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "cost of reopening a factory as a share of its building cost"
+   },
+   {
+    "field_id": "FLD_GOVERNMENT_BUILD_PERIOD",
+    "value": 18,
+    "value_type": "number",
+    "note": "days between a government's building decisions on average"
+   },
+   {
+    "field_id": "FLD_SUBSIDY_OFF_LOSS_DAYS",
+    "value": 30,
+    "value_type": "number",
+    "note": "loss days after which the AI stops subsidising a factory"
+   },
+   {
+    "field_id": "FLD_SUBSIDY_REVIEW_LOSS_DAYS",
+    "value": 7,
+    "value_type": "number",
+    "note": "loss days after which the AI reviews a subsidy"
+   },
+   {
+    "field_id": "FLD_CAPITALIST_PROFIT_CAP",
+    "value": 100,
+    "value_type": "number",
+    "note": "cap on the profit term when capitalists score a factory type"
+   },
+   {
+    "field_id": "FLD_CAPITALIST_DEMAND_CAP",
+    "value": 2,
+    "value_type": "number",
+    "note": "cap on demand over supply in the same score"
+   },
+   {
+    "field_id": "FLD_AI_FOCUS_NEVER",
+    "value": -100,
+    "value_type": "number",
+    "note": "score of a national focus the AI must not set"
+   },
+   {
+    "field_id": "FLD_AI_FOCUS_CAPITAL_FACTOR",
+    "value": 10,
+    "value_type": "number",
+    "note": "bureaucrat focus score is multiplied by this in a capital under FLD_AI_FOCUS_CAPITAL_SHARE"
+   },
+   {
+    "field_id": "FLD_AI_FOCUS_CAPITAL_SHARE",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "see FLD_AI_FOCUS_CAPITAL_FACTOR"
+   },
+   {
+    "field_id": "FLD_AI_SOLDIER_TARGET_ARMY_SCHOOL",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "added to the soldier share an army technology school aims for"
+   },
+   {
+    "field_id": "FLD_AI_SOLDIER_TARGET_CULTURE_SCHOOL",
+    "value": -0.005,
+    "value_type": "number",
+    "note": "the same for a culture school"
+   },
+   {
+    "field_id": "FLD_AI_CAPITALIST_FOCUS_MIN_FIGURE",
+    "value": 0.3,
+    "value_type": "number",
+    "note": "unidentified province figure the capitalist focus needs; fed as 0, so never set"
+   },
+   {
+    "field_id": "FLD_AI_RAIL_FOCUS_BASE",
+    "value": 2,
+    "value_type": "number",
+    "note": "railroad focus score = this + factories / FLD_AI_RAIL_FOCUS_FACTORIES_PER_POINT"
+   },
+   {
+    "field_id": "FLD_AI_RAIL_FOCUS_FACTORIES_PER_POINT",
+    "value": 2,
+    "value_type": "number",
+    "note": "see FLD_AI_RAIL_FOCUS_BASE"
+   },
+   {
+    "field_id": "FLD_AI_RESEARCH_OVERDUE_PER_YEAR",
+    "value": 0.005,
+    "value_type": "number",
+    "note": "added weight per year a technology is overdue in the AI's research pick"
+   },
+   {
+    "field_id": "FLD_AI_RESEARCH_MIN_TOP_COST",
+    "value": 3600,
+    "value_type": "number",
+    "note": "lowest \"dearest cost\" used in the cheapness term of that pick"
+   },
+   {
+    "field_id": "FLD_HAS_BUILDING_NO_INPUT_DAYS",
+    "value": 11,
+    "value_type": "number",
+    "note": "has_building counts a factory only while it has gone fewer than this many days without inputs"
+   },
+   {
+    "field_id": "FLD_EVENT_SCAN_EVERY_DAYS",
+    "value": 2,
+    "value_type": "number",
+    "note": "events are scanned on alternate days"
+   },
+   {
+    "field_id": "FLD_EVENT_PROVINCE_CHANCE_FACTOR",
+    "value": 2,
+    "value_type": "number",
+    "note": "a province event fires with this times 1/T per scan, a country event with 1/T"
+   },
+   {
+    "field_id": "FLD_EVENT_MIN_CHANCE",
+    "value": 1e-06,
+    "value_type": "number",
+    "note": "lowest chance per scan of an event whose conditions hold"
+   },
+   {
+    "field_id": "FLD_VOTE_IDEOLOGY_DIVISOR",
+    "value": 20,
+    "value_type": "number",
+    "note": "a pop's party support adds consciousness x ideology share / this"
+   },
+   {
+    "field_id": "FLD_VOTE_IDEOLOGY_SHARE_SCALE",
+    "value": 100,
+    "value_type": "number",
+    "note": "the ideology share enters that sum in percent while issue shares enter as fractions"
+   },
+   {
+    "field_id": "FLD_VOTE_CALM_MILITANCY",
+    "value": 5,
+    "value_type": "number",
+    "note": "below this average militancy the largest ideology wins an election first"
+   },
+   {
+    "field_id": "FLD_VOTE_JEFFERSON_THRESHOLD",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "share of a province's votes under which the dhont method drops a party"
+   },
+   {
+    "field_id": "FLD_VOTE_HALF_CITIZEN",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "weight of a non-accepted culture vote under culture_voting"
+   },
+   {
+    "field_id": "FLD_AI_REFORM_UNREST_MILITANCY",
+    "value": 4,
+    "value_type": "number",
+    "note": "average militancy above which the AI passes a reform at FLD_AI_REFORM_UNREST_SUPPORT"
+   },
+   {
+    "field_id": "FLD_AI_REFORM_UNREST_SUPPORT",
+    "value": 0.001,
+    "value_type": "number",
+    "note": "see FLD_AI_REFORM_UNREST_MILITANCY"
+   },
+   {
+    "field_id": "FLD_POP_MOOD_MAX",
+    "value": 10,
+    "value_type": "number",
+    "note": "upper bound of militancy and consciousness"
+   },
+   {
+    "field_id": "FLD_TECH_MIN_COST",
+    "value": 1,
+    "value_type": "number",
+    "note": "a technology never costs less than this"
+   },
+   {
+    "field_id": "FLD_RESEARCH_STORE_DAYS",
+    "value": 365,
+    "value_type": "number",
+    "note": "days of research points a civilised country stores without a project"
+   },
+   {
+    "field_id": "FLD_LUXURY_NEEDS_FACTOR",
+    "value": 15,
+    "value_type": "number",
+    "note": "luxury needs count this many times in the market's demand figure only; pops buy and pay the plain amount"
+   },
+   {
+    "field_id": "FLD_POP_NEEDS_MEASURED_FACTOR",
+    "value": 1.25,
+    "value_type": "number",
+    "note": "needs measure about 1.0 x the file amounts where BASE_GOODS_DEMAND 0.8 was expected; this closes the gap"
+   },
+   {
+    "field_id": "FLD_POP_DISCOUNT_BASE",
+    "value": 0.7975,
+    "value_type": "number",
+    "note": "share of the price pops pay for their needs; sellers get the full price"
+   },
+   {
+    "field_id": "FLD_POP_NEEDS_COST_FLOOR",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "lowest cost of a needs tier used in the spending split"
+   },
+   {
+    "field_id": "FLD_POP_SAVINGS_COST_DAYS",
+    "value": 2,
+    "value_type": "number",
+    "note": "days of needs cost a pop keeps before it deposits in the bank"
+   },
+   {
+    "field_id": "FLD_POP_SAVINGS_LUXURY_MET",
+    "value": 0.99,
+    "value_type": "number",
+    "note": "luxury needs met above which a pop deposits"
+   },
+   {
+    "field_id": "FLD_POP_CASH_CAP",
+    "value": 1500,
+    "value_type": "number",
+    "note": "cash per pop above which the rest is deposited"
+   },
+   {
+    "field_id": "FLD_INVEST_CASH_SHARE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "share of their cash capitalists put into the pooled project"
+   },
+   {
+    "field_id": "FLD_INVEST_MIN_CASH",
+    "value": 0.001,
+    "value_type": "number",
+    "note": "smallest amount a capitalist pop invests"
+   },
+   {
+    "field_id": "FLD_INVEST_SCORE_CAPITAL",
+    "value": 1000,
+    "value_type": "number",
+    "note": "score of the capital's state when capitalists choose where to invest"
+   },
+   {
+    "field_id": "FLD_INVEST_SCORE_CORE",
+    "value": 200,
+    "value_type": "number",
+    "note": "the same for a state with a core"
+   },
+   {
+    "field_id": "FLD_INVEST_SCORE_FACTORY",
+    "value": 25,
+    "value_type": "number",
+    "note": "the same per factory in the state"
+   },
+   {
+    "field_id": "FLD_INVEST_SCORE_NOT_COLONY",
+    "value": 50,
+    "value_type": "number",
+    "note": "the same for a state that is not a colony"
+   },
+   {
+    "field_id": "FLD_LOAN_MIN_INTEREST",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "lowest interest charged on a loan in a period"
+   },
+   {
+    "field_id": "FLD_LOAN_INTEREST_DAYS",
+    "value": 30,
+    "value_type": "number",
+    "note": "the loan rate is per this many days"
+   },
+   {
+    "field_id": "FLD_BANKRUPTCY_SHORTFALL",
+    "value": 0.001,
+    "value_type": "number",
+    "note": "unpaid amount above which a state that cannot borrow goes bankrupt (a guess)"
+   },
+   {
+    "field_id": "FLD_BANKRUPTCY_MILITANCY",
+    "value": 2,
+    "value_type": "number",
+    "note": "militancy added to every pop at bankruptcy"
+   },
+   {
+    "field_id": "FLD_AI_STOCKPILE_PEACE_LAND",
+    "value": 0.3,
+    "value_type": "number",
+    "note": "the AI's land supply slider at peace"
+   },
+   {
+    "field_id": "FLD_AI_STOCKPILE_PEACE_NAVAL",
+    "value": 0.35,
+    "value_type": "number",
+    "note": "the AI's naval supply slider at peace"
+   },
+   {
+    "field_id": "FLD_AI_STOCKPILE_PEACE_PROJECTS",
+    "value": 0.75,
+    "value_type": "number",
+    "note": "the AI's construction slider at peace"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_TARGET_SURPLUS",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "the AI's tax stand-in aims for income this share above spending"
+   },
+   {
+    "field_id": "FLD_AI_TAX_RAISE_FROM",
+    "value": 0.02,
+    "value_type": "number",
+    "note": "shortfall share from which that stand-in raises taxes"
+   },
+   {
+    "field_id": "FLD_MILITARY_SCORE_LAND_DIVISOR",
+    "value": 7,
+    "value_type": "number",
+    "note": "the land part of the military score is divided by this"
+   },
+   {
+    "field_id": "FLD_MILITARY_SCORE_REGIMENT_CAP",
+    "value": 4,
+    "value_type": "number",
+    "note": "regiments the soldier pops could support count at most this times the regiments that exist"
+   },
+   {
+    "field_id": "FLD_MILITARY_SCORE_MIN_SUPPLY",
+    "value": 0.001,
+    "value_type": "number",
+    "note": "floor of the supply-consumption term of the military score"
+   },
+   {
+    "field_id": "FLD_MILITARY_SCORE_SHIP_DIVISOR",
+    "value": 250,
+    "value_type": "number",
+    "note": "a capital ship adds gun power x hull / this"
+   },
+   {
+    "field_id": "FLD_INVESTMENT_SCORE_SHARE",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "money invested abroad x this x INVESTMENT_SCORE_FACTOR enters the industrial score"
+   },
+   {
+    "field_id": "FLD_GREAT_POWER_MIN_STATES",
+    "value": 2,
+    "value_type": "number",
+    "note": "states a civilised country must own to hold a great-power seat"
+   },
+   {
+    "field_id": "FLD_AI_REPAY_SHARE",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "share of its treasury the AI puts to repaying loans a day"
+   },
+   {
+    "field_id": "FLD_AI_REPAY_MIN_TREASURY",
+    "value": 50,
+    "value_type": "number",
+    "note": "treasury below which the AI does not repay"
+   },
+   {
+    "field_id": "FLD_POP_STARVATION_SLOPE",
+    "value": 4,
+    "value_type": "number",
+    "note": "under the starvation limit the province's growth rate is cut by this x the shortfall of life needs; replaces FLD_POP_STARVATION_RATE, which is no longer read"
+   },
+   {
+    "field_id": "FLD_AI_TOP_UP_BONUS_NEW",
+    "value": 2,
+    "value_type": "number",
+    "note": "what a new-factory project scores on top of its paid share when the AI chooses which of its capitalists' projects to pay into"
+   },
+   {
+    "field_id": "FLD_AI_TOP_UP_BONUS_OLD",
+    "value": 1.5,
+    "value_type": "number",
+    "note": "the same for reopening or enlarging a factory"
+   },
+   {
+    "field_id": "FLD_POP_TYPE_SOLDIERS",
+    "value": "soldiers",
+    "value_type": "string",
+    "note": "pop type the AI focus rules treat as soldiers (the original marks it by a flag in the pop type file; the port names it)"
+   },
+   {
+    "field_id": "FLD_POP_TYPE_BUREAUCRATS",
+    "value": "bureaucrats",
+    "value_type": "string",
+    "note": "pop type the AI focus rules treat as bureaucrats (flag in the original; the port names it)"
+   },
+   {
+    "field_id": "FLD_POP_TYPE_CLERGY",
+    "value": "clergymen",
+    "value_type": "string",
+    "note": "pop type the AI focus rules treat as clergy (flag in the original; the port names it)"
+   },
+   {
+    "field_id": "FLD_BUILDING_KIND_RAILROAD",
+    "value": "infrastructure",
+    "value_type": "string",
+    "note": "kind (type) of the railroad among the province buildings, used by the AI railroad focus"
+   },
+   {
+    "field_id": "FLD_UNITS_DIR",
+    "value": "units",
+    "value_type": "string",
+    "note": "path relative to install (one file per unit type)"
+   },
+   {
+    "field_id": "FLD_AI_REPAY_SURPLUS_SHARE",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "the AI pays back min(daily surplus x this, FLD_AI_REPAY_SURPLUS_MAX) a day"
+   },
+   {
+    "field_id": "FLD_AI_REPAY_SURPLUS_MAX",
+    "value": 50,
+    "value_type": "number",
+    "note": "most the AI pays back a day, budget units"
+   },
+   {
+    "field_id": "FLD_AI_REPAY_SURPLUS_MIN",
+    "value": 1,
+    "value_type": "number",
+    "note": "the AI pays back nothing when the amount would be at most this"
+   },
+   {
+    "field_id": "FLD_AI_REPAY_SURPLUS_TREASURY",
+    "value": 100,
+    "value_type": "number",
+    "note": "the AI pays back only while its treasury is above this"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_SURPLUS_SHARE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "the AI's tax stand-in wants a daily surplus of this share of spending while the treasury holds under FLD_AI_BUDGET_SURPLUS_RESERVE_DAYS of spending"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_SURPLUS_RESERVE_DAYS",
+    "value": 365,
+    "value_type": "number",
+    "note": "days of spending, see FLD_AI_BUDGET_SURPLUS_SHARE"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_SPEND_DOWN_SHARE",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "and a daily deficit of this share of spending above FLD_AI_BUDGET_SPEND_DOWN_RICH_DAYS"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_SPEND_DOWN_RICH_DAYS",
+    "value": 730,
+    "value_type": "number",
+    "note": "days of spending, see FLD_AI_BUDGET_SPEND_DOWN_SHARE"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_PERIOD_DAYS",
+    "value": 18,
+    "value_type": "number",
+    "note": "the AI sets its sliders about once in this many days (countdown of 10 to 26 ticks); the port moves taxes 1/this of the way a day"
+   },
+   {
+    "field_id": "FLD_FACTORY_REOPEN_COST_SHARE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "cost of reopening a shut factory as a share of its building cost"
+   },
+   {
+    "field_id": "FLD_AI_BUILD_PERIOD_DAYS",
+    "value": 18,
+    "value_type": "number",
+    "note": "a government looks at building once in this many days on average"
+   },
+   {
+    "field_id": "FLD_AI_SUBSIDY_OFF_LOSS_DAYS",
+    "value": 30,
+    "value_type": "number",
+    "note": "loss days in a row after which the AI ends a subsidy"
+   },
+   {
+    "field_id": "FLD_AI_SUBSIDY_REVIEW_LOSS_DAYS",
+    "value": 7,
+    "value_type": "number",
+    "note": "loss days from which a subsidy ends when the state's other factories have room for the workers"
+   },
+   {
+    "field_id": "FLD_AI_INPUT_SHORT_PENALTY",
+    "value": -100000,
+    "value_type": "number",
+    "note": "the government's factory-type score for an input the world market is short of"
+   },
+   {
+    "field_id": "FLD_AI_OUTPUT_GLUT_PENALTY",
+    "value": -10000,
+    "value_type": "number",
+    "note": "added to the government's factory-type score when the output is oversupplied"
+   },
+   {
+    "field_id": "FLD_MIL_REBEL_TAG",
+    "value": "REB",
+    "value_type": "string",
+    "note": "tag the save writes for rebels, who own armies and leaders but no land"
+   },
+   {
+    "field_id": "FLD_MIL_FULL_GARRISON",
+    "value": 100,
+    "value_type": "number",
+    "note": "garrison of a province nobody besieges; a siege takes it to 0"
+   },
+   {
+    "field_id": "FLD_MIL_MEN_PER_STRENGTH",
+    "value": 1000,
+    "value_type": "number",
+    "note": "men in 1.0 of a regiment's strength: a 3.0 regiment is 3000 men"
+   },
+   {
+    "field_id": "FLD_MIL_MOVE_SEA_LAND_DISTANCE",
+    "value": 12,
+    "value_type": "number",
+    "note": "distance of one army step between land and sea"
+   },
+   {
+    "field_id": "FLD_MIL_MOVE_SEA_LAND_SPEED",
+    "value": 1,
+    "value_type": "number",
+    "note": "army speed when the next province is of the other kind"
+   },
+   {
+    "field_id": "FLD_MIL_MOVE_MIN_DISTANCE_FACTOR",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "floor of 1 + movement cost modifier of the province left"
+   },
+   {
+    "field_id": "FLD_MIL_MOVE_ORDER_BATTLE_MIN_DAYS",
+    "value": 7,
+    "value_type": "number"
+   },
+   {
+    "field_id": "FLD_MIL_MOVE_JUST_MOVED_LOCK_DAYS",
+    "value": 1,
+    "value_type": "number",
+    "note": "days of the just-moved lock (a unit flag) without arrival check; the map gives no length, the port's stand-in"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_FORT_TABLE",
+    "value": "0,1.0,1.81,2.38,2.83,3.19,3.5,3.77,4.0,4.22",
+    "value_type": "string",
+    "note": "divisor 1 + entry by fort level 0..9"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_DIE_TABLE",
+    "value": "0,0.2,0.5,0.75,0.75,1.0,1.1,1.1,1.25,1.25",
+    "value_type": "string",
+    "note": "siege progress factor by die 0..9"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_OWNER_BONUS",
+    "value": 1.25,
+    "value_type": "number",
+    "note": "factor when the owner is among the besiegers"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_CORE_BONUS",
+    "value": 1.1,
+    "value_type": "number",
+    "note": "factor when the province is a core of the first besieger (inferred)"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_LIBERATION_RELATIONS",
+    "value": 25,
+    "value_type": "number",
+    "note": "relations other besiegers gain with the owner on liberation"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_GARRISON_REGROWTH",
+    "value": 1,
+    "value_type": "number",
+    "note": "garrison regained a day with no siege; not in the sources, assumed"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_SUPPLY_OWN",
+    "value": 2.5,
+    "value_type": "number",
+    "note": "supply limit multiplier, province owned and controlled"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_SUPPLY_FRIENDLY",
+    "value": 2,
+    "value_type": "number",
+    "note": "supply limit multiplier, controlled, owned-but-occupied or friendly"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_SUPPLY_HOSTILE",
+    "value": 1,
+    "value_type": "number",
+    "note": "supply limit multiplier otherwise"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_SIEGE_ATTRITION",
+    "value": 2,
+    "value_type": "number",
+    "note": "attrition added to a besieging unit after the cap"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_SHIP_SUNK_BELOW",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "a ship below this strength sinks"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_SUPPLY_RANGE",
+    "value": 250,
+    "value_type": "number",
+    "note": "fleet supply range before technology"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_ORG_REGAIN",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "organisation regained a day at supply 1"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_ORG_SLIDER_FLOOR",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "share of maximum organisation kept at spending slider 0"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_REINFORCE_SPEED",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "monthly reinforcement rate before location, supply and modifiers"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_POP_MIN_SIZE",
+    "value": 1000,
+    "value_type": "number",
+    "note": "pop size under which it supports no regiment"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_POP_SIZE_PER_REGIMENT",
+    "value": 3000,
+    "value_type": "number",
+    "note": "pop size per supported regiment"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_PROTECTORATE_MULT",
+    "value": 8,
+    "value_type": "number",
+    "note": "divisor multiplier in protectorates"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_COLONY_MULT",
+    "value": 5,
+    "value_type": "number",
+    "note": "divisor multiplier in colonies"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_NONCORE_MULT",
+    "value": 3,
+    "value_type": "number",
+    "note": "divisor multiplier in non-core provinces"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_MOBILISED_REFILL_SHARE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "refill share of a regiment whose pop is no soldier"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_DELETE_BELOW_STRENGTH",
+    "value": 0.001,
+    "value_type": "number",
+    "note": "regiment of a pop supporting none is deleted below this strength"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_MIL_TO_AUTORISE",
+    "value": 9,
+    "value_type": "number",
+    "note": "pop militancy above which a rebel pop regiment defects"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_MIN_MOBILIZE_LIMIT",
+    "value": 3,
+    "value_type": "number",
+    "note": "floor of the mobilisation limit in regiments"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_MOBILIZATION_SPEED_BASE",
+    "value": 0.12,
+    "value_type": "number",
+    "note": "daily progress of a mobilisation entry"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_MOBILIZATION_SPEED_RAILS_MULT",
+    "value": 3,
+    "value_type": "number",
+    "note": "rail bonus on mobilisation speed at full railways"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_LEADER_RECRUIT_COST",
+    "value": 20,
+    "value_type": "number",
+    "note": "leadership points per leader, pool cap is 3 times this"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_LEADER_AGE_DEATH_FACTOR",
+    "value": 4,
+    "value_type": "number",
+    "note": "leader death chance is years div this plus 1 in 10950 a day"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_LEADER_SAFE_YEARS",
+    "value": 25,
+    "value_type": "number",
+    "note": "leader outside battle is safe under this many years"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_LEADER_MAX_RANDOM_PRESTIGE",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "maximum random starting prestige of a new leader"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_LEADER_PRESTIGE_TO_MORALE",
+    "value": 0.8,
+    "value_type": "number",
+    "note": "morale bonus per prestige"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_LEADER_PRESTIGE_TO_MAX_ORG",
+    "value": 0.7,
+    "value_type": "number",
+    "note": "maximum organisation bonus per prestige"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_MAX_EXPERIENCE",
+    "value": 100,
+    "value_type": "number",
+    "note": "cap of a new regiment experience"
+   },
+   {
+    "field_id": "FLD_MIL_LOG_NAVAL_ATTRITION_PER_MONTH",
+    "value": 2,
+    "value_type": "number",
+    "note": "naval attrition points added per month out of supply"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_DICE_PERIOD_DAYS",
+    "value": 5,
+    "value_type": "number",
+    "note": "a side keeps one die for this many days, then re-rolls"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_DICE_SIDES",
+    "value": 10,
+    "value_type": "number",
+    "note": "the die is 0 to this minus 1"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_LOCK_DAYS",
+    "value": 11,
+    "value_type": "number"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_WIDTH_START",
+    "value": 30,
+    "value_type": "number",
+    "note": "start value of the width before the smallest country width is taken"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_BASE_WIDTH",
+    "value": 30,
+    "value_type": "number",
+    "note": "BASE_COMBAT_WIDTH, digits not read from the install yet"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_FIT_STRENGTH",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "a regiment fights with at least this strength"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_FIT_ORGANISATION",
+    "value": 1,
+    "value_type": "number",
+    "note": "and at least this organisation"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_DAMAGE_SCALE",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "final factor of strength and organisation damage"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_STAT_STEP",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "attack or defence stat adds this per point to the damage"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_FORT_STEP",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "each fort level divides damage by 1 + this per level"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_EXPERIENCE_STEP",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "target experience divides damage by 1 + this per point"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_ORG_DAMAGE_MULT",
+    "value": 10,
+    "value_type": "number",
+    "note": "organisation damage = damage x this / discipline"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_RECON_UNIT_RATIO",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "RECON_UNIT_RATIO: strength share of scouting regiments below which reconnaissance counts less; digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_ENGINEER_UNIT_RATIO",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "ENGINEER_UNIT_RATIO: same for engineers against forts; digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_BASE_TACTICS",
+    "value": 1.5,
+    "value_type": "number",
+    "note": "BASE_MILITARY_TACTICS: strength damage is divided by this plus the target country modifier; digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_POP_SIZE_PER_REGIMENT",
+    "value": 3000,
+    "value_type": "number",
+    "note": "POP_SIZE_PER_REGIMENT: people in the pop behind a full regiment"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_SOLDIER_TO_POP_DAMAGE",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "SOLDIER_TO_POP_DAMAGE: share of lost strength taken from the soldier pop; digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_DESTROY_RATIO",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "a beaten side with less than this share of the winner strength is destroyed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_OVERRUN_FIRST_DAY_RATIO",
+    "value": 10,
+    "value_type": "number",
+    "note": "first-day overrun ratio"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_OVERRUN_RATIO",
+    "value": 2,
+    "value_type": "number",
+    "note": "daily overrun ratio for days 2 to 12"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_SCORE_MEN_DIVISOR",
+    "value": 3000,
+    "value_type": "number",
+    "note": "men per score unit in the battle score"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_SCORE_MIN",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "least value of each side term of the score"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_SCORE_DIVISOR",
+    "value": 4,
+    "value_type": "number",
+    "note": "score = (a + d) / this"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_SCORE_CAP",
+    "value": 5,
+    "value_type": "number",
+    "note": "highest battle score"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_COMBATLOSS_WAR_EXHAUSTION",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "COMBATLOSS_WAR_EXHAUSTION: war exhaustion per regiment lost; digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_PRESTIGE_LAND_GAIN",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "LEADER_PRESTIGE_LAND_GAIN, digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_PRESTIGE_NAVAL_GAIN",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "LEADER_PRESTIGE_NAVAL_GAIN, digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_LEADER_PRESTIGE_SHARE",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "the leader gets score x this prestige, the loser the negative"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SCORE_FACTOR",
+    "value": 30,
+    "value_type": "number",
+    "note": "naval score factor"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SINK_VALUE_BIG",
+    "value": 10,
+    "value_type": "number",
+    "note": "value of a sunk big ship in the naval score; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SINK_VALUE_LIGHT",
+    "value": 5,
+    "value_type": "number",
+    "note": "value of a sunk light ship in the naval score; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SINK_VALUE_TRANSPORT",
+    "value": 2,
+    "value_type": "number",
+    "note": "value of a sunk transport in the naval score; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SEEKING_CHANCE",
+    "value": 0.3,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_SEEKING_CHANCE: a ship without target picks one this share of days; digits assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SEEKING_CHANCE_MIN",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "least seeking chance; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_STACKING_TARGET_SELECT",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_STACKING_TARGET_SELECT; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_STACKING_TARGET_CHANGE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_STACKING_TARGET_CHANGE; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_CHANGE_TARGET_CHANCE",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_CHANGE_TARGET_CHANCE; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SHIFT_BACK",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_SHIFT_BACK_ON_NEXT_TARGET; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SHIFT_BACK_DAYS",
+    "value": 5,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_SHIFT_BACK_DURATION_SCALE; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_MAX_TARGETS",
+    "value": 3,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_MAX_TARGETS: ships that may aim at one enemy; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_DAMAGED_TARGET",
+    "value": 1,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_DAMAGED_TARGET_SELECTION; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SELF_DEFENCE",
+    "value": 1.5,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_SELF_DEFENCE_CHANCE; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_SPEED_TO_DISTANCE",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_SPEED_TO_DISTANCE_FACTOR; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_RETREAT_SPEED_MOD",
+    "value": 2,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_RETREAT_SPEED_MOD; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_RETREAT_CHANCE",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_RETREAT_CHANCE; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_RETREAT_LEVEL",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_RETREAT_STR_ORG_LEVEL; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_RETREAT_MIN_DISTANCE",
+    "value": 0.3,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_RETREAT_MIN_DISTANCE; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_DAMAGE_ORG_MULT",
+    "value": 1,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_DAMAGE_ORG_MULT; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_DAMAGE_STR_MULT",
+    "value": 1,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_DAMAGE_STR_MULT; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NAVAL_DAMAGE_NO_ORG",
+    "value": 2,
+    "value_type": "number",
+    "note": "NAVAL_COMBAT_DAMAGE_MULT_NO_ORG; assumed"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_00",
+    "value": 0.02,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 0 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_01",
+    "value": 0.04,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 1 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_02",
+    "value": 0.06,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 2 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_03",
+    "value": 0.08,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 3 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_04",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 4 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_05",
+    "value": 0.12,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 5 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_06",
+    "value": 0.16,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 6 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_07",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 7 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_08",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 8 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_09",
+    "value": 0.3,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 9 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_10",
+    "value": 0.35,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 10 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_11",
+    "value": 0.4,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 11 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_12",
+    "value": 0.45,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 12 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_13",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 13 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_14",
+    "value": 0.6,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 14 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_15",
+    "value": 0.7,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 15 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_16",
+    "value": 0.8,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 16 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TABLE_17",
+    "value": 0.9,
+    "value_type": "number",
+    "note": "damage factor for die + modifiers + 2 = 17 (shared by land and naval)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_BATTLE_POINT",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "war score of a battle before losses (4.2)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_BATTLE_LOSS_DIVISOR_LAND",
+    "value": 5000,
+    "value_type": "number",
+    "note": "men: loser losses minus half the winner losses, divided by this (4.2)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_BATTLE_LOSS_DIVISOR_SEA",
+    "value": 5,
+    "value_type": "number",
+    "note": "ships, same (4.2, which is which is inferred)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_STATE_COST_FACTOR",
+    "value": 2.8,
+    "value_type": "number",
+    "note": "peace cost per province of a demanded state (5.1)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_STATE_COST_SCALE",
+    "value": 200,
+    "value_type": "number",
+    "note": "peace cost of a province: clamp(this x value / owner total, 1, value) (5.1)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_COST_CAP",
+    "value": 100,
+    "value_type": "number",
+    "note": "cap of the cost of one goal (5.1)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_BLOCKADE_PROVINCE_SHARE",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "share of a province score a blockaded port gives (4.3)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PROVINCE_CORE_MULT",
+    "value": 2,
+    "value_type": "number",
+    "note": "province value factor when the owner has a core (4.3)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PROVINCE_CAPITAL_STATE_MULT",
+    "value": 3,
+    "value_type": "number",
+    "note": "province value factor in the state of the owner capital (4.3)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_EXH_PER_OCCUPIED_PERCENT",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "monthly war exhaustion per percent of home-continent provinces occupied (6)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_EXH_BLOCKADE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "monthly war exhaustion at a fully blockaded country (6)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_EXH_PEACE_MONTHLY",
+    "value": -1,
+    "value_type": "number",
+    "note": "monthly change of war exhaustion in peace (6, inferred)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_EXH_PEACE_MAX",
+    "value": 50,
+    "value_type": "number",
+    "note": "maximum war exhaustion in peace (6, inferred)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_EXH_WAR_MAX",
+    "value": 100,
+    "value_type": "number",
+    "note": "maximum war exhaustion at war (6, inferred)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_GOOD_PEACE_SCORE",
+    "value": 50,
+    "value_type": "number",
+    "note": "war score above which a refused offer counts as good (5.6)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_INFAMY_LIMIT_WHITE_PEACE",
+    "value": 10,
+    "value_type": "number",
+    "note": "infamy above which a long-war AI accepts a white peace (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_WHITE_PEACE_SCORE",
+    "value": 50,
+    "value_type": "number",
+    "note": "war score above which a goalless leader accepts a white peace (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_FORCE_R1_MIN",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "lower clamp of strength ratio r1 (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_FORCE_R1_MAX",
+    "value": 2,
+    "value_type": "number",
+    "note": "upper clamp of r1 (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_FORCE_R2_MAX",
+    "value": 3,
+    "value_type": "number",
+    "note": "cap of r2 (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_FORCE_R1_WEIGHT",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "weight of r1 in the force term (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_FORCE_R2_WEIGHT",
+    "value": 0.75,
+    "value_type": "number",
+    "note": "weight of r2 in the force term (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_OBLIGATORY_BONUS",
+    "value": 50,
+    "value_type": "number",
+    "note": "willingness bonus for an obligatory goal of the own side (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_ANNEX_PENALTY",
+    "value": 100,
+    "value_type": "number",
+    "note": "willingness penalty when the offer annexes the AI or holds an enemy obligatory goal (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_COST_SCORE_CAP",
+    "value": 101,
+    "value_type": "number",
+    "note": "cap of the right side of the cost test (5.5)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_PER_OWN_GOAL",
+    "value": 15,
+    "value_type": "number",
+    "note": "AI adds a goal when its score exceeds this x its own goals"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_PER_OWN_GOAL_GREAT_WAR",
+    "value": 8,
+    "value_type": "number",
+    "note": "same in a great war"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_FIRST_HIGH",
+    "value": 5,
+    "value_type": "number",
+    "note": "threshold with no goal yet, when the leader score exceeds the cost already demanded (which of 5 or 2 is read as inferred)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_FIRST_LOW",
+    "value": 2,
+    "value_type": "number",
+    "note": "threshold with no goal yet otherwise (inferred)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_EXHAUSTION_RATIO",
+    "value": 0.3,
+    "value_type": "number",
+    "note": "AI adds goals only below this war exhaustion / maximum"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_LAND_RATIO",
+    "value": 1,
+    "value_type": "number",
+    "note": "AI adds goals only above this land strength ratio, own side to enemy side"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_MIN_VALUE",
+    "value": 20,
+    "value_type": "number",
+    "note": "AI adds the picked goal only when its value is above this"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_EXH_OCCUPATION_MAX",
+    "value": 5,
+    "value_type": "number",
+    "note": "most the occupation part of monthly war exhaustion can be (6)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_CB_TARGET_PROGRESS",
+    "value": 100,
+    "value_type": "number",
+    "note": "progress at which a casus belli is finished (2.1)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_ADD_GOAL_MIN_SCORE",
+    "value": 0,
+    "value_type": "number",
+    "note": "war score must be above this to add a goal mid-war (3)"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_GOAL_BADBOY_MARGIN",
+    "value": 2,
+    "value_type": "number",
+    "note": "goal picker ceiling is BADBOY_LIMIT minus this"
+   },
+   {
+    "field_id": "FLD_BANKRUPTCY_MILITANCY_CAP",
+    "value": 10,
+    "value_type": "number",
+    "note": "most militancy a bankruptcy raises a pop to"
+   },
+   {
+    "field_id": "FLD_FACTORY_OVERFLOW_SHARE",
+    "value": 0,
+    "value_type": "number",
+    "note": "share of a factory's cash above MAX_FACTORY_MONEY_SAVE x level that is paid out to its owners at once; the rest is cut back and leaves the books"
+   },
+   {
+    "field_id": "FLD_MIL_DAY_DISTANCE_SCALE",
+    "value": 0.23,
+    "value_type": "number",
+    "note": "distance units of one border step per pixel between the two province centroids of the map; a stand-in: the notes give no border distances of the original, so it is calibrated by hand"
+   },
+   {
+    "field_id": "FLD_MIL_DAY_SUPPLY_STATUS",
+    "value": 1,
+    "value_type": "number",
+    "note": "supply status of every non-rebel unit in the military day step: the national stockpile is not modelled there, so units are fully supplied"
+   },
+   {
+    "field_id": "FLD_MIL_DAY_CB_TYPES_FILE",
+    "value": "common/cb_types.txt",
+    "value_type": "string",
+    "note": "casus belli types of the install, read at runtime by the military day step for the war goals"
+   },
+   {
+    "field_id": "FLD_MIL_AI_ATTACK_LIMIT",
+    "value": 0.9,
+    "value_type": "number",
+    "note": "max foe/own ratio to attack"
+   },
+   {
+    "field_id": "FLD_MIL_AI_ORG_FLOOR",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "organisation share under which no attack"
+   },
+   {
+    "field_id": "FLD_MIL_AI_SIEGE_SUPPLY_PER_REGIMENT",
+    "value": 3,
+    "value_type": "number",
+    "note": "supply limit in thousands per regiment in the siege test"
+   },
+   {
+    "field_id": "FLD_MIL_AI_OWN_LIFT_FACTOR",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "score factor lifting own occupied provinces first"
+   },
+   {
+    "field_id": "FLD_MIL_AI_GOAL_FACTOR",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "score factor for war goal states"
+   },
+   {
+    "field_id": "FLD_MIL_AI_MOBILISE_RATIO",
+    "value": 1.5,
+    "value_type": "number",
+    "note": "mobilise under this times enemy land strength"
+   },
+   {
+    "field_id": "FLD_MIL_AI_AREA_SIZE_CAP",
+    "value": 10,
+    "value_type": "number",
+    "note": "area value size cap"
+   },
+   {
+    "field_id": "FLD_MIL_AI_AREA_CAPITAL",
+    "value": 50,
+    "value_type": "number",
+    "note": "area value capital bonus"
+   },
+   {
+    "field_id": "FLD_MIL_AI_AREA_GOAL",
+    "value": 250,
+    "value_type": "number",
+    "note": "area value per war goal province"
+   },
+   {
+    "field_id": "FLD_MIL_AI_BLOCKADE_RATIO",
+    "value": 3,
+    "value_type": "number",
+    "note": "warship superiority for blockades"
+   },
+   {
+    "field_id": "FLD_MIL_AI_BLOCKADE_MAX_FLEET",
+    "value": 12,
+    "value_type": "number",
+    "note": "largest enemy fleet that allows blockades"
+   },
+   {
+    "field_id": "FLD_UNR_JOIN_CON_MAX",
+    "value": 1.5,
+    "value_type": "number",
+    "note": "consciousness below this and literacy above FLD_UNR_JOIN_LIT_MIN: the pop joins no movement this month"
+   },
+   {
+    "field_id": "FLD_UNR_JOIN_LIT_MIN",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "see FLD_UNR_JOIN_CON_MAX"
+   },
+   {
+    "field_id": "FLD_UNR_JOIN_N_SCALE",
+    "value": 9,
+    "value_type": "number",
+    "note": "joining number N = whole part of (literacy x LIT + consciousness x CON) x support x this"
+   },
+   {
+    "field_id": "FLD_UNR_JOIN_N_MIN",
+    "value": 10,
+    "value_type": "number",
+    "note": "N must exceed this to join an issue movement"
+   },
+   {
+    "field_id": "FLD_UNR_RANDOM_RANGE",
+    "value": 1000,
+    "value_type": "number",
+    "note": "a pop random number runs 0..this-1; the joining chance is N / this"
+   },
+   {
+    "field_id": "FLD_UNR_INDEP_ROLL",
+    "value": 20,
+    "value_type": "number",
+    "note": "independence movement: pop random number below this, 2 percent a month"
+   },
+   {
+    "field_id": "FLD_UNR_SUPPORT_TOTAL",
+    "value": 100,
+    "value_type": "number",
+    "note": "support points a member holds for its option while in a movement"
+   },
+   {
+    "field_id": "FLD_UNR_RADICALISM_TURN",
+    "value": 100,
+    "value_type": "number",
+    "note": "a movement at or above this radicalism turns into rebels"
+   },
+   {
+    "field_id": "FLD_UNR_ORG_MONEY_OFFSET",
+    "value": 0.02,
+    "value_type": "number",
+    "note": "organisation gain per member: (money counter of the day + this) / FLD_UNR_ORG_MONEY_DIV x literacy / (1 + admin spending)"
+   },
+   {
+    "field_id": "FLD_UNR_ORG_MONEY_DIV",
+    "value": 1000,
+    "value_type": "number",
+    "note": "see FLD_UNR_ORG_MONEY_OFFSET"
+   },
+   {
+    "field_id": "FLD_UNR_ORG_MUL_AUTORISE",
+    "value": 10,
+    "value_type": "number",
+    "note": "gain x this when militancy is above MIL_TO_AUTORISE"
+   },
+   {
+    "field_id": "FLD_UNR_ORG_MUL_RISING",
+    "value": 5,
+    "value_type": "number",
+    "note": "gain x this when militancy is above MIL_TO_JOIN_RISING"
+   },
+   {
+    "field_id": "FLD_UNR_ORG_DIV",
+    "value": 100,
+    "value_type": "number",
+    "note": "daily organisation gain = sum / brigades x (1 + tech) / this"
+   },
+   {
+    "field_id": "FLD_UNR_RISE_DAY_MOD",
+    "value": 30,
+    "value_type": "number",
+    "note": "a faction rolls for a rising on its own day, drawn as random mod this, redrawn while 0"
+   },
+   {
+    "field_id": "FLD_UNR_RISE_ORG_SCALE",
+    "value": 1000,
+    "value_type": "number",
+    "note": "rising chance = org x this x R / max(1, FLD_UNR_RISE_ARMY_SCALE x G) + FLD_UNR_RISE_ORG_BASE x org + FLD_UNR_RISE_OFFSET, kept in 0..this"
+   },
+   {
+    "field_id": "FLD_UNR_RISE_ARMY_SCALE",
+    "value": 20,
+    "value_type": "number",
+    "note": "see FLD_UNR_RISE_ORG_SCALE"
+   },
+   {
+    "field_id": "FLD_UNR_RISE_ORG_BASE",
+    "value": 50,
+    "value_type": "number",
+    "note": "see FLD_UNR_RISE_ORG_SCALE"
+   },
+   {
+    "field_id": "FLD_UNR_RISE_OFFSET",
+    "value": -20,
+    "value_type": "number",
+    "note": "see FLD_UNR_RISE_ORG_SCALE"
+   },
+   {
+    "field_id": "FLD_UNR_RISE_SUPPLY_DIV",
+    "value": 3,
+    "value_type": "number",
+    "note": "regiments raised in a province are cut to supply limit for REB / this, rounded"
+   },
+   {
+    "field_id": "FLD_UNR_SUPPRESS_CONSCIOUSNESS",
+    "value": 1,
+    "value_type": "number",
+    "note": "consciousness every member gets when its movement is suppressed"
+   },
+   {
+    "field_id": "FLD_BLD_DAILY_ASK_SHARE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "share of the full goods list a province building site asks of the stockpile per day"
+   },
+   {
+    "field_id": "FLD_BLD_AI_FORT_TREASURY_FACTOR",
+    "value": 2,
+    "value_type": "number",
+    "note": "the AI builds a fort only if the treasury exceeds this many times its price"
+   },
+   {
+    "field_id": "FLD_BLD_ABROAD_PRICE_FACTOR",
+    "value": 3,
+    "value_type": "number",
+    "note": "price factor of a railway built abroad"
+   },
+   {
+    "field_id": "FLD_BLD_AI_RAIL_RESERVE_GOODS",
+    "value": 25,
+    "value_type": "number",
+    "note": "the AI railway test needs the next level price plus this many times the price of the building goods"
+   },
+   {
+    "field_id": "FLD_BLD_WEAK_NAVAL_DIVISOR",
+    "value": 3,
+    "value_type": "number",
+    "note": "CHANCE_BUILD_NAVAL_BASE is divided by this for a country below value 1 without the great-power flag"
+   },
+   {
+    "field_id": "FLD_COL_FIRST_STEP_LEVEL",
+    "value": 1,
+    "value_type": "number",
+    "note": "level a newcomer holds in a colonial race after its first step"
+   },
+   {
+    "field_id": "FLD_COL_MAX_CONTENDERS",
+    "value": 4,
+    "value_type": "number",
+    "note": "contender slots of one colonial region"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_SUBJECT",
+    "value": 0.25,
+    "value_type": "number",
+    "note": "monthly relation drift term while a subject link exists"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_WAR",
+    "value": -0.01,
+    "value_type": "number",
+    "note": "drift term while the two are at war"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_NEIGHBOUR",
+    "value": 0.05,
+    "value_type": "number",
+    "note": "drift term for peaceful neighbours; the flag is [?] neighbour"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_GUARANTEE",
+    "value": 0.08,
+    "value_type": "number",
+    "note": "drift term while a guarantee exists"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_ACCESS",
+    "value": 0.025,
+    "value_type": "number",
+    "note": "drift term with military access"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_CASUS_BELLI",
+    "value": -0.3,
+    "value_type": "number",
+    "note": "drift term when the relation is above 0 and a usable casus belli is held"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_SHARE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "share of the summed drift applied to the relation each month"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_CAP",
+    "value": 100,
+    "value_type": "integer",
+    "note": "above this relation a positive drift counts as 0"
+   },
+   {
+    "field_id": "FLD_DIP_DRIFT_AI_OVERLORD",
+    "value": 2,
+    "value_type": "integer",
+    "note": "AI overlord and subject: added to the drift and the least it may be"
+   },
+   {
+    "field_id": "FLD_DIP_POINTS_MAX",
+    "value": 9,
+    "value_type": "integer",
+    "note": "diplomatic points are kept between 0 and this"
+   },
+   {
+    "field_id": "FLD_DIP_LEVEL_FRIENDLY",
+    "value": 4,
+    "value_type": "integer",
+    "note": "opinion level a sphere leader holds towards a country that leaves its sphere"
+   },
+   {
+    "field_id": "FLD_DIP_RELEASE_RELATION",
+    "value": 500,
+    "value_type": "integer",
+    "note": "relation added between a releaser and the released vassal, then clamped"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LEVEL_STEP",
+    "value": 10,
+    "value_type": "integer",
+    "note": "AI opinion: points per opinion level when exactly one of the two is a great power"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LEVEL_OFFSET",
+    "value": 20,
+    "value_type": "integer",
+    "note": "AI opinion: level term is step x level minus this"
+   },
+   {
+    "field_id": "FLD_DIP_AI_DIFFERENT_GOVERNMENT",
+    "value": -20,
+    "value_type": "integer",
+    "note": "AI opinion: different government types"
+   },
+   {
+    "field_id": "FLD_DIP_AI_CIV_VS_UNCIV",
+    "value": -80,
+    "value_type": "integer",
+    "note": "AI opinion: S civilised, O not"
+   },
+   {
+    "field_id": "FLD_DIP_AI_UNCIV_VS_CIV",
+    "value": -50,
+    "value_type": "integer",
+    "note": "AI opinion: S not civilised, O is"
+   },
+   {
+    "field_id": "FLD_DIP_AI_SAME_SPHERE",
+    "value": 25,
+    "value_type": "integer",
+    "note": "AI opinion: O is the sphere leader or a fellow member"
+   },
+   {
+    "field_id": "FLD_DIP_AI_OTHER_SPHERE",
+    "value": -25,
+    "value_type": "integer",
+    "note": "AI opinion: O belongs to or leads another sphere"
+   },
+   {
+    "field_id": "FLD_DIP_AI_OVERLORD",
+    "value": 1000,
+    "value_type": "integer",
+    "note": "AI opinion: O is the overlord of S"
+   },
+   {
+    "field_id": "FLD_DIP_AI_INFAMY_WEIGHT",
+    "value": 50,
+    "value_type": "integer",
+    "note": "AI opinion: minus this x infamy / BADBOY_LIMIT"
+   },
+   {
+    "field_id": "FLD_DIP_AI_HARD",
+    "value": 1000,
+    "value_type": "integer",
+    "note": "the hard plus or minus of the AI scores"
+   },
+   {
+    "field_id": "FLD_DIP_AI_RELATION_SHARE",
+    "value": 4,
+    "value_type": "integer",
+    "note": "AI opinion: relation divided by this"
+   },
+   {
+    "field_id": "FLD_DIP_AI_HOSTILE_CLAMP",
+    "value": 100,
+    "value_type": "integer",
+    "note": "AI opinion: the protect / antagonize sum is clamped to plus or minus this"
+   },
+   {
+    "field_id": "FLD_DIP_AI_GP_WANTS_GP",
+    "value": 50,
+    "value_type": "integer",
+    "note": "AI alliance: a great power wanting a great-power ally"
+   },
+   {
+    "field_id": "FLD_DIP_AI_CONFLICT_UNIT",
+    "value": 10,
+    "value_type": "integer",
+    "note": "AI alliance: minus this per unit of the distance / conflict counter"
+   },
+   {
+    "field_id": "FLD_DIP_AI_ALLY_OF_ALLY",
+    "value": 20,
+    "value_type": "integer",
+    "note": "AI alliance: ally of an ally"
+   },
+   {
+    "field_id": "FLD_DIP_AI_CASUS_BELLI",
+    "value": 100,
+    "value_type": "integer",
+    "note": "AI alliance: minus this for each side holding a casus belli on the other"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_R1",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "AI alliance strength ladder: ratio of step 1; which of the six static ratios 0.25 .. 1.1 feed the ladder is a stand-in"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_R2",
+    "value": 0.66,
+    "value_type": "number",
+    "note": "AI alliance strength ladder: ratio of step 2"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_R3",
+    "value": 0.8,
+    "value_type": "number",
+    "note": "AI alliance strength ladder: ratio of step 3"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_R4",
+    "value": 1.1,
+    "value_type": "number",
+    "note": "AI alliance strength ladder: ratio of step 4"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_P1",
+    "value": 5,
+    "value_type": "integer",
+    "note": "AI alliance strength ladder: points of step 1"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_P2",
+    "value": 10,
+    "value_type": "integer",
+    "note": "AI alliance strength ladder: points of step 2"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_P3",
+    "value": 15,
+    "value_type": "integer",
+    "note": "AI alliance strength ladder: points of step 3"
+   },
+   {
+    "field_id": "FLD_DIP_AI_LADDER_P4",
+    "value": 20,
+    "value_type": "integer",
+    "note": "AI alliance strength ladder: points of step 4"
+   },
+   {
+    "field_id": "FLD_DIP_AI_ACCEPT_MIN",
+    "value": 50,
+    "value_type": "integer",
+    "note": "AI offer or acceptance needs a score at least this"
+   },
+   {
+    "field_id": "FLD_DIP_AI_ACCESS_GIVE_OFFSET",
+    "value": 30,
+    "value_type": "integer",
+    "note": "AI give access: the ask score minus this"
+   },
+   {
+    "field_id": "FLD_DIP_AI_ACCESS_ALLY_BONUS",
+    "value": 100,
+    "value_type": "integer",
+    "note": "AI ask access: plus this for an ally"
+   },
+   {
+    "field_id": "FLD_GAME_FOREIGN_MINISTER_DAYS",
+    "value": 30,
+    "value_type": "integer",
+    "note": "days between two rounds of the AI foreign minister (war goals wanted, peace offers) in the combined day"
+   },
+   {
+    "field_id": "FLD_GAME_MOBILISED_UNIT",
+    "value": "infantry",
+    "value_type": "string",
+    "note": "unit type of a mobilised regiment once active"
+   },
+   {
+    "field_id": "FLD_GAME_IRREGULAR_UNIT",
+    "value": "irregular",
+    "value_type": "string",
+    "note": "unit type of mobilised regiments before infantry, and of risen rebels"
+   },
+   {
+    "field_id": "FLD_GAME_REBEL_TYPES_FILE",
+    "value": "common/rebel_types.txt",
+    "value_type": "string",
+    "note": "path relative to install"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_LIST_SIZE",
+    "value": 10,
+    "value_type": "number",
+    "note": "countries kept on the antagonize list"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_BASE_PROVINCE_CAP",
+    "value": 6,
+    "value_type": "number",
+    "note": "antagonize base: provinces counted at most"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_BASE_CAP",
+    "value": 800,
+    "value_type": "number",
+    "note": "antagonize base cap"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_PROVINCE_VALUE",
+    "value": 10,
+    "value_type": "number",
+    "note": "conquer value of one province for the antagonize base, used only for a country whose save has no ai conquer_prov list; STAND-IN, the list builder is not read"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_NEIGHBOUR_BONUS",
+    "value": 25,
+    "value_type": "number",
+    "note": "antagonize bonus for a neighbour"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_CB_BONUS",
+    "value": 50,
+    "value_type": "number",
+    "note": "antagonize bonus for a usable casus belli"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_UNCIV_BONUS",
+    "value": 25,
+    "value_type": "number",
+    "note": "antagonize bonus, civilised against uncivilised"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_TARGET_MIN_SCORE",
+    "value": 20,
+    "value_type": "number",
+    "note": "least score of a candidate drawn as war target"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_MIN_REGIMENTS",
+    "value": 4,
+    "value_type": "number",
+    "note": "fewer own regiments refuse any war target"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_STRENGTH_RATIO",
+    "value": 1.1,
+    "value_type": "number",
+    "note": "own side / target side land strength needed for a war target"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_ALLY_NEIGHBOUR_MULT",
+    "value": 1.1,
+    "value_type": "number",
+    "note": "an ally next to the enemy counts this much"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_STRENGTH_SCORE_FACTOR",
+    "value": 200,
+    "value_type": "number",
+    "note": "target score term (min(r/2,1)-1) x this"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_NO_CB_MULT",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "target score multiplier without a casus belli"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_NO_CB_UNCIV_MULT",
+    "value": 0.7,
+    "value_type": "number",
+    "note": "same, civilised against uncivilised"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_TARGET_GOAL_MARGIN",
+    "value": 10,
+    "value_type": "number",
+    "note": "goal picker ceiling BADBOY_LIMIT minus this at target choice"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_JUSTIFY_GOAL_MARGIN",
+    "value": 2,
+    "value_type": "number",
+    "note": "goal picker ceiling BADBOY_LIMIT minus this when justifying and declaring"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_TARGET_GOAL_MIN_VALUE",
+    "value": 10,
+    "value_type": "number",
+    "note": "best goal value at or below this refuses the target"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_JUSTIFY_MIN_VALUE",
+    "value": 20,
+    "value_type": "number",
+    "note": "a casus belli is justified only for a goal value above this"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_HELD_ONLY_INFAMY_TARGET",
+    "value": 5,
+    "value_type": "number",
+    "note": "above this own infamy only held types at target choice"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_HELD_ONLY_INFAMY_JUSTIFY",
+    "value": 7,
+    "value_type": "number",
+    "note": "above this own infamy only held types when justifying"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_HELD_ONLY_INFAMY_WAR",
+    "value": 10,
+    "value_type": "number",
+    "note": "above this own infamy only held types when adding goals mid-war"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_AGGRESSION_BASE",
+    "value": 5,
+    "value_type": "number",
+    "note": "per mille justification chance per move (AGGRESSION_BASE)"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_AGGRESSION_UNCIV_BONUS",
+    "value": 10,
+    "value_type": "number",
+    "note": "added when civilised against uncivilised (AGGRESSION_UNCIV_BONUS)"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_DECLARE_RELATION_FLOOR",
+    "value": 0,
+    "value_type": "number",
+    "note": "relation must be at or below this to declare war; above it relations are worsened"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_DEMAND_STATE_WEIGHT",
+    "value": 30,
+    "value_type": "number",
+    "note": "picker weight of a demand_state option, and per target state of annex / make_puppet; STAND-IN, not in the notes"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_CALL_ALLY_MIN_RELATION",
+    "value": 0,
+    "value_type": "number",
+    "note": "an AI ally answers a call to arms at or above this relation with the caller; STAND-IN, not in the notes"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_RELATION_DECREASE",
+    "value": -10,
+    "value_type": "number",
+    "note": "relation change of one decrease-relation move; STAND-IN, not in the notes"
+   },
+   {
+    "field_id": "FLD_MIL_WARAI_GOALS_COST_CAP",
+    "value": 100,
+    "value_type": "number",
+    "note": "all goals of one side cost at most this"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_TRAITS_FILE",
+    "value": "common/traits.txt",
+    "value_type": "string",
+    "note": "leader traits of the install (personality and background blocks), read at runtime for the battle dice and reconnaissance"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NO_LEADER_PERSONALITY",
+    "value": "no_personality",
+    "value_type": "string",
+    "note": "personality trait of the stand-in leader of an army without one"
+   },
+   {
+    "field_id": "FLD_MIL_BAT_NO_LEADER_BACKGROUND",
+    "value": "no_background",
+    "value_type": "string",
+    "note": "background trait of the stand-in leader of an army without one"
+   },
+   {
+    "field_id": "FLD_MAP_RIVER_INDEX_MAX",
+    "value": 253,
+    "value_type": "integer",
+    "note": "palette indices 0 to this of the river picture named in default.map are river pixels (sources, joins, the widths); the two above are the land and sea backgrounds: read off the install's picture, assumed"
+   },
+   {
+    "field_id": "FLD_MAP_RIVER_BORDER_MIN_PIXELS",
+    "value": 10,
+    "value_type": "integer",
+    "note": "a land border is a river border when at least this many river pixels lie on it (pairs of neighbouring pixels of the two provinces of which one is a river pixel): stand-in fitted to four battles"
+   },
+   {
+    "field_id": "FLD_COL_STATE_DISTANCE_PIXELS",
+    "value": 4,
+    "value_type": "number",
+    "note": "map pixels that make one unit of COLONIZATION_COLONY_STATE_DISTANCE in the cost of turning a colony into a state"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_DIRECTION_MONTHS",
+    "value": 3,
+    "value_type": "number",
+    "note": "months of one window of a war's direction: the change of the leaders' score over the window"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_FORCE_THIRD_WEIGHT",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "weight of the enemies in the two countries' other wars in the strength ratios of the force term"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_PEACE_OWN_GOALS_COST_CUTOFF",
+    "value": 100,
+    "value_type": "number",
+    "note": "an own goal the offer leaves out counts as wanted only within this much summed cost"
+   },
+   {
+    "field_id": "FLD_MIL_WAR_AI_PEACE_WINNING_SCORE",
+    "value": 1,
+    "value_type": "number",
+    "note": "war score against an enemy from which the AI sends a demand; below it the AI offers to concede"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POWER_EXPERIENCE",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "AI strength measure: a regiment counts 1 + this per experience point (value assumed, the factor is not read)"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POWER_WEAK_STRENGTH",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "AI strength measure: a regiment under this strength (thousand men) counts weak"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POWER_WEAK_ORG",
+    "value": 1,
+    "value_type": "number",
+    "note": "AI strength measure: a regiment under this organisation counts weak"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POWER_WEAK_FACTOR",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "AI strength measure: factor on a weak regiment"
+   },
+   {
+    "field_id": "FLD_MIL_AI_SAFE_STEP_RATIO",
+    "value": 1.2,
+    "value_type": "number",
+    "note": "next step unsafe at hostile over friendly strength from this on"
+   },
+   {
+    "field_id": "FLD_MIL_AI_SAFE_STEP_MIN_FRIENDS",
+    "value": 0.001,
+    "value_type": "number",
+    "note": "next step unsafe with friendly strength up to this when hostiles are there"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_BELOW",
+    "value": 0.34,
+    "value_type": "number",
+    "note": "organisation share under which a stack goes to recover"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_UNTIL",
+    "value": 0.75,
+    "value_type": "number",
+    "note": "organisation share up to which a recovering stack rests"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_HOMELAND_LOST",
+    "value": 0.3,
+    "value_type": "number",
+    "note": "occupied share of the homeland from which nobody rests"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_CAPITAL",
+    "value": 15,
+    "value_type": "number",
+    "note": "recover province score: bonus of the own capital"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_SPREAD",
+    "value": 10,
+    "value_type": "number",
+    "note": "recover province score: step of the fixed spread"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_SPREAD_STEPS",
+    "value": 5,
+    "value_type": "number",
+    "note": "recover province score: (army id + province id) modulo this"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_HOSTILE_OWNER",
+    "value": 5,
+    "value_type": "number",
+    "note": "recover province score: per land neighbour owned by a hostile"
+   },
+   {
+    "field_id": "FLD_MIL_AI_RECOVER_HOSTILE_HOLDER",
+    "value": 20,
+    "value_type": "number",
+    "note": "recover province score: per land neighbour held or besieged by a hostile"
+   },
+   {
+    "field_id": "FLD_MIL_AI_REGROUP_SHARE",
+    "value": 0.33,
+    "value_type": "number",
+    "note": "a leader under this share of its nearby regiments waits for its followers"
+   },
+   {
+    "field_id": "FLD_MIL_AI_REGROUP_MAX_NEIGHBOURS",
+    "value": 20,
+    "value_type": "number",
+    "note": "a leader in a province with more neighbours than this waits where it is"
+   },
+   {
+    "field_id": "FLD_MIL_AI_NEEDED_MIN",
+    "value": 3,
+    "value_type": "number",
+    "note": "needed regiments for an area: 1 or 2 become this"
+   },
+   {
+    "field_id": "FLD_MIL_AI_NEEDED_EMPTY",
+    "value": 1,
+    "value_type": "number",
+    "note": "needed regiments for an empty area of a hostile owner"
+   },
+   {
+    "field_id": "FLD_MIL_AI_NEEDED_SUPPORT",
+    "value": 2,
+    "value_type": "number",
+    "note": "needed regiments: factor on the support next to the area"
+   },
+   {
+    "field_id": "FLD_MIL_AI_NEEDED_OTHERS_SHARE",
+    "value": 0.1,
+    "value_type": "number",
+    "note": "needed regiments: share of other enemies in neighbour areas that counts"
+   },
+   {
+    "field_id": "FLD_MIL_AI_ENEMY_ARMY_FACTOR",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "score factor of a province holding an enemy army the stack can beat, applied to its distance score so it ranks with sieges instead of after them"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_NUMBER_BONUS",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "siege numbers per regiment above three: numbers = N/3 under 3, (min(N, max) - 3) x this above, N = besieging men / 3,000"
+   },
+   {
+    "field_id": "FLD_MIL_SIEGE_RECON_EFFECT",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "siege reconnaissance factor = 1 + best unit reconnaissance among the besiegers x this"
+   },
+   {
+    "field_id": "FLD_DIP_AI_INFLUENCE_DAYS",
+    "value": 10,
+    "value_type": "integer",
+    "note": "days between two rounds of a great power's AI influence decisions"
+   },
+   {
+    "field_id": "FLD_DIP_AI_INFLUENCE_TARGETS",
+    "value": 7,
+    "value_type": "integer",
+    "note": "countries an AI great power puts an influence priority on"
+   },
+   {
+    "field_id": "FLD_DIP_AI_INFLUENCE_NEIGHBOUR",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "AI influence priority score: added for a neighbour on top of the gain factor"
+   },
+   {
+    "field_id": "FLD_DIP_AI_INFLUENCE_RELATION",
+    "value": 200,
+    "value_type": "number",
+    "note": "AI influence priority score: relation (kept within 0..this) / this is added (fitted with FLD_DIP_AI_INFLUENCE_NEIGHBOUR)"
+   },
+   {
+    "field_id": "FLD_DIP_TENSION_MAX",
+    "value": 100,
+    "value_type": "number",
+    "note": "flashpoint tension is kept within 0..this, and a crisis starts only at a flashpoint at this tension"
+   },
+   {
+    "field_id": "FLD_DIP_CRISIS_START_TEMPERATURE",
+    "value": 2.5,
+    "value_type": "number",
+    "note": "temperature of a crisis when it starts"
+   },
+   {
+    "field_id": "FLD_DIP_CRISIS_CHANCE_DIVISOR",
+    "value": 365,
+    "value_type": "number",
+    "note": "daily chance of a crisis = CRISIS_BASE_CHANCE / this once the cooldown is over"
+   },
+   {
+    "field_id": "FLD_DIP_CRISIS_ANSWER_DAYS",
+    "value": 52,
+    "value_type": "number",
+    "note": "an interested great power answers a crisis with daily chance 1/this"
+   },
+   {
+    "field_id": "FLD_DIP_CRISIS_SETTLE_TEMPERATURE",
+    "value": 50,
+    "value_type": "number",
+    "note": "a crisis is settled without war once its temperature reaches this"
+   },
+   {
+    "field_id": "FLD_DIP_CRISIS_START_YEAR",
+    "value": 1836,
+    "value_type": "integer",
+    "note": "the per-year crisis prestige factors of the defines count the years from this"
+   },
+   {
+    "field_id": "FLD_UNR_ORG_MONEY_FIT",
+    "value": 0.064,
+    "value_type": "number",
+    "note": "the pop's saved money is taken times this as the money counter of the day in the organisation gain"
+   },
+   {
+    "field_id": "FLD_POP_NEW_POP_MOOD",
+    "value": 0,
+    "value_type": "number",
+    "note": "militancy and consciousness of a pop founded by promotion, demotion, assimilation or migration"
+   },
+   {
+    "field_id": "FLD_POP_KEEP_PAY_SHARE",
+    "value": 0.257,
+    "value_type": "number",
+    "note": "share of the day's pay a pop keeps of the cash left after its shopping; the rest buys more of its luxury goods"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_SPENDING_FLOOR",
+    "value": 0.2,
+    "value_type": "number",
+    "note": "the AI's education and administration sliders start from this each day and never go below"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_SPENDING_CAP",
+    "value": 0.75,
+    "value_type": "number",
+    "note": "and stop at this when the surplus raises them"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_EDUCATION_FIRST_SHARE",
+    "value": 0.3333333333333333,
+    "value_type": "number",
+    "note": "share of the surplus the AI offers education before administration"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_TARIFF_CAP_PEACE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "highest tariff the AI sets at peace to cover a shortfall (at war the party's top)"
+   },
+   {
+    "field_id": "FLD_AI_BUDGET_TARIFF_BASE_MIN",
+    "value": 0.01,
+    "value_type": "number",
+    "note": "below this duty at a full tariff slider, budget units a day, the AI's tariff is 0"
+   },
+   {
+    "field_id": "FLD_POP_LUXURY_WITH_EVERYDAY_POOR",
+    "value": 0.21,
+    "value_type": "number",
+    "note": "luxury met as a share of everyday met of a poor pop short of its everyday needs: it buys both tiers together"
+   },
+   {
+    "field_id": "FLD_POP_LUXURY_WITH_EVERYDAY_MIDDLE",
+    "value": 0.15,
+    "value_type": "number",
+    "note": "luxury met as a share of everyday met of a middle-strata pop short of its everyday needs"
+   },
+   {
+    "field_id": "FLD_POP_LUXURY_WITH_EVERYDAY_RICH",
+    "value": 0.18,
+    "value_type": "number",
+    "note": "luxury met as a share of everyday met of a rich pop short of its everyday needs"
+   },
+   {
+    "field_id": "FLD_POP_HOLD_PAY_SHARE",
+    "value": 0.036,
+    "value_type": "number"
+   },
+   {
+    "field_id": "FLD_BLD_AI_RUN_DAYS",
+    "value": 18,
+    "value_type": "number",
+    "note": "the AI's production minister looks at railways once in this many days on average"
+   },
+   {
+    "field_id": "FLD_BLD_AI_RAIL_CHANCE",
+    "value": 1,
+    "value_type": "number",
+    "note": "chance the AI orders a railroad on a run when it may and can pay"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POST_REGIMENTS",
+    "value": 10,
+    "value_type": "number",
+    "note": "regiments per guard post in peace"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POST_SPACING",
+    "value": 3,
+    "value_type": "number",
+    "note": "least land steps between two guard posts"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POST_DAYS",
+    "value": 15,
+    "value_type": "number",
+    "note": "days between a country's looks at its guard posts"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POST_HOSTILE_RELATION",
+    "value": -50,
+    "value_type": "number",
+    "note": "relation under which a neighbour counts as hostile for guard posts"
+   },
+   {
+    "field_id": "FLD_MIL_AI_POST_HOSTILE_FACTOR",
+    "value": 2,
+    "value_type": "number",
+    "note": "threat factor of a hostile neighbour's regiments"
+   },
+   {
+    "field_id": "FLD_MIL_AI_GATHER_SHARE",
+    "value": 0.5,
+    "value_type": "number",
+    "note": "a field army under this share of the main army's power joins it at war"
+   },
+   {
+    "field_id": "FLD_MIL_AI_GATHER_STEPS",
+    "value": 6,
+    "value_type": "number",
+    "note": "land steps within which a field army joins the main army"
+   }
+  ]
+ }
+}

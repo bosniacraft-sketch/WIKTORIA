@@ -1,0 +1,15 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Rebels: Mexico on the edge"
+description = "Every pop in Mexico is set to militancy 10 and gains 5 consciousness. Factions grow at the original's pace (a few hundredths of organisation a year at militancy 8-9, ten times that above 9), so a year is given."
+what_to_look_for = "Factions grow in the politics window and rise within the year; rebel armies appear on the map, besiege provinces, and the Mexican army marches on them."
+base_save = "start/1836.v2"
+observe = yes
+days = 365
+setup = {
+    end_wars = MEX
+    MEX = { any_owned = { any_pop = { militancy = 10 consciousness = 5 } } }
+}
+check = { name = "pops are angry" what = militancy tag = MEX min = 8 day = 1 }
+check = { name = "rebels rise" what = risings min = 1 }
+check = { name = "rebel regiments are raised" what = rebel_regiments_raised min = 1 }
+check = { name = "no rebels left in Mexico at the end" what = rebels tag = MEX max = 0 }

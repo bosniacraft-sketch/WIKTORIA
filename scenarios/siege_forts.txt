@@ -1,0 +1,26 @@
+# Wiktoria test scenario (docs/SCENARIOS.md). Tags and province numbers are Victoria 2's;
+# provinces are named as capitals (capital:TAG) so the file holds without a province list.
+name = "Siege: big stack against a low fort, small stack against a high fort"
+description = "France besieges Brussels with 15 regiments behind a level 1 fort and Bern with 2 regiments behind a level 6 fort."
+what_to_look_for = "Two sieges start on day one. Brussels should fall within a few months; Bern should still hold at day 120. Open the military window and watch the garrison bars."
+base_save = "start/1836.v2"
+seat = FRA
+days = 120
+speed = 3
+setup = {
+    end_wars = FRA
+    end_wars = BEL
+    end_wars = SWI
+    clear_armies = BEL
+    clear_armies = SWI
+    war = { attacker = FRA defender = BEL goal = humiliate }
+    war = { attacker = FRA defender = SWI goal = humiliate }
+    fort = { province = capital:BEL level = 1 }
+    fort = { province = capital:SWI level = 6 }
+    spawn_army = { owner = FRA at = capital:BEL regiments = 15 unit = infantry name = "Army of the North" }
+    spawn_army = { owner = FRA at = capital:SWI regiments = 2 unit = infantry name = "Alpine Detachment" }
+}
+check = { name = "both sieges begin" what = sieges_started min = 2 day = 3 }
+check = { name = "Brussels falls to the big stack" what = controller province = capital:BEL is = FRA }
+check = { name = "Bern holds against the small stack" what = controller province = capital:SWI is = SWI }
+check = { name = "the big stack is still in the field" what = regiments tag = FRA province = capital:BEL min = 10 }

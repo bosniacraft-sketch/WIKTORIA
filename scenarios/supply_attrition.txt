@@ -1,0 +1,15 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Supply: an oversized stack starves"
+description = "Russia, at peace, keeps 80 regiments (240000 men) in one province, far beyond any supply limit of 1836."
+what_to_look_for = "On the first of each month attrition takes men off the stack. Compare the stack's strength in the military window before and after the 1st."
+base_save = "start/1836.v2"
+seat = RUS
+days = 65
+known_bug = "the original keeps stacks near 30k early on through supply and attrition; whether the port's numbers give the same pressure is not measured"
+setup = {
+    end_wars = RUS
+    spawn_army = { owner = RUS at = capital:RUS regiments = 80 unit = infantry name = "Grand Army" }
+}
+check = { name = "attrition by the first month" what = men tag = RUS province = capital:RUS change_max = -1000 day = 32 }
+check = { name = "more by the second" what = men tag = RUS province = capital:RUS change_max = -2000 }
+check = { name = "the stack is not wiped out" what = regiments tag = RUS province = capital:RUS min = 40 }

@@ -1,0 +1,15 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "AI war: Russia holds a casus belli on Krakow"
+description = "Russia, run by the computer and at peace, is given a casus belli against the Free City of Krakow, a one-province neighbour without an army."
+what_to_look_for = "Within months Russia declares war on Krakow (news line), marches in and the peace follows."
+base_save = "start/1836.v2"
+observe = yes
+days = 180
+setup = {
+    end_wars = RUS
+    end_wars = KRA
+    clear_armies = KRA
+    casus_belli = { actor = RUS target = KRA type = humiliate }
+}
+check = { name = "Russia declares a war" what = wars_started tag = RUS min = 1 }
+check = { name = "and fights or settles it" what = wars_changed min = 1 }

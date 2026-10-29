@@ -1,0 +1,20 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Naval invasion: Britain lands in Holland"
+description = "A British army of 6 regiments waits in London and a fleet of 8 transports at Chelmsford (London has no sea coast in the map); the army is ordered to Amsterdam, across the North Sea."
+what_to_look_for = "The army boards the fleet, the fleet sails, the army lands next to Amsterdam or in it and starts a siege. Follow the army in the outliner."
+base_save = "start/1836.v2"
+seat = ENG
+days = 60
+known_bug = "room per transport ship is the stand-in FLD_MIL_MOVE_REGIMENTS_PER_TRANSPORT (no rules file row yet)"
+setup = {
+    end_wars = ENG
+    end_wars = NET
+    clear_armies = NET
+    war = { attacker = ENG defender = NET goal = humiliate }
+    spawn_navy = { owner = ENG at = 293 ships = 8 unit = clipper_transport name = "Transport Squadron" }
+    spawn_army = { owner = ENG at = capital:ENG regiments = 6 unit = infantry name = "Expedition" }
+    move_army = { army = "Expedition" to = capital:NET }
+}
+check = { name = "the expedition has left London" what = regiments tag = ENG province = capital:ENG max = 0 day = 20 }
+check = { name = "British regiments stand in Amsterdam" what = regiments tag = ENG province = capital:NET min = 1 }
+check = { name = "a siege began" what = sieges_started min = 1 }

@@ -1,0 +1,15 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Player economy: Britain taxes everything to the maximum"
+description = "Britain, played and at peace, sets the poor, middle and rich taxes as high as its ruling party allows."
+what_to_look_for = "The treasury should grow faster than before (budget window); over months pops' militancy creeps up as their needs go unmet. Move the sliders back and see both turn."
+base_save = "start/1836.v2"
+seat = ENG
+days = 180
+known_bug = "money collects in treasuries and bureaucrats while capitalists and artisans go broke, so tax income may already be too high"
+setup = {
+    end_wars = ENG
+    budget = { tag = ENG poor = 1 middle = 1 rich = 1 }
+}
+check = { name = "the treasury grows within 90 days" what = money tag = ENG change_min = 1 day = 90 }
+check = { name = "militancy rises under high taxes" what = militancy tag = ENG change_min = 0.01 }
+check = { name = "no runaway: militancy stays below 5" what = militancy tag = ENG max = 5 }

@@ -1,0 +1,22 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Field battle: 15 against 5"
+description = "Prussia and Austria meet in front of Vienna: 15 Prussian regiments against 5 Austrian ones, no other armies on either side."
+what_to_look_for = "A battle starts on day one. The bigger stack should win within a few weeks, the Austrians retreat or are destroyed, and Prussian losses stay well below the Austrian ones."
+base_save = "start/1836.v2"
+seat = PRU
+days = 30
+setup = {
+    end_wars = PRU
+    end_wars = AUS
+    clear_armies = PRU
+    clear_armies = AUS
+    war = { attacker = PRU defender = AUS goal = humiliate }
+    spawn_army = { owner = AUS at = capital:AUS regiments = 5 unit = infantry name = "Vienna Garrison" }
+    spawn_army = { owner = PRU at = capital:AUS regiments = 15 unit = infantry name = "Army of Silesia" }
+}
+check = { name = "the battle starts" what = battles_started min = 1 day = 2 }
+check = { name = "the battle ends" what = battles_finished min = 1 }
+check = { name = "Prussia holds the field" what = regiments tag = PRU province = capital:AUS min = 1 }
+check = { name = "no Austrian regiment left at Vienna" what = regiments tag = AUS province = capital:AUS max = 0 }
+check = { name = "Prussia loses less than a third (45000 men at the start)" what = men tag = PRU change_min = -15000 }
+check = { name = "Austria loses men" what = men tag = AUS change_max = -1000 }

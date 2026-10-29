@@ -1,0 +1,18 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "AI landing: Britain ships its own army to Holland"
+description = "Britain, played by the computer, is at war with the Netherlands, which have no army; a British fleet of 16 transports waits at Chelmsford. Nothing is ordered: the army AI has no target over land and must ship one."
+what_to_look_for = "A British army marches to the coast, boards the transports, lands in the Netherlands and besieges a province. Follow it in the outliner."
+base_save = "start/1836.v2"
+observe = yes
+days = 60
+known_bug = "overseas targets are the port's stand-in (military/ai.rs plan_landings), not measured"
+known_bug = "room per transport ship is the stand-in FLD_MIL_MOVE_REGIMENTS_PER_TRANSPORT (no rules file row yet)"
+setup = {
+    end_wars = ENG
+    end_wars = NET
+    clear_armies = NET
+    war = { attacker = ENG defender = NET goal = humiliate }
+    spawn_navy = { owner = ENG at = 293 ships = 16 unit = clipper_transport name = "Transport Squadron" }
+}
+check = { name = "a Dutch province is held by Britain" what = occupied tag = NET min = 1 }
+check = { name = "a siege began" what = sieges_started min = 1 }

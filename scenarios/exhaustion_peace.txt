@@ -1,0 +1,21 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "War exhaustion and peace: Prussia occupies Anhalt"
+description = "Prussia declares war on Anhalt, whose whole land is occupied from day one; Anhalt has no army."
+what_to_look_for = "Anhalt's war exhaustion climbs each month; the computer offers peace (you are asked, or it answers for you after the waiting time) and the war ends within the year."
+base_save = "start/1836.v2"
+seat = PRU
+days = 365
+known_bug = "game.rs NOT WIRED: militancy from failed war goals and from refused good peace offers"
+setup = {
+    end_wars = PRU
+    end_wars = ANH
+    clear_armies = ANH
+    war = { attacker = PRU defender = ANH goal = humiliate }
+    controller = { of = ANH to = PRU }
+    spawn_army = { owner = PRU at = capital:ANH regiments = 6 unit = infantry name = "Occupation Corps" }
+}
+check = { name = "Anhalt is occupied" what = occupied tag = ANH min = 1 day = 1 }
+check = { name = "Anhalt's war exhaustion rises" what = war_exhaustion tag = ANH change_min = 1 day = 95 }
+check = { name = "a peace is signed" what = peaces min = 1 }
+check = { name = "the war is over" what = war a = PRU b = ANH is = no }
+check = { name = "Anhalt has its land back or lost it, none left occupied" what = occupied tag = ANH max = 0 }

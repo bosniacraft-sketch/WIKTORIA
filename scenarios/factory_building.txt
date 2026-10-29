@@ -1,0 +1,16 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Factory building: rich capitalists in Britain and in Russia"
+description = "Every capitalist in Britain and in Russia gets 20000 and both treasuries 200000; the computer runs both countries for a year."
+what_to_look_for = "New factories in the production window of both countries within the year. Russia building nothing is the known bug."
+base_save = "start/1836.v2"
+observe = yes
+days = 365
+setup = {
+    pop_money = { tag = ENG pop_type = capitalists money = 20000 }
+    pop_money = { tag = RUS pop_type = capitalists money = 20000 }
+    ENG = { treasury = 200000 }
+    RUS = { treasury = 200000 }
+}
+check = { name = "Britain opens a factory" what = factories tag = ENG change_min = 1 }
+check = { name = "Russia opens a factory" what = factories tag = RUS change_min = 1 known_bug = "RUS, AUS, SPA, TUR build nothing (stand-in wants free factory-worker pops, and they start with none)" }
+check = { name = "British capitalists keep some money after half a year" what = pop_money tag = ENG pop_type = capitalists min = 1000 day = 180 known_bug = "capitalists end with almost no money" }

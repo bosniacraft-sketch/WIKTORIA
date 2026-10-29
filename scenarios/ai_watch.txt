@@ -1,0 +1,14 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "AI watch: a year of the Civil War start, nobody played"
+description = "The 1861 start with every country under the computer. Nothing is changed; the checks are sanity checks on the computer's year."
+what_to_look_for = "Watch the news log for wars declared and peaces signed, the outliner for armies on the march (the American war first), and the political map for owners changing after peaces. Treasuries in the budget window of the great powers should stay sane."
+base_save = "start/1861_civil_war.v2"
+observe = yes
+days = 365
+speed = 5
+setup = {
+}
+check = { name = "a war starts or ends during the year" what = wars_changed min = 1 }
+check = { name = "armies of countries at war move" what = armies_moved min = 1 day = 60 }
+check = { name = "no great power far in debt" what = lowest_gp_money min = -50000 }
+check = { name = "no treasury, prestige or war exhaustion is NaN" what = nan_countries is = 0 }

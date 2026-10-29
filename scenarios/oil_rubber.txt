@@ -1,0 +1,13 @@
+# Wiktoria test scenario (docs/SCENARIOS.md).
+name = "Oil and rubber: production once demand exists"
+description = "The 1861 start, observed: oil and rubber provinces exist and industry wants both. Nothing is changed."
+what_to_look_for = "Trade window: oil and rubber should have world supply and steady prices. In the port they are made only now and then, and their prices fall."
+base_save = "start/1861_civil_war.v2"
+observe = yes
+days = 120
+setup = {
+}
+check = { name = "oil is produced" what = rgo_output good = oil min = 0.01 known_bug = "oil and rubber output 0 (rgo_staff_step fires everyone under tiny paid demand)" }
+check = { name = "rubber is produced" what = rgo_output good = rubber min = 0.01 known_bug = "see the check above" }
+check = { name = "oil reaches the market" what = supply good = oil min = 0.01 known_bug = "see the check above" }
+check = { name = "the rubber price does not slide" what = price good = rubber change_min = 0 known_bug = "rubber, oil, coffee and opium prices fall every year" }
